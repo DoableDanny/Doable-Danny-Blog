@@ -28,6 +28,13 @@ module.exports = {
         path: `${__dirname}/src/posts/`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `post-featured`,
+        path: `${__dirname}/src/post-featured/`,
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {

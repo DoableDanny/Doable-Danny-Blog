@@ -1,4 +1,3 @@
-// Create a new page for each blog post
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
@@ -15,13 +14,34 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  // Create single blog posts
+
+  // CREATE PAGINATED PAGES FOR POSTS
+
+  const postPerPage = 3
+
+  const numPages = Math.ceil(result.data.allMdx.edges.length / postPerPage)
+
+  // Create an array of undefined values of length = numPages
+  Array.from({ length: numPages }).forEach((_, i) => {
+    actions.createPage({
+      path: i === 0 ? `/` : `/${i + 1}`,
+      component: require.resolve("./src/templates/allPosts.js"),
+      context: {
+        limit: postPerPage,
+        skip: i * postPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+
+  // CREATE SINGLE BLOG POSTS
   result.data.allMdx.edges.forEach(edge => {
     const slug = edge.node.frontmatter.slug
     const id = edge.node.id
     actions.createPage({
       path: slug,
-      component: require.resolve(`./src/templates/singlePost.js`),
+      component: require.resolve(`./src/templates/blogPost.js`),
       context: { id },
     })
   })

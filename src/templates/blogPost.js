@@ -1,15 +1,19 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import Image from "gatsby-image"
 import Layout from "../components/Layout"
 
 export default function BlogPost({ data }) {
-  console.log(data)
+  const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
 
   return (
     <Layout>
       <div>
-        <h1>hello</h1>
+        <h1>{data.mdx.frontmatter.title}</h1>
+        <p>{data.mdx.frontmatter.date}</p>
+        <Image fixed={featureImage} style={{ marginLeft: 30 }} />
+        <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </div>
     </Layout>
   )
@@ -21,7 +25,7 @@ export const pageQuery = graphql`
     mdx(id: { eq: $id }) {
       body
       frontmatter {
-        date
+        date(formatString: "DD MMMM YYYY")
         excerpt
         slug
         title

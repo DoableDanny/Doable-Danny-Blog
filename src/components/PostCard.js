@@ -4,8 +4,6 @@ import { PostCardContent } from "../elements/PostCardElements"
 import Image from "gatsby-image"
 
 export default function PostCard(props) {
-  console.log(props)
-
   return (
     <PostCardContent>
       <Image

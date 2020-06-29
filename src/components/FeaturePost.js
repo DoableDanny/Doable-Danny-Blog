@@ -3,31 +3,60 @@ import {
   FeaturedPostWrapper,
   PostTextWrapper,
 } from "../elements/FeaturePostElements"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import Image from "gatsby-image"
 
 export default function FeaturePost() {
   const data = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "post-1/greyhound.jpg" }) {
-        publicURL
+      allMdx(filter: { frontmatter: { featuredPost: { eq: true } } }) {
+        edges {
+          node {
+            body
+            id
+            frontmatter {
+              date(formatString: "DD MMMM YYYY")
+              excerpt
+              slug
+              title
+              featureImage {
+                childImageSharp {
+                  fixed {
+                    base64
+                    tracedSVG
+                    aspectRatio
+                    srcWebp
+                    srcSetWebp
+                    originalName
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   `)
 
-  return (
-    <FeaturedPostWrapper>
-      <img
-        src={data.image.publicURL}
-        alt="Running Greyhound"
-        style={{ width: "100%", height: 300 }}
-      />
-      <PostTextWrapper>
-        <h1>Title of Post</h1>
-        <p>
-          Excerpt from the post... greyhounds are 100mph couch potatoes,
-          lighting fast but like to sleep through most of the day.
-        </p>
-      </PostTextWrapper>
-    </FeaturedPostWrapper>
-  )
+  return data.allMdx.edges.map(edge => (
+    <Link
+      to={edge.node.frontmatter.slug}
+      style={{
+        textDecoration: "none",
+        color: "inherit",
+      }}
+    >
+      <FeaturedPostWrapper>
+        <Image
+          fixed={edge.node.frontmatter.featureImage.childImageSharp.fixed}
+          style={{ width: "100%", height: 300 }}
+        />
+        <PostTextWrapper>
+          <h1>{edge.node.frontmatter.title}</h1>
+          <p>{edge.node.frontmatter.excerpt}</p>
+          <span>- {edge.node.frontmatter.date}</span>
+        </PostTextWrapper>
+      </FeaturedPostWrapper>
+    </Link>
+  ))
 }

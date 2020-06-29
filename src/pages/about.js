@@ -1,4 +1,9 @@
 import React from "react"
+import {
+  PaginationWrapper,
+  PaginationElement,
+} from "../elements/PaginationElements"
+import Pagination from "../components/Pagination"
 
 import Layout from "../components/Layout"
 
@@ -12,7 +17,7 @@ export default function about() {
         I have taught myself HTML, CSS, JavaScript and ReactJS. And I plan to
         learn Python for data science in the next few months.
       </p>
-      <p>Why on earth am I doing this?</p>
+      <p>Why on earth am I doing this? Becasue I enjoy it!</p>
     </Layout>
   )
 }
