@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import { PostCardContent } from "../elements/PostCardElements"
 import Image from "gatsby-image"
 

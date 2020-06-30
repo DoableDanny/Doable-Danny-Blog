@@ -1,9 +1,4 @@
 import React from "react"
-import {
-  PaginationWrapper,
-  PaginationElement,
-} from "../elements/PaginationElements"
-import Pagination from "../components/Pagination"
 
 import Layout from "../components/Layout"
 

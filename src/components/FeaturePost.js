@@ -40,7 +40,7 @@ export default function FeaturePost() {
 
   return data.allMdx.edges.map(edge => (
     <Link
-      to={edge.node.frontmatter.slug}
+      to={`../${edge.node.frontmatter.slug}`}
       style={{
         textDecoration: "none",
         color: "inherit",

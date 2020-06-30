@@ -10,18 +10,44 @@ export const PaginationWrapper = styled.div`
 
   a:nth-child(1) {
     color: ${props =>
+      props.isPastTen ? props.theme.colors.dark1 : props.theme.colors.dark3};
+    pointer-events: ${props => (props.isPastTen ? "auto" : "none")};
+    cursor: ${props => (props.isPastTen ? "pointer" : "default")};
+  }
+
+  a:nth-child(2) {
+    color: ${props =>
       props.isFirst ? props.theme.colors.dark3 : props.theme.colors.dark1};
     pointer-events: ${props => (props.isFirst ? "none" : "auto")};
     cursor: ${props => (props.isFirst ? "default" : "pointer")};
   }
 
-  a:nth-child(2) {
+  a:nth-child(4) {
+    text-decoration: none;
+    margin-left: 4px;
+  }
+
+  a:nth-child(4):hover {
+    text-decoration: underline;
+  }
+
+  a:nth-child(5) {
     color: ${props =>
       props.isLast ? props.theme.colors.dark3 : props.theme.colors.dark1};
     pointer-events: ${props => (props.isLast ? "none" : "auto")};
     cursor: ${props => (props.isLast ? "default" : "pointer")};
   }
+
+  a:nth-child(6) {
+    color: ${props =>
+      props.abletoforwardten
+        ? props.theme.colors.dark1
+        : props.theme.colors.dark3};
+    pointer-events: ${props => (props.abletoforwardten ? "auto" : "none")};
+    cursor: ${props => (props.abletoforwardten ? "pointer" : "default")};
+  }
 `
+
 export const PaginationElement = styled(props => <Link {...props} />)`
   font-size: 0.875rem;
   line-height: 1.125rem;

@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { Link as GatsbyLink } from "gatsby"
-import Theme from "../themes/theme"
 
 // #e30b5d raspberry
 
