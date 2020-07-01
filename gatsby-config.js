@@ -53,6 +53,9 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-styled-components`,
+    },
+    {
       resolve: "gatsby-plugin-google-fonts",
       options: {
         fonts: ["roboto mono", "muli:400,400i,700,700i"],

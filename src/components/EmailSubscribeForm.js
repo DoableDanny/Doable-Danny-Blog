@@ -19,7 +19,6 @@ export default function EmailSubscribeForm({ page }) {
       [e.target.name]: e.target.value,
     })
   }
-  console.log(userDetails.firstName, userDetails.surname, userDetails.email)
 
   const handleSubmit = e => {
     e.preventDefault()
