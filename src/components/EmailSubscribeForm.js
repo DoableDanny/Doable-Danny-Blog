@@ -26,7 +26,7 @@ export default function EmailSubscribeForm({ page }) {
 
     if (emailRegex.test(String(userDetails.email).toLowerCase())) {
       addToMailchimp(userDetails.email, {
-        PATHNAME: `DoableDanny.com/${page}`,
+        PATHNAME: page,
         FNAME: userDetails.firstName,
         LNAME: userDetails.surname,
       }).then(data => {
