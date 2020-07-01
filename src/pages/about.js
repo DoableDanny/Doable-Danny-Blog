@@ -1,6 +1,7 @@
 import React from "react"
 
 import Layout from "../components/Layout"
+import EmailSubscribeForm from "../components/EmailSubscribeForm"
 
 export default function about() {
   return (
@@ -13,6 +14,7 @@ export default function about() {
         learn Python for data science in the next few months.
       </p>
       <p>Why on earth am I doing this? Becasue I enjoy it!</p>
+      <EmailSubscribeForm />
     </Layout>
   )
 }

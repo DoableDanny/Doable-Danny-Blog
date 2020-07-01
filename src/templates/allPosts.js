@@ -6,13 +6,17 @@ import { PostCardsContainer } from "../elements/PostCardElements"
 import PostCard from "../components/PostCard"
 import Pagination from "../components/Pagination"
 
-export default function allPosts({ pageContext, data }) {
+import EmailSubscribeForm from "../components/EmailSubscribeForm"
+
+export default function AllPosts({ pageContext, data }) {
+  // Forward and backwards one page
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
   const prevPage = currentPage - 1 === 1 ? "/" : `/${currentPage - 1}`
   const nextPage = `/${currentPage + 1}`
 
+  // Back ten pages
   const isPastTen = currentPage > 10
   let minusTen
   if (currentPage <= 10) {
@@ -23,6 +27,7 @@ export default function allPosts({ pageContext, data }) {
     minusTen = `${currentPage - 10}`
   }
 
+  // Forward ten pages
   let plusTen = currentPage + 10 <= numPages ? `${currentPage + 10}` : false
   const abletoforwardten = currentPage + 10 <= numPages ? true : false
 
@@ -30,7 +35,7 @@ export default function allPosts({ pageContext, data }) {
   return (
     <Layout>
       {currentPage === 1 ? <FeaturePost /> : null}
-
+      {currentPage === 1 ? <EmailSubscribeForm page={currentPage} /> : null}
       <PostCardsContainer>
         {posts.map((post, i) => (
           <Link

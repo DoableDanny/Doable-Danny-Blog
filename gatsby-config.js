@@ -59,6 +59,14 @@ module.exports = {
         display: "swap",
       },
     },
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://app.us10.list-manage.com/subscribe/post?u=aaeb466c8e7c7db1b946ae840&amp;id=fd68b7a6f3",
+        timeout: 3500,
+      },
+    },
   ],
 
   siteMetadata: {

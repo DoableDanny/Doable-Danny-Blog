@@ -3,18 +3,20 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Image from "gatsby-image"
 import Layout from "../components/Layout"
+import EmailSubscribeForm from "../components/EmailSubscribeForm"
 
 export default function BlogPost({ data }) {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
 
   return (
     <Layout>
-      <div>
+      <article>
         <h1>{data.mdx.frontmatter.title}</h1>
         <p>{data.mdx.frontmatter.date}</p>
         <Image fixed={featureImage} style={{ marginLeft: 30 }} />
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
-      </div>
+      </article>
+      <EmailSubscribeForm page={data.mdx.frontmatter.slug} />
     </Layout>
   )
 }
