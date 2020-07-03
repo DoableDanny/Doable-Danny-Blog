@@ -30,7 +30,14 @@ export default function EmailSubscribeForm({ page }) {
         FNAME: userDetails.firstName,
         LNAME: userDetails.surname,
       }).then(data => {
-        alert(data.msg)
+        let returnedEmail = data.msg.split(" ")[0].toLowerCase()
+        if (emailRegex.test(String(returnedEmail))) {
+          alert(
+            returnedEmail + " is already subscribed to Doable Danny's blog!"
+          )
+        } else {
+          alert(data.msg)
+        }
       })
     } else {
       alert("Please enter a valid email.")
