@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Image from "gatsby-image"
+import HyvorTalk from "hyvor-talk-react"
 import Layout from "../components/Layout"
 import EmailSubscribeForm from "../components/EmailSubscribeForm"
 
@@ -17,6 +18,11 @@ export default function BlogPost({ data }) {
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </article>
       <EmailSubscribeForm page={data.mdx.frontmatter.slug} />
+      <HyvorTalk.Embed
+        websiteId={1101}
+        id={data.mdx.frontmatter.slug}
+        loadMode="scroll"
+      />
     </Layout>
   )
 }
