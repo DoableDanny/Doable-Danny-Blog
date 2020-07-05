@@ -4,7 +4,9 @@ import { HeaderWrapper, NavWrapper, NavLink } from "../elements/HeaderElements"
 export default function Header({ title }) {
   return (
     <HeaderWrapper>
+      <span>🌳💻</span>
       <h1>{title}</h1>
+
       <Nav />
     </HeaderWrapper>
   )

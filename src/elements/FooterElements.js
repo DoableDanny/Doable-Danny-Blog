@@ -1,11 +1,7 @@
 import styled from "styled-components"
 
 export const FooterWrapper = styled.div`
-  background: linear-gradient(
-    180deg,
-    white,
-    ${props => props.theme.colors.main1}
-  );
+  background: ${props => props.theme.colors.main1};
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -19,11 +15,12 @@ export const FooterSocialWrapper = styled.div`
   flex-wrap: wrap;
   align-items: center;
   text-align: center;
+  color: ${props => props.theme.colors.main1};
 
   p {
     text-align: center;
     flex: 0 0 100%;
-    color: #000;
+    color: #68fffe;
     font-weight: 700;
   }
 `

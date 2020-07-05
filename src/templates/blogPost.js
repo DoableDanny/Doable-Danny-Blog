@@ -18,6 +18,7 @@ export default function BlogPost({ data }) {
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </article>
       <EmailSubscribeForm page={data.mdx.frontmatter.slug} />
+
       <HyvorTalk.Embed
         websiteId={1101}
         id={data.mdx.frontmatter.slug}
