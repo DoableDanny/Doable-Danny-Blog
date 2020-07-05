@@ -66,6 +66,6 @@ export const PaginationElement = styled(props => <Link {...props} />)`
 
   @media only screen and (max-width: 325px) {
     font-size: 0.7rem;
-    margin: 0 0.5rem;
+    margin: 0 0.3rem;
   }
 `
