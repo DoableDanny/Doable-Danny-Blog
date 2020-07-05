@@ -24,12 +24,12 @@ const Pagination = ({
       isPastTen={isPastTen}
       abletoforwardten={abletoforwardten}
     >
-      <PaginationElement to={`../${minusTen}`}>Back Ten</PaginationElement>
-      <PaginationElement to={prevPage}>Previous Page</PaginationElement>
+      <PaginationElement to={`../${minusTen}`}>Minus Ten</PaginationElement>
+      <PaginationElement to={prevPage}>Prev Page</PaginationElement>
       <span>{currentPage} / </span>
       <Link to={`../${numPages}`}>{numPages}</Link>
       <PaginationElement to={nextPage}>Next Page</PaginationElement>
-      <PaginationElement to={`../${plusTen}`}>Forward Ten</PaginationElement>
+      <PaginationElement to={`../${plusTen}`}>Plus Ten</PaginationElement>
     </PaginationWrapper>
   )
 }

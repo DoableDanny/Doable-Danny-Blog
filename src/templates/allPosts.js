@@ -36,7 +36,9 @@ export default function AllPosts({ pageContext, data }) {
     <Layout>
       {currentPage === 1 ? <FeaturePost /> : null}
       {currentPage === 1 ? <EmailSubscribeForm page={currentPage} /> : null}
-      {currentPage === 1 ? <h3>Recent Posts</h3> : null}
+      {currentPage === 1 ? (
+        <h3 style={{ marginLeft: "10%" }}>Recent Posts</h3>
+      ) : null}
       <PostCardsContainer>
         {posts.map((post, i) => (
           <Link

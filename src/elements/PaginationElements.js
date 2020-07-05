@@ -24,7 +24,7 @@ export const PaginationWrapper = styled.div`
 
   a:nth-child(4) {
     text-decoration: none;
-    margin-left: 4px;
+    margin-left: 3px;
   }
 
   a:nth-child(4):hover {
@@ -58,5 +58,14 @@ export const PaginationElement = styled(props => <Link {...props} />)`
   &:hover,
   &:focus {
     text-decoration: underline;
+  }
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    margin: 0 0.7rem;
+  }
+
+  @media only screen and (max-width: 325px) {
+    font-size: 0.7rem;
+    margin: 0 0.5rem;
   }
 `
