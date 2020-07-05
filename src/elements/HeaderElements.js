@@ -6,16 +6,16 @@ import { Link as GatsbyLink } from "gatsby"
 export const HeaderWrapper = styled.div`
   position: relative;
   background-color: ${props => props.theme.colors.main1};
-  color: #68fffe;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: sans-serif;
   padding: 10px;
-  border-top: 3px solid #009900;
+  border-top: 3px solid rgb(0, 153, 0);
 
   span {
-    background-color: #009900;
+    background-color: rgb(0, 153, 0);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -25,9 +25,14 @@ export const HeaderWrapper = styled.div`
     align-items: center;
   }
 
+  a {
+    text-decoration: none;
+    color: #68fffe;
+  }
+
   h1 {
     margin-left: 80px;
-    font-family: Piedra;
+    font-family: roboto mono;
     font-size: 2.2rem;
   }
 `

@@ -39,14 +39,15 @@ export default function FeaturePost() {
   `)
 
   return data.allMdx.edges.map(edge => (
-    <Link
-      to={`../${edge.node.frontmatter.slug}`}
-      style={{
-        textDecoration: "none",
-        color: "inherit",
-      }}
-    >
-      <FeaturedPostWrapper>
+    <FeaturedPostWrapper>
+      <Link
+        to={`../${edge.node.frontmatter.slug}`}
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          width: "100%",
+        }}
+      >
         <Image
           fixed={edge.node.frontmatter.featureImage.childImageSharp.fixed}
           style={{ width: "100%", height: 300 }}
@@ -56,7 +57,7 @@ export default function FeaturePost() {
           <p>{edge.node.frontmatter.excerpt}</p>
           <span>- {edge.node.frontmatter.date}</span>
         </PostTextWrapper>
-      </FeaturedPostWrapper>
-    </Link>
+      </Link>
+    </FeaturedPostWrapper>
   ))
 }

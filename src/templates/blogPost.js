@@ -18,7 +18,11 @@ export default function BlogPost({ data }) {
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </article>
       <EmailSubscribeForm page={data.mdx.frontmatter.slug} />
-
+      <HyvorTalk.CommentCount
+        websiteId={1101}
+        id={data.mdx.frontmatter.slug}
+        mode="number"
+      />
       <HyvorTalk.Embed
         websiteId={1101}
         id={data.mdx.frontmatter.slug}
