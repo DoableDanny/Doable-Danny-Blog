@@ -40,6 +40,10 @@ export const NavWrapper = styled.ul`
   display: flex;
   list-style: none;
   margin-right: 10vw;
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    margin-right: 0;
+  }
 `
 
 export const NavLink = styled(GatsbyLink)`

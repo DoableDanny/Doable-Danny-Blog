@@ -5,24 +5,41 @@ import Image from "gatsby-image"
 import HyvorTalk from "hyvor-talk-react"
 import Layout from "../components/Layout"
 import EmailSubscribeForm from "../components/EmailSubscribeForm"
+import {
+  ArticleContainer,
+  TitleAndDate,
+  ImageContainer,
+} from "../elements/SingleArticleElements"
 
 export default function BlogPost({ data }) {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
 
   return (
     <Layout>
-      <article>
-        <h1>{data.mdx.frontmatter.title}</h1>
-        <p>{data.mdx.frontmatter.date}</p>
-        <Image fixed={featureImage} style={{ marginLeft: 30 }} />
+      <ArticleContainer>
+        <TitleAndDate>
+          <h1>{data.mdx.frontmatter.title}</h1>
+          <span>-{data.mdx.frontmatter.date}</span>
+        </TitleAndDate>
+        <ImageContainer>
+          <Image
+            fixed={featureImage}
+            style={{ width: "100%", height: "100%" }}
+          />
+        </ImageContainer>
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
-      </article>
+      </ArticleContainer>
+
       <EmailSubscribeForm page={data.mdx.frontmatter.slug} />
-      <HyvorTalk.CommentCount
-        websiteId={1101}
-        id={data.mdx.frontmatter.slug}
-        mode="number"
-      />
+
+      <div style={{ margin: "30px 0 0 20%", color: "blue" }}>
+        <HyvorTalk.CommentCount
+          websiteId={1101}
+          id={data.mdx.frontmatter.slug}
+          mode="number"
+        />
+        <span>...</span>
+      </div>
       <HyvorTalk.Embed
         websiteId={1101}
         id={data.mdx.frontmatter.slug}

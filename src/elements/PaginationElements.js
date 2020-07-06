@@ -22,9 +22,14 @@ export const PaginationWrapper = styled.div`
     cursor: ${props => (props.isFirst ? "default" : "pointer")};
   }
 
+  span {
+    font-size: 1rem;
+  }
+
   a:nth-child(4) {
     text-decoration: none;
     margin-left: 3px;
+    font-size: 1rem;
   }
 
   a:nth-child(4):hover {
@@ -65,7 +70,7 @@ export const PaginationElement = styled(props => <Link {...props} />)`
   }
 
   @media only screen and (max-width: 325px) {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
     margin: 0 0.3rem;
   }
 `
