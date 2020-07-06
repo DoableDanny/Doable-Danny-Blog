@@ -1,8 +1,6 @@
 import styled from "styled-components"
 import { Link as GatsbyLink } from "gatsby"
 
-// #e30b5d raspberry
-
 export const HeaderWrapper = styled.div`
   position: relative;
   background-color: ${props => props.theme.colors.main1};
@@ -27,7 +25,7 @@ export const HeaderWrapper = styled.div`
 
   a {
     text-decoration: none;
-    color: #68fffe;
+    color: ${props => props.theme.colors.lightBlue};
   }
 
   h1 {
@@ -50,5 +48,5 @@ export const NavLink = styled(GatsbyLink)`
   text-decoration: none;
   margin-right: 20px;
   font-size: 18px;
-  color: #68fffe;
+  color: ${props => props.theme.colors.lightBlue};
 `

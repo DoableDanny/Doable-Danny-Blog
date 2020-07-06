@@ -32,7 +32,7 @@ export default function BlogPost({ data }) {
 
       <EmailSubscribeForm page={data.mdx.frontmatter.slug} />
 
-      <div style={{ margin: "30px 0 0 20%", color: "blue" }}>
+      <div style={{ marginTop: 30, marginLeft: "15%", color: "blue" }}>
         <HyvorTalk.CommentCount
           websiteId={1101}
           id={data.mdx.frontmatter.slug}

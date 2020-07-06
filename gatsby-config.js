@@ -58,7 +58,13 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-fonts",
       options: {
-        fonts: ["roboto mono", "muli:400,400i,700,700i", "Piedra", "Modak"],
+        fonts: [
+          "roboto mono",
+          "muli:400,400i,700,700i",
+          "Piedra",
+          "Modak",
+          "Oxygen Mono",
+        ],
         display: "swap",
       },
     },

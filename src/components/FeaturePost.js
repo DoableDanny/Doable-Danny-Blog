@@ -53,7 +53,7 @@ export default function FeaturePost() {
           style={{ width: "100%", height: 300 }}
         />
         <PostTextWrapper>
-          <h1>{edge.node.frontmatter.title}</h1>
+          <h2>{edge.node.frontmatter.title}</h2>
           <p>{edge.node.frontmatter.excerpt}</p>
           <span>- {edge.node.frontmatter.date}</span>
         </PostTextWrapper>

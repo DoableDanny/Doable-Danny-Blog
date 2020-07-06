@@ -1,5 +1,5 @@
 import React from "react"
-import { PostCardContent } from "../elements/PostCardElements"
+import { PostCardContent, TitleAndExcerpt } from "../elements/PostCardElements"
 import Image from "gatsby-image"
 
 export default function PostCard(props) {
@@ -10,13 +10,14 @@ export default function PostCard(props) {
         style={{
           width: "100%",
           height: 200,
+          display: "block",
         }}
       />
-      <div>
-        <h1>{props.title}</h1>
+      <TitleAndExcerpt>
+        <h2>{props.title}</h2>
         <p>{props.excerpt}</p>
-        <span>{props.date}</span>
-      </div>
+        <span>- {props.date}</span>
+      </TitleAndExcerpt>
     </PostCardContent>
   )
 }
