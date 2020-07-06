@@ -27,7 +27,7 @@ const Pagination = ({
       <PaginationElement to={`../${minusTen}`}>Minus Ten</PaginationElement>
       <PaginationElement to={prevPage}>Prev Page</PaginationElement>
       <span>{currentPage} / </span>
-      <Link to={`../${numPages}`}>{numPages}</Link>
+      <PaginationElement to={`../${numPages}`}>{numPages}</PaginationElement>
       <PaginationElement to={nextPage}>Next Page</PaginationElement>
       <PaginationElement to={`../${plusTen}`}>Plus Ten</PaginationElement>
     </PaginationWrapper>

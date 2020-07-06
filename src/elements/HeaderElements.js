@@ -28,6 +28,12 @@ export const HeaderWrapper = styled.div`
     color: ${props => props.theme.colors.lightBlue};
   }
 
+  @media only screen and (max-width: 500px) {
+    a:first-child {
+      display: none;
+    }
+  }
+
   h1 {
     margin-left: 80px;
     font-family: roboto mono;

@@ -36,6 +36,13 @@ export const PaginationWrapper = styled.div`
     text-decoration: underline;
   }
 
+  @media only screen and (max-width: 400px) {
+    a:nth-child(4),
+    span {
+      font-size: 0.7rem;
+    }
+  }
+
   a:nth-child(5) {
     color: ${props =>
       props.isLast ? props.theme.colors.dark3 : props.theme.colors.dark1};
@@ -70,7 +77,7 @@ export const PaginationElement = styled(props => <Link {...props} />)`
   }
 
   @media only screen and (max-width: 400px) {
-    font-size: 0.4rem;
-    margin: 0 0.3rem;
+    font-size: 0.7rem;
+    margin: 0 0.6rem;
   }
 `

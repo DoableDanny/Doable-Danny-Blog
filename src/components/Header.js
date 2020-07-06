@@ -1,17 +1,21 @@
 import React from "react"
 import { Link } from "gatsby"
 import { HeaderWrapper, NavWrapper, NavLink } from "../elements/HeaderElements"
+import { Hamburger, HamburgerMenu } from "../components/Hamburger"
 
 export default function Header({ title }) {
   return (
-    <HeaderWrapper>
-      <span>🌳💻</span>
-      <Link to="/">
-        <h1>{title}</h1>
-      </Link>
-
-      <Nav />
-    </HeaderWrapper>
+    <div>
+      <HeaderWrapper>
+        <span>🌳💻</span>
+        <Link to="/">
+          <h1>{title}</h1>
+        </Link>
+        <Hamburger />
+        <Nav />
+      </HeaderWrapper>
+      <HamburgerMenu />
+    </div>
   )
 }
 

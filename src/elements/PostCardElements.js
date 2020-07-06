@@ -14,6 +14,10 @@ export const PostCardsContainer = styled.div`
   @media only screen and (max-width: 450px) {
     grid-template-rows: repeat(4, minmax(300px, 500px));
   }
+
+  @media only screen and (max-width: 350px) {
+    grid-template-rows: repeat(4, minmax(300px, 560px));
+  }
 `
 
 export const PostCardContent = styled.div`
