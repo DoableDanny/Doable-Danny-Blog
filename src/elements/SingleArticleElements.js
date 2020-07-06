@@ -6,6 +6,8 @@ export const ArticleContainer = styled.article`
   flex-direction: column;
   align-items: center;
   margin: 20px auto;
+  background-color: #fff;
+  box-shadow: ${props => props.theme.shadows.shadow1};
 
   h2,
   h3,
