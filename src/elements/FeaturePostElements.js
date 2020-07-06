@@ -11,7 +11,7 @@ export const FeaturedPostWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media ${props => props.theme.breakpoints.mobile} {
+  @media only screen and (max-width: 45rem) {
     width: 90%;
   }
 `
