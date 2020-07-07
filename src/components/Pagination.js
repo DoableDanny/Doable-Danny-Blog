@@ -3,7 +3,6 @@ import {
   PaginationWrapper,
   PaginationElement,
 } from "../elements/PaginationElements"
-import { Link } from "gatsby"
 
 const Pagination = ({
   isFirst,

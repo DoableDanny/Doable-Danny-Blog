@@ -6,7 +6,6 @@ import {
   StyledImg,
 } from "../elements/FeaturePostElements"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import Image from "gatsby-image"
 
 export default function FeaturePost() {
   const data = useStaticQuery(graphql`

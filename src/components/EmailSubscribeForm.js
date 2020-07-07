@@ -8,8 +8,7 @@ import {
 
 export default function EmailSubscribeForm({ page }) {
   const [userDetails, setUserDetails] = useState({
-    firstName: "",
-    surname: "",
+    name: "",
     email: "",
   })
 
@@ -27,8 +26,7 @@ export default function EmailSubscribeForm({ page }) {
     if (emailRegex.test(String(userDetails.email).toLowerCase())) {
       addToMailchimp(userDetails.email, {
         PATHNAME: page,
-        FNAME: userDetails.firstName,
-        LNAME: userDetails.surname,
+        FNAME: userDetails.name,
       }).then(data => {
         let returnedEmail = data.msg.split(" ")[0].toLowerCase()
         if (emailRegex.test(String(returnedEmail))) {
@@ -54,22 +52,13 @@ export default function EmailSubscribeForm({ page }) {
       >
         Subscribe to be notified of new blog posts!
       </h2>
-      <label htmlFor="firstName">First Name: </label>
+      <label htmlFor="name">Name (optional): </label>
       <UserInput
-        name="firstName"
+        name="name"
         type="text"
-        value={userDetails.firstName}
+        value={userDetails.name}
         onChange={handleChange}
-        placeholder="Enter your first name... "
-      />
-
-      <label htmlFor="surname">Surname: </label>
-      <UserInput
-        name="surname"
-        type="text"
-        value={userDetails.surname}
-        onChange={handleChange}
-        placeholder="Enter your surname... "
+        placeholder="Enter your name here... "
       />
 
       <label htmlFor="email">Email (required):</label>

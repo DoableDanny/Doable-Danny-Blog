@@ -12,7 +12,14 @@ export default function Header({ title }) {
   return (
     <div>
       <HeaderWrapper>
-        <span>🌳💻</span>
+        <span>
+          <span role="img" aria-label="tree">
+            🌳
+          </span>
+          <span role="img" aria-label="laptop">
+            💻
+          </span>
+        </span>
         <Link to="/">
           <h1>{title}</h1>
         </Link>

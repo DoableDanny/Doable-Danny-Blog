@@ -10,12 +10,21 @@ import {
   TitleAndDate,
   ImageContainer,
 } from "../elements/SingleArticleElements"
+import { Seo } from "../components/Seo"
 
 export default function BlogPost({ data }) {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fluid
 
+  const seoImage = data.mdx.frontmatter.featureImage.publicURL
+
   return (
     <Layout>
+      <Seo
+        title={data.mdx.frontmatter.title}
+        image={seoImage}
+        description={data.mdx.frontmatter.excerpt}
+        keywords={data.mdx.frontmatter.keywords}
+      />
       <ArticleContainer>
         <TitleAndDate>
           <h1>{data.mdx.frontmatter.title}</h1>
@@ -59,7 +68,9 @@ export const pageQuery = graphql`
         excerpt
         slug
         title
+        keywords
         featureImage {
+          publicURL
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid

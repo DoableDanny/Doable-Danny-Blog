@@ -6,6 +6,25 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: "Doable Danny",
+    author: "Danny Adams",
+    description:
+      "A collection of my thoughts and writings on topics such as web development, programming, and meditation.",
+    url: "https://www.doabledanny.com/",
+    image: "/icon.jpg",
+    twitterUsername: "@doabledanny",
+    social: [
+      {
+        name: "twitter",
+        url: "https://twitter.com/DoableDanny",
+      },
+      {
+        name: "github",
+        url: "https://github.com/DoableDanny",
+      },
+    ],
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -68,6 +87,28 @@ module.exports = {
         display: "swap",
       },
     },
+
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Doable Danny Blog`,
+        short_name: `Doable Danny`,
+        description: `A collection of my thoughts and writings on topics such as web development, programming, and meditation.`,
+        lang: `en`,
+        display: `standalone`,
+        icon: `/icon.jpg`,
+        start_url: `/`,
+        background_color: `#F7F7F7`,
+        theme_color: `#99ffff`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/about/`, `/links/`],
+      },
+    },
+    `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-mailchimp",
       options: {
@@ -77,20 +118,4 @@ module.exports = {
       },
     },
   ],
-
-  siteMetadata: {
-    title: "Doable Danny",
-    author: "Danny Adams",
-    description: "A collection of my thoughts and writings.",
-    social: [
-      {
-        name: "twitter",
-        url: "https://twitter.com/DoableDanny",
-      },
-      {
-        name: "github",
-        url: "https://github.com/DoableDanny",
-      },
-    ],
-  },
 }
