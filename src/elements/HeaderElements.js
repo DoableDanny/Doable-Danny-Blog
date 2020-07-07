@@ -39,6 +39,12 @@ export const HeaderWrapper = styled.div`
     font-family: roboto mono;
     font-size: 2.2rem;
   }
+
+  @media only screen and (max-width: 380px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
 `
 export const NavWrapper = styled.ul`
   display: flex;

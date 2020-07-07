@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Image from "gatsby-image"
 
 export const PostCardsContainer = styled.div`
   display: grid;
@@ -24,7 +25,7 @@ export const PostCardContent = styled.div`
   background-color: ${props => props.theme.colors.main1};
   color: #fff;
   position: relative;
-  margin: 20px;
+  margin: 10px;
   box-shadow: ${props => props.theme.shadows.shadow1};
   border-bottom-right-radius: 5px;
   height: 80%;
@@ -37,6 +38,22 @@ export const PostCardContent = styled.div`
     height: 93%;
   }
 `
+
+export const StyledImgWrapper = styled.div`
+  width: 100%;
+  height: 200px;
+
+  @media only screen and (max-width: 380px) {
+    height: 170px;
+  }
+`
+
+export const StyledImg = styled(Image)`
+  display: block;
+  height: 100%;
+  width: 100%;
+`
+
 export const TitleAndExcerpt = styled.div`
   position: absolute;
   bottom: 0;
@@ -47,8 +64,8 @@ export const TitleAndExcerpt = styled.div`
 
   h2 {
     text-align: center;
-    color: ${props => props.theme.colors.lightBlue};
-    font-family: "Roboto mono";
+    color: ${props => props.theme.colors.lightBlue2};
+    font-family: "Oxygen Mono";
   }
 
   span {
@@ -56,5 +73,18 @@ export const TitleAndExcerpt = styled.div`
     position: absolute;
     bottom: 8px;
     right: 8px;
+  }
+
+  @media only screen and (max-width: 380px) {
+    top: 170px;
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    p,
+    span {
+      font-size: 1rem;
+    }
   }
 `

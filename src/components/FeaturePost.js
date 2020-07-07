@@ -2,6 +2,8 @@ import React from "react"
 import {
   FeaturedPostWrapper,
   PostTextWrapper,
+  StyledImgWrapper,
+  StyledImg,
 } from "../elements/FeaturePostElements"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
@@ -21,12 +23,12 @@ export default function FeaturePost() {
               title
               featureImage {
                 childImageSharp {
-                  fixed {
+                  fluid {
                     base64
                     tracedSVG
-                    aspectRatio
                     srcWebp
                     srcSetWebp
+                    originalImg
                     originalName
                   }
                 }
@@ -48,10 +50,11 @@ export default function FeaturePost() {
           width: "100%",
         }}
       >
-        <Image
-          fixed={edge.node.frontmatter.featureImage.childImageSharp.fixed}
-          style={{ width: "100%", height: 300 }}
-        />
+        <StyledImgWrapper>
+          <StyledImg
+            fluid={edge.node.frontmatter.featureImage.childImageSharp.fluid}
+          />
+        </StyledImgWrapper>
         <PostTextWrapper>
           <h2>{edge.node.frontmatter.title}</h2>
           <p>{edge.node.frontmatter.excerpt}</p>

@@ -14,6 +14,7 @@ export const FooterSocialWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   text-align: center;
   color: ${props => props.theme.colors.main1};
 

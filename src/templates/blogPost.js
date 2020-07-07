@@ -12,7 +12,7 @@ import {
 } from "../elements/SingleArticleElements"
 
 export default function BlogPost({ data }) {
-  const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
+  const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fluid
 
   return (
     <Layout>
@@ -23,7 +23,7 @@ export default function BlogPost({ data }) {
         </TitleAndDate>
         <ImageContainer>
           <Image
-            fixed={featureImage}
+            fluid={featureImage}
             style={{ width: "100%", height: "100%" }}
           />
         </ImageContainer>
@@ -61,8 +61,8 @@ export const pageQuery = graphql`
         title
         featureImage {
           childImageSharp {
-            fixed {
-              ...GatsbyImageSharpFixed
+            fluid {
+              ...GatsbyImageSharpFluid
             }
           }
         }

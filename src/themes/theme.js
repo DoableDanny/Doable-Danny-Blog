@@ -6,6 +6,7 @@ export default {
   colors: {
     main1: "black",
     lightBlue: "#68fffe",
+    lightBlue2: "#99ffff",
     main2: "hsl(207,70%,94%)",
     dark1: "hsl(227,2%,12%)",
     dark2: "hsl(227,2%,26%)",
@@ -32,5 +33,6 @@ export default {
   },
   shadows: {
     shadow1: "5px 10px 10px #888888",
+    shadow2: "3px 8px 13px green",
   },
 }

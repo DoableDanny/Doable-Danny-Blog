@@ -54,7 +54,7 @@ export default function AllPosts({ pageContext, data }) {
               title={post.node.frontmatter.title}
               date={post.node.frontmatter.date}
               excerpt={post.node.frontmatter.excerpt}
-              image={post.node.frontmatter.featureImage.childImageSharp.fixed}
+              image={post.node.frontmatter.featureImage.childImageSharp.fluid}
               key={post.node.frontmatter.slug}
             />
           </Link>
@@ -92,12 +92,12 @@ export const pageQuery = graphql`
             title
             featureImage {
               childImageSharp {
-                fixed {
+                fluid {
                   base64
                   tracedSVG
-                  aspectRatio
                   srcWebp
                   srcSetWebp
+                  originalImg
                   originalName
                 }
               }
