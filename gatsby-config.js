@@ -96,7 +96,7 @@ module.exports = {
         description: `A collection of my thoughts and writings on topics such as web development, programming, and meditation.`,
         lang: `en`,
         display: `standalone`,
-        icon: `/images/icon.jpg`,
+        icon: `${__dirname}/src/images/icon.jpg`,
         start_url: `/`,
         background_color: `#F7F7F7`,
         theme_color: `#99ffff`,
