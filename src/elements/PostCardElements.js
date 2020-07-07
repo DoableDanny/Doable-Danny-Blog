@@ -43,8 +43,8 @@ export const StyledImgWrapper = styled.div`
   width: 100%;
   height: 200px;
 
-  @media only screen and (max-width: 380px) {
-    height: 170px;
+  @media only screen and (max-width: 400px) {
+    height: 160px;
   }
 `
 
@@ -66,6 +66,11 @@ export const TitleAndExcerpt = styled.div`
     text-align: center;
     color: ${props => props.theme.colors.lightBlue2};
     font-family: "Oxygen Mono";
+    margin-bottom: 15px;
+  }
+
+  p {
+    margin-top: 0;
   }
 
   span {
@@ -75,13 +80,16 @@ export const TitleAndExcerpt = styled.div`
     right: 8px;
   }
 
-  @media only screen and (max-width: 380px) {
-    top: 170px;
+  @media only screen and (max-width: 400px) {
+    top: 158px;
 
     h2 {
       font-size: 1.4rem;
+      margin-bottom: 10px;
     }
-
+    p {
+      margin-top: 0;
+    }
     p,
     span {
       font-size: 1rem;
