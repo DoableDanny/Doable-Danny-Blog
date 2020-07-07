@@ -16,7 +16,7 @@ export const PostCardsContainer = styled.div`
   }
 
   @media only screen and (max-width: 350px) {
-    grid-template-rows: repeat(4, minmax(300px, 560px));
+    grid-template-rows: repeat(4, minmax(300px, 620px));
   }
 `
 
@@ -31,6 +31,10 @@ export const PostCardContent = styled.div`
 
   @media only screen and (max-width: 750px) {
     height: 91%;
+  }
+
+  @media only screen and (max-width: 350px) {
+    height: 93%;
   }
 `
 export const TitleAndExcerpt = styled.div`

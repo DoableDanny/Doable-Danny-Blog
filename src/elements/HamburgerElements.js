@@ -4,9 +4,7 @@ import { Link as GatsbyLink } from "gatsby"
 export const HamburgerStyle = styled.div`
   fill: ${props => props.theme.colors.lightBlue};
   display: none;
-  cursor: pointer;
-
-  @media only screen and (max-width: 500px) {
+  cursor: pointer @media only screen and (max-width: 500px) {
     display: block;
   }
 `

@@ -28,7 +28,7 @@ export const HeaderWrapper = styled.div`
     color: ${props => props.theme.colors.lightBlue};
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 650px) {
     a:first-child {
       display: none;
     }
@@ -45,7 +45,7 @@ export const NavWrapper = styled.ul`
   list-style: none;
   margin-right: 10vw;
 
-  @media ${props => props.theme.breakpoints.mobile} {
+  @media only screen and (max-width: 800px) {
     margin-right: 0;
   }
 `
@@ -55,4 +55,24 @@ export const NavLink = styled(GatsbyLink)`
   margin-right: 20px;
   font-size: 18px;
   color: ${props => props.theme.colors.lightBlue};
+`
+// MOBILE MENU
+
+export const MobileMenuStyle = styled.div`
+  background-color: #333;
+  display: flex;
+  justify-content: flex-end;
+  visibility: hidden;
+
+  @media only screen and (max-width: 650px) {
+    visibility: visible;
+  }
+`
+export const MobileLink = styled(GatsbyLink)`
+  text-decoration: none;
+  margin-right: 20px;
+  padding: 3px;
+  font-size: 18px;
+  color: ${props => props.theme.colors.lightBlue};
+  width: 60px;
 `
