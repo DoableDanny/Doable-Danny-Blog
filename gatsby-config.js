@@ -117,5 +117,11 @@ module.exports = {
         timeout: 3500,
       },
     },
+    {
+      resolve: "gatsby-plugin-preconnect",
+      options: {
+        domains: ["https://fonts.gstatic.com/"],
+      },
+    },
   ],
 }
