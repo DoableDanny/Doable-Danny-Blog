@@ -2,17 +2,16 @@ import styled from "styled-components"
 import Image from "gatsby-image"
 
 export const FeaturedPostWrapper = styled.div`
-  width: 650px;
+  width: 750px;
   padding-bottom: 10px;
   box-shadow: ${props => props.theme.shadows.shadow1};
   background-color: ${props => props.theme.colors.main1};
-  color: #fff;
   margin: 40px auto 20px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  @media only screen and (max-width: 45rem) {
+  @media only screen and (max-width: 50rem) {
     width: 90%;
   }
 `
@@ -42,11 +41,13 @@ export const PostTextWrapper = styled.div`
 
   p {
     font-size: 1.2rem;
+    color: ${props => props.theme.colors.postParagraph};
   }
 
   span {
     float: right;
     margin-right: 10px;
+    color: ${props => props.theme.colors.postDate};
   }
 
   @media only screen and (max-width: 500px) {

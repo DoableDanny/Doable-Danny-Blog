@@ -24,12 +24,21 @@ export const PostCardContent = styled.div`
   color: red;
   position: relative;
 
+  h2 {
+    text-align: center;
+    color: ${props => props.theme.colors.lightBlue2};
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    color: ${props => props.theme.colors.postParagraph};
+  }
+
   span {
     position: absolute;
-
-    color: green;
-    bottom: 2px;
-    right: 2px;
+    color: ${props => props.theme.colors.postDate};
+    bottom: 3px;
+    right: 5px;
   }
 `
 

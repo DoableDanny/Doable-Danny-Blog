@@ -7,6 +7,8 @@ export default {
     main1: "black",
     lightBlue: "#68fffe",
     lightBlue2: "#99ffff",
+    postParagraph: "#fff",
+    postDate: "#90ee90",
     main2: "hsl(207,70%,94%)",
     dark1: "hsl(227,2%,12%)",
     dark2: "hsl(227,2%,26%)",
