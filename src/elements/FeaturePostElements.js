@@ -22,6 +22,9 @@ export const StyledImgWrapper = styled.div`
   @media only screen and (max-width: 480px) {
     height: 200px;
   }
+  @media only screen and (max-width: 400px) {
+    height: 190px;
+  }
 `
 
 export const StyledImg = styled(Image)`

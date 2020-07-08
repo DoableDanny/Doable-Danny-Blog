@@ -21,7 +21,6 @@ export const PostCardsContainer = styled.div`
 export const PostCardContent = styled.div`
   background: ${props => props.theme.colors.main1};
   height: 100%;
-  color: red;
   position: relative;
   box-shadow: ${props => props.theme.shadows.shadow1};
 
@@ -56,15 +55,4 @@ export const StyledImg = styled(Image)`
   display: block;
   height: 100%;
   width: 100%;
-`
-
-export const TitleAndExcerpt = styled.div`
-  color: red;
-  backround: pink;
-
-  span {
-    color: green;
-    float: right;
-    vertical-align: bottom;
-  }
 `
