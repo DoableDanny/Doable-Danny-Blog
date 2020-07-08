@@ -31,7 +31,7 @@ export const HeaderWrapper = styled.div`
 
   @media only screen and (max-width: 380px) {
     h1 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
   }
 `
@@ -63,6 +63,10 @@ export const NavLink = styled(GatsbyLink)`
   font-size: 18px;
   color: ${props =>
     props.thisPage ? "#68fffe !important" : "#3dcc3d !important"};
+
+  :hover {
+    color: ${props => props.theme.colors.lightBlue} !important;
+  }
 `
 // MOBILE MENU
 
@@ -83,4 +87,8 @@ export const MobileLink = styled(GatsbyLink)`
   font-size: 18px;
   color: ${props => (props.thisPage ? "#68fffe " : "#a6f1a6")};
   width: 60px;
+
+  :hover {
+    color: ${props => props.theme.colors.lightBlue} !important;
+  }
 `
