@@ -34,8 +34,8 @@ export default function AllPosts({ pageContext, data }) {
 
   const posts = data.allMdx.edges
   return (
-    <Layout>
-      <Seo title={`Home/${currentPage}`} />
+    <Layout thisPage={"home"}>
+      <Seo title={`Doable Danny | Blog`} />
       {currentPage === 1 ? <FeaturePost /> : null}
       {currentPage === 1 ? <EmailSubscribeForm page={currentPage} /> : null}
       {currentPage === 1 ? (
@@ -48,7 +48,7 @@ export default function AllPosts({ pageContext, data }) {
             style={{
               textDecoration: "none",
               color: "inherit",
-              height: "100%,",
+              height: "100%",
             }}
             key={post.node.frontmatter.slug}
           >

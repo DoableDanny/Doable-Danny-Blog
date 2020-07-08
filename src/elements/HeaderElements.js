@@ -12,17 +12,6 @@ export const HeaderWrapper = styled.div`
   padding: 10px;
   border-top: 3px solid rgb(0, 153, 0);
 
-  span {
-    background-color: rgb(0, 153, 0);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   a {
     text-decoration: none;
     color: ${props => props.theme.colors.lightBlue};
@@ -46,6 +35,17 @@ export const HeaderWrapper = styled.div`
     }
   }
 `
+export const EmojiWrapper = styled.div`
+  background-color: rgb(0, 153, 0);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const NavWrapper = styled.ul`
   display: flex;
   list-style: none;
@@ -57,10 +57,12 @@ export const NavWrapper = styled.ul`
 `
 
 export const NavLink = styled(GatsbyLink)`
-  text-decoration: none;
+  text-decoration: ${props =>
+    props.thisPage ? "underline !important" : "none"};
   margin-right: 20px;
   font-size: 18px;
-  color: ${props => props.theme.colors.lightBlue};
+  color: ${props =>
+    props.thisPage ? "#68fffe !important" : "#4ee44e !important"};
 `
 // MOBILE MENU
 
@@ -75,10 +77,10 @@ export const MobileMenuStyle = styled.div`
   }
 `
 export const MobileLink = styled(GatsbyLink)`
-  text-decoration: none;
+  text-decoration: ${props => (props.thisPage ? "underline" : "none")};
   margin-right: 20px;
   padding: 3px;
   font-size: 18px;
-  color: ${props => props.theme.colors.lightBlue};
+  color: ${props => (props.thisPage ? "#68fffe " : "#4ee44e")};
   width: 60px;
 `

@@ -3,10 +3,12 @@ import React from "react"
 import Layout from "../components/Layout"
 import { AboutCard } from "../elements/AboutPageElelements"
 import EmailSubscribeForm from "../components/EmailSubscribeForm"
+import { Seo } from "../components/Seo"
 
 export default function about() {
   return (
-    <Layout>
+    <Layout thisPage={"about"}>
+      <Seo title={`Doable Danny | About`} />
       <AboutCard>
         <h1>About Danny</h1>
         <p>

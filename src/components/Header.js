@@ -2,45 +2,52 @@ import React from "react"
 import { Link } from "gatsby"
 import {
   HeaderWrapper,
+  EmojiWrapper,
   NavWrapper,
   NavLink,
   MobileMenuStyle,
   MobileLink,
 } from "../elements/HeaderElements"
 
-export default function Header({ title }) {
+export default function Header({ title, thisPage }) {
   return (
     <div>
       <HeaderWrapper>
-        <span>
+        <EmojiWrapper>
           <span role="img" aria-label="tree">
             🌳
           </span>
           <span role="img" aria-label="laptop">
             💻
           </span>
-        </span>
+        </EmojiWrapper>
         <Link to="/">
           <h1>{title}</h1>
         </Link>
-        <Nav />
+        <Nav thisPage={thisPage} />
       </HeaderWrapper>
-      <MobileMenu />
+      <MobileMenu thisPage={thisPage} />
     </div>
   )
 }
 
-const Nav = () => {
+const Nav = ({ thisPage }) => {
   return (
     <NavWrapper>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" thisPage={thisPage === `home` ? true : false}>
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/about/">About</NavLink>
+        <NavLink to="/about/" thisPage={thisPage === `about` ? true : false}>
+          About
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/links/">Links</NavLink>
+        <NavLink to="/links/" thisPage={thisPage === `links` ? true : false}>
+          Links
+        </NavLink>
       </li>
     </NavWrapper>
   )
@@ -48,12 +55,18 @@ const Nav = () => {
 
 // MOBILE MENU
 
-const MobileMenu = () => {
+const MobileMenu = ({ thisPage }) => {
   return (
     <MobileMenuStyle>
-      <MobileLink to="/">Home</MobileLink>
-      <MobileLink to="/about/">About</MobileLink>
-      <MobileLink to="/links/">Links</MobileLink>
+      <MobileLink to="/" thisPage={thisPage === `home` ? true : false}>
+        Home
+      </MobileLink>
+      <MobileLink to="/about/" thisPage={thisPage === `about` ? true : false}>
+        About
+      </MobileLink>
+      <MobileLink to="/links/" thisPage={thisPage === `links` ? true : false}>
+        Links
+      </MobileLink>
     </MobileMenuStyle>
   )
 }

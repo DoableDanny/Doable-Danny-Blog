@@ -4,7 +4,7 @@ import Footer from "./Footer"
 import { ContainerWrapper, ContentWrapper } from "../elements/ContainerElements"
 import { useStaticQuery } from "gatsby"
 
-export default function Layout({ children }) {
+export default function Layout({ children, thisPage }) {
   const data = useStaticQuery(
     graphql`
       query {
@@ -19,7 +19,7 @@ export default function Layout({ children }) {
 
   return (
     <ContainerWrapper>
-      <Header title={data.site.siteMetadata.title} />
+      <Header title={data.site.siteMetadata.title} thisPage={thisPage} />
       <ContentWrapper>
         <main>{children}</main>
         <Footer />
