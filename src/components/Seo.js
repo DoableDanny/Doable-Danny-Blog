@@ -24,11 +24,7 @@ export const Seo = ({ description, keywords, title, image, url, author }) => {
         return (
           <Helmet
             title={title}
-            html={[
-                {
-                    
-                }
-            ]}
+            html={[{}]}
             meta={[
               {
                 name: `description`,
@@ -82,8 +78,9 @@ export const Seo = ({ description, keywords, title, image, url, author }) => {
                   }
                 : []
             )}
+          >
             <html lang="en" />
-          />
+          </Helmet>
         )
       }}
     />
