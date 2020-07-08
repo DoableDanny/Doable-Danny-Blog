@@ -1,16 +1,36 @@
 import styled from "styled-components"
 import Image from "gatsby-image"
 
+export const CenterAllPostCards = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 export const PostCardsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, minmax(300px, 450px));
+  grid-auto-rows: 1fr;
+  margin: 20px;
+  grid-gap: 35px 15px;
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const PostCardContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  -ms-flex: 1;
-  flex: 1;
+  background: ${props => props.theme.colors.main1};
+  height: 100%;
+  color: red;
+  position: relative;
+
+  span {
+    position: absolute;
+
+    color: green;
+    bottom: 2px;
+    right: 2px;
+  }
 `
 
 export const StyledImgWrapper = styled.div`
@@ -28,4 +48,13 @@ export const StyledImg = styled(Image)`
   width: 100%;
 `
 
-export const TitleAndExcerpt = styled.div``
+export const TitleAndExcerpt = styled.div`
+  color: red;
+  backround: pink;
+
+  span {
+    color: green;
+    float: right;
+    vertical-align: bottom;
+  }
+`

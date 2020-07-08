@@ -2,7 +2,10 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import FeaturePost from "../components/FeaturePost"
-import { PostCardsContainer } from "../elements/PostCardElements"
+import {
+  PostCardsContainer,
+  CenterAllPostCards,
+} from "../elements/PostCardElements"
 import PostCard from "../components/PostCard"
 import Pagination from "../components/Pagination"
 
@@ -41,27 +44,29 @@ export default function AllPosts({ pageContext, data }) {
       {currentPage === 1 ? (
         <h3 style={{ marginLeft: "10%", marginTop: 30 }}>Recent Posts</h3>
       ) : null}
-      <PostCardsContainer>
-        {posts.map((post, i) => (
-          <Link
-            to={`../${post.node.frontmatter.slug}`}
-            style={{
-              textDecoration: "none",
-              color: "inherit",
-              height: "100%",
-            }}
-            key={post.node.frontmatter.slug}
-          >
-            <PostCard
-              title={post.node.frontmatter.title}
-              date={post.node.frontmatter.date}
-              excerpt={post.node.frontmatter.excerpt}
-              image={post.node.frontmatter.featureImage.childImageSharp.fluid}
+      <CenterAllPostCards>
+        <PostCardsContainer>
+          {posts.map((post, i) => (
+            <Link
+              to={`../${post.node.frontmatter.slug}`}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                height: "100%",
+              }}
               key={post.node.frontmatter.slug}
-            />
-          </Link>
-        ))}
-      </PostCardsContainer>
+            >
+              <PostCard
+                title={post.node.frontmatter.title}
+                date={post.node.frontmatter.date}
+                excerpt={post.node.frontmatter.excerpt}
+                image={post.node.frontmatter.featureImage.childImageSharp.fluid}
+                key={post.node.frontmatter.slug}
+              />
+            </Link>
+          ))}
+        </PostCardsContainer>
+      </CenterAllPostCards>
       <Pagination
         isFirst={isFirst}
         isLast={isLast}

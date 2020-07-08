@@ -12,11 +12,10 @@ export default function PostCard(props) {
       <StyledImgWrapper>
         <StyledImg fluid={props.image} />
       </StyledImgWrapper>
-      <TitleAndExcerpt>
-        <h2>{props.title}</h2>
-        <p>{props.excerpt}</p>
-        <span>- {props.date}</span>
-      </TitleAndExcerpt>
+
+      <h2>{props.title}</h2>
+      <p>{props.excerpt}</p>
+      <span>- {props.date}</span>
     </PostCardContent>
   )
 }
