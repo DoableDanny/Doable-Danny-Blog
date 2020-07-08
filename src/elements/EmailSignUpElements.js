@@ -9,7 +9,8 @@ export const FORM = styled.form`
 
 export const SubscribeInput = styled.input.attrs({ type: "submit" })`
   padding: 5px 8px;
-  background-color: red;
+  background-color: green;
+  -webkit-appearance: none;
   color: #fff;
   font-size: 20px;
   display: block;
@@ -20,7 +21,7 @@ export const SubscribeInput = styled.input.attrs({ type: "submit" })`
 
   :hover {
     transform: scale(1.05);
-    background-color: #e60000;
+    background-color: #006400;
   }
 `
 export const UserInput = styled.input`

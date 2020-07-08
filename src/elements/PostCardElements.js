@@ -23,6 +23,7 @@ export const PostCardContent = styled.div`
   height: 100%;
   color: red;
   position: relative;
+  box-shadow: ${props => props.theme.shadows.shadow1};
 
   h2 {
     text-align: center;

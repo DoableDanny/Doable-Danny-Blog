@@ -35,6 +35,6 @@ export default {
   },
   shadows: {
     shadow1: "5px 10px 10px #888888",
-    shadow2: "3px 8px 13px green",
+    shadow2: "3px 6px 12px #8A2BE2",
   },
 }
