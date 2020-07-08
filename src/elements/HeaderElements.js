@@ -31,7 +31,7 @@ export const HeaderWrapper = styled.div`
 
   @media only screen and (max-width: 380px) {
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
     }
   }
 `
