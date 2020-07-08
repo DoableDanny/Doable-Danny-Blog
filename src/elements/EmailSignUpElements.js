@@ -28,4 +28,5 @@ export const UserInput = styled.input`
   margin-bottom: 5px;
   padding: 5px;
   font-size: 15px;
+  width: 100%;
 `
