@@ -62,7 +62,7 @@ export const NavLink = styled(GatsbyLink)`
   margin-right: 20px;
   font-size: 18px;
   color: ${props =>
-    props.thisPage ? "#68fffe !important" : "#4ee44e !important"};
+    props.thisPage ? "#68fffe !important" : "#3dcc3d !important"};
 `
 // MOBILE MENU
 
@@ -81,6 +81,6 @@ export const MobileLink = styled(GatsbyLink)`
   margin-right: 20px;
   padding: 3px;
   font-size: 18px;
-  color: ${props => (props.thisPage ? "#68fffe " : "#4ee44e")};
+  color: ${props => (props.thisPage ? "#68fffe " : "#a6f1a6")};
   width: 60px;
 `

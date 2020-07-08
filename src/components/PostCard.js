@@ -5,7 +5,6 @@ import {
   StyledImg,
   TitleAndExcerpt,
 } from "../elements/PostCardElements"
-import Image from "gatsby-image"
 
 export default function PostCard(props) {
   return (
