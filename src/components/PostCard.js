@@ -3,7 +3,6 @@ import {
   PostCardContent,
   StyledImgWrapper,
   StyledImg,
-  TitleAndExcerpt,
 } from "../elements/PostCardElements"
 
 export default function PostCard(props) {

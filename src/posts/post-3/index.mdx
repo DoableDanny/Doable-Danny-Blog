@@ -3,8 +3,14 @@ title: My Third Post! Woopie!
 slug: my-third-post
 date: 2020-06-25
 featureImage: formby-golf-club.jpg
+images: [formby-golf-club.jpg, myFirstTweet.PNG]
 excerpt: ".@WhiteHouse: “If we make it easier for more foreign visitors to visit... (it) grows
 the #economy.” Pass the #JOLTAct http://tiny.cc/PassJOLT (140 characters)"
 featuredPost: false
 keywords: ["golf", "formby golf club"]
 ---
+
+
+<div>{console.log(props.images[0].publicURL)}</div>
+
+<img src={props.images[0].publicURL} style={{ width: "100%" }} />

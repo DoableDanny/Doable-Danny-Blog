@@ -36,6 +36,7 @@ export default function AllPosts({ pageContext, data }) {
   const abletoforwardten = currentPage + 10 <= numPages ? true : false
 
   const posts = data.allMdx.edges
+
   return (
     <Layout thisPage={"home"}>
       <Seo title={`Doable Danny | Blog`} />

@@ -36,7 +36,9 @@ export default function BlogPost({ data }) {
             style={{ width: "100%", height: "100%" }}
           />
         </ImageContainer>
-        <MDXRenderer>{data.mdx.body}</MDXRenderer>
+        <MDXRenderer images={data.mdx.frontmatter.images}>
+          {data.mdx.body}
+        </MDXRenderer>
       </ArticleContainer>
 
       <EmailSubscribeForm page={data.mdx.frontmatter.slug} />
@@ -69,6 +71,9 @@ export const pageQuery = graphql`
         slug
         title
         keywords
+        images {
+          publicURL
+        }
         featureImage {
           publicURL
           childImageSharp {
