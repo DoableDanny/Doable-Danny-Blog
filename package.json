@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "Doable Danny Blog",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "My personal blog built from scratch using the minimal Gatsby starter hello world",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
