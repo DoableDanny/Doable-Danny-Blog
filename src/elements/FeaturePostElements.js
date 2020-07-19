@@ -2,7 +2,7 @@ import styled from "styled-components"
 import Image from "gatsby-image"
 
 export const FeaturedPostWrapper = styled.div`
-  width: 750px;
+  width: 650px;
   padding-bottom: 10px;
   box-shadow: ${props => props.theme.shadows.shadow1};
   background-color: ${props => props.theme.colors.main1};
@@ -12,12 +12,38 @@ export const FeaturedPostWrapper = styled.div`
   align-items: center;
 
   @media only screen and (max-width: 50rem) {
-    width: 90%;
+    width: 40rem;
+  }
+  @media only screen and (max-width: 41rem) {
+    width: 30rem;
+  }
+  @media only screen and (max-width: 31rem) {
+    width: 22rem;
+  }
+  @media only screen and (max-width: 23rem) {
+    width: 18rem;
   }
 `
 export const StyledImgWrapper = styled.div`
   width: 100%;
-  height: 300px;
+  height: 370px;
+
+  @media only screen and (max-width: 50rem) {
+    width: 40rem;
+    height: 350px;
+  }
+  @media only screen and (max-width: 41rem) {
+    width: 30rem;
+    height: 300px;
+  }
+  @media only screen and (max-width: 31rem) {
+    width: 22rem;
+    height: 200px;
+  }
+  @media only screen and (max-width: 23rem) {
+    width: 18rem;
+    height: 150px;
+  }
 
   @media only screen and (max-width: 480px) {
     height: 200px;

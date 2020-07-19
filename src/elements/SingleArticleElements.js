@@ -51,12 +51,34 @@ export const ImageContainer = styled.div`
   height: 370px;
   margin: 20px auto;
 
-  @media ${props => props.theme.breakpoints.mobile} {
-    width: 90%;
-    height: 280px;
+  @media only screen and (max-width: 50rem) {
+    width: 38rem;
+    height: 350px;
   }
 
-  @media only screen and (max-width: 530px) {
-    height: 240px;
+  @media only screen and (max-width: 42rem) {
+    width: 32rem;
+    height: 320px;
+  }
+
+  @media only screen and (max-width: 37rem) {
+    width: 28rem;
+    height: 280px;
+  }
+  @media only screen and (max-width: 33rem) {
+    width: 24rem;
+    height: 250px;
+  }
+  @media only screen and (max-width: 29rem) {
+    width: 21rem;
+    height: 210px;
+  }
+  @media only screen and (max-width: 25rem) {
+    width: 18rem;
+    height: 170px;
+  }
+  @media only screen and (max-width: 22rem) {
+    width: 15rem;
+    height: 150px;
   }
 `

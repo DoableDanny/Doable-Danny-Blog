@@ -88,6 +88,7 @@ export const pageQuery = graphql`
   query AllPostsQuery($skip: Int!, $limit: Int!) {
     allMdx(
       sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { featuredPost: { eq: false } } }
       skip: $skip
       limit: $limit
     ) {

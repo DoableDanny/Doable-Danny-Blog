@@ -44,7 +44,14 @@ export const PostCardContent = styled.div`
 
 export const StyledImgWrapper = styled.div`
   width: 100%;
-  height: 200px;
+  height: 250px;
+
+  @media only screen and (max-width: 50rem) {
+    height: 200px;
+  }
+  @media only screen and (max-width: 41rem) {
+    height: 180px;
+  }
 
   @media only screen and (max-width: 400px) {
     height: 160px;

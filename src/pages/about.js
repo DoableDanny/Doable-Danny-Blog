@@ -12,7 +12,7 @@ export default function about() {
       <AboutCard>
         <h1>About Danny</h1>
         <p>Spent the last four months religiously teaching myself code.</p>
-        <p> I have taught myself HTML, CSS, JavaScript and ReactJS.</p>
+        <p> I've taught myself HTML, CSS, JavaScript and ReactJS.</p>
         <p>
           My next challenge is to make an Android app with React Native and
           publish it to the Google play store. I'll then dive into backend and
