@@ -4,7 +4,7 @@ import Image from "gatsby-image"
 export const FeaturedPostWrapper = styled.div`
   width: 750px;
   padding-bottom: 10px;
-  box-shadow: ${props => props.theme.shadows.shadow2};
+  box-shadow: ${props => props.theme.shadows.shadow1};
   background-color: ${props => props.theme.colors.main1};
   margin: 40px auto 20px auto;
   display: flex;
