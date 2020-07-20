@@ -18,7 +18,18 @@ export default function about() {
           publish it to the Google play store. I'll then dive into backend and
           learn NodeJS.
         </p>
+
         <p>Why on earth am I doing this? Becasue I enjoy it!</p>
+        <p>
+          Last year I graduated with a masters degree in mechanical engineering,
+          however, upon graduating, I didn't feel much love towards the subject.
+        </p>
+        <p>
+          I love problem solving and being creative, and coding was always
+          something that looked fascinating to me. So I saved up some money,
+          quit my job, and started my journey with #100DaysOfCode. It's been
+          fantastic!
+        </p>
       </AboutCard>
       <EmailSubscribeForm />
     </Layout>
