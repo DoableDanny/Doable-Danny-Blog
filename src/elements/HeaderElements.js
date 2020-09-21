@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   font-family: sans-serif;
-  border-top: 3px solid rgb(0, 153, 0);
+  border-top: 4px solid ${props => props.theme.colors.lightBlue};
   padding: 10px;
   padding-left: 70px;
 
@@ -41,7 +41,8 @@ export const HeaderWrapper = styled.div`
   }
 `
 export const EmojiWrapper = styled.div`
-  background-color: rgb(0, 153, 0);
+  background-color: ${props => props.theme.colors.lightBlue};
+  // background-color: rgb(0, 153, 0);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -66,7 +67,9 @@ export const NavLink = styled(GatsbyLink)`
   margin-right: 20px;
   font-size: 18px;
   color: ${props =>
-    props.thisPage ? "#68fffe !important" : "#3dcc3d !important"};
+    props.thisPage
+      ? "#68fffe !important"
+      : `${props.theme.colors.lightBlue2} !important`};
 
   :hover {
     color: ${props => props.theme.colors.lightBlue} !important;
@@ -89,7 +92,8 @@ export const MobileLink = styled(GatsbyLink)`
   margin-right: 20px;
   padding: 3px;
   font-size: 18px;
-  color: ${props => (props.thisPage ? "#68fffe " : "#a6f1a6")};
+  color: ${props =>
+    props.thisPage ? "#68fffe " : props.theme.colors.lightBlue2};
   width: 60px;
 
   :hover {

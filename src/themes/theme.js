@@ -5,10 +5,10 @@ export default {
   },
   colors: {
     main1: "black",
-    lightBlue: "#68fffe",
-    lightBlue2: "#99ffff",
+    lightBlue: "#6BFAFA",
+    lightBlue2: "#00CCCC",
     postParagraph: "#fff",
-    postDate: "#90ee90",
+    postDate: "rgba(255, 255, 255, 0.8)",
     main2: "hsl(207,70%,94%)",
     dark1: "hsl(227,2%,12%)",
     dark2: "hsl(227,2%,26%)",
