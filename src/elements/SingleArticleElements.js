@@ -2,11 +2,7 @@ import styled from "styled-components"
 
 export const ArticleContainer = styled.article`
   width: 650px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin: 20px auto;
-  background-color: #fff;
   box-shadow: ${props => props.theme.shadows.shadow1};
 
   h2,
@@ -16,11 +12,22 @@ export const ArticleContainer = styled.article`
   h6 {
     text-align: left;
     display: block;
-    margin-right: auto;
+    padding-top: 40px;
+    padding-bottom: 8px;
   }
 
-  p {
-    line-height: 1.5;
+  p,
+  li {
+    line-height: 1.6;
+    text-align: left;
+    font-family: ${props => props.theme.fonts.main};
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  a {
+    color: blue;
+    text-decoration: none;
   }
 
   @media ${props => props.theme.breakpoints.mobile} {
@@ -29,20 +36,28 @@ export const ArticleContainer = styled.article`
 `
 
 export const TitleAndDate = styled.div`
-  max-width: 600px;
+  // background-color: pink;
+
+  margin-top: 32px;
+  margin-bottom: 40px;
 
   h1 {
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: 900;
-    font-family: "Piedra";
-    line-height: 1.1;
+    font-size: 2.3rem;
+    font-family: ${props => props.theme.fonts.main};
+    padding-top: 40px;
+    padding-bottom: 16px;
   }
 
   span {
     display: block;
     text-align: right;
+    color: black;
     margin-right: 10px;
+  }
+
+  img {
+    width: 95%;
   }
 `
 
