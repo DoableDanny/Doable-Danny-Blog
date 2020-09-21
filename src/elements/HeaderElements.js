@@ -9,8 +9,13 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   font-family: sans-serif;
-  padding: 10px;
   border-top: 3px solid rgb(0, 153, 0);
+  padding: 10px;
+  padding-left: 70px;
+
+  @media only screen and (max-width: 50rem) {
+    padding-left: 10px;
+  }
 
   a {
     text-decoration: none;
@@ -26,7 +31,7 @@ export const HeaderWrapper = styled.div`
   h1 {
     margin-left: 80px;
     font-family: roboto mono;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 
   @media only screen and (max-width: 380px) {
@@ -49,7 +54,7 @@ export const EmojiWrapper = styled.div`
 export const NavWrapper = styled.ul`
   display: flex;
   list-style: none;
-  margin-right: 10vw;
+  margin-right: 7vw;
 
   @media only screen and (max-width: 800px) {
     margin-right: 0;
@@ -57,8 +62,7 @@ export const NavWrapper = styled.ul`
 `
 
 export const NavLink = styled(GatsbyLink)`
-  text-decoration: ${props =>
-    props.thisPage ? "underline !important" : "none"};
+  text-decoration: none;
   margin-right: 20px;
   font-size: 18px;
   color: ${props =>
@@ -81,7 +85,7 @@ export const MobileMenuStyle = styled.div`
   }
 `
 export const MobileLink = styled(GatsbyLink)`
-  text-decoration: ${props => (props.thisPage ? "underline" : "none")};
+  text-decoration: none;
   margin-right: 20px;
   padding: 3px;
   font-size: 18px;

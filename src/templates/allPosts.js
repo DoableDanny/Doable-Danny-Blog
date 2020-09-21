@@ -43,7 +43,7 @@ export default function AllPosts({ pageContext, data }) {
       {currentPage === 1 ? <FeaturePost /> : null}
       {currentPage === 1 ? <EmailSubscribeForm page={currentPage} /> : null}
       {currentPage === 1 ? (
-        <h3 style={{ marginLeft: "10%", marginTop: 30 }}>Recent Posts</h3>
+        <h3 style={{ textAlign: "center", marginTop: 54 }}>Recent Posts</h3>
       ) : null}
       <CenterAllPostCards>
         <PostCardsContainer>

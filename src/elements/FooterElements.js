@@ -22,7 +22,6 @@ export const FooterSocialWrapper = styled.div`
     text-align: center;
     flex: 0 0 100%;
     color: ${props => props.theme.colors.lightBlue};
-    font-weight: 700;
   }
 `
 
@@ -33,7 +32,7 @@ export const FooterSocialIcons = styled.div`
     height: 35px;
     padding: 0 1rem;
     transition: filter 0.3s ease;
-    border-radius: 45%;
+    border-radius: 25%;
     margin-top: 10px;
     margin-bottom: 5px;
   }

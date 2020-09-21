@@ -4,7 +4,7 @@ export const FORM = styled.form`
   width: 300px;
   display: flex;
   flex-direction: column;
-  margin: 10px auto;
+  margin: 48px auto;
 `
 
 export const SubscribeInput = styled.input.attrs({ type: "submit" })`

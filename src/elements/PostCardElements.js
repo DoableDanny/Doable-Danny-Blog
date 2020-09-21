@@ -11,7 +11,11 @@ export const PostCardsContainer = styled.div`
   grid-template-columns: repeat(2, minmax(300px, 450px));
   grid-auto-rows: 1fr;
   margin: 20px;
-  grid-gap: 35px 15px;
+  grid-gap: 45px 45px;
+
+  @media only screen and (max-width: 50rem) {
+    grid-gap: 35px 15px;
+  }
 
   @media ${props => props.theme.breakpoints.mobile} {
     grid-template-columns: 1fr;

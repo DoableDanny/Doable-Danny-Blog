@@ -19,13 +19,13 @@ export const ArticleContainer = styled.article`
   p,
   li {
     text-align: left;
-    font-family: ${props => props.theme.fonts.main};
     padding-top: 8px;
     padding-bottom: 8px;
+    font-size: 20px;
+    line-height: 145%;
   }
 
   li {
-    font-size: 18px;
     margin-left: 36px;
     padding-right: 10px;
   }
@@ -33,6 +33,7 @@ export const ArticleContainer = styled.article`
   a {
     color: blue;
     text-decoration: none;
+    color: rgb(0, 110, 0);
   }
 
   @media ${props => props.theme.breakpoints.mobile} {
@@ -49,7 +50,6 @@ export const TitleAndDate = styled.div`
   h1 {
     text-align: center;
     font-size: 2.3rem;
-    font-family: ${props => props.theme.fonts.main};
     padding-top: 40px;
     padding-bottom: 16px;
   }
@@ -61,7 +61,6 @@ export const TitleAndDate = styled.div`
     margin-right: 10px;
   }
 `
-
 export const ImageContainer = styled.div`
   width: 600px;
   height: 370px;
