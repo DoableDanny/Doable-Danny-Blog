@@ -12,15 +12,14 @@ export const ArticleContainer = styled.article`
   h6 {
     text-align: left;
     display: block;
-    padding-top: 40px;
-    padding-bottom: 8px;
+    padding-top: 56px;
   }
 
   p,
   li {
     text-align: left;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     font-size: 20px;
     line-height: 145%;
   }
@@ -48,17 +47,24 @@ export const TitleAndDate = styled.div`
   margin-bottom: 40px;
 
   h1 {
+    font-family: ${props => props.theme.fonts.code};
     text-align: center;
-    font-size: 2.3rem;
+    font-size: 2.6rem;
     padding-top: 40px;
     padding-bottom: 16px;
+  }
+
+  @media only screen and (max-width: 42rem) {
+    h1 {
+      font-size: 2.2rem;
+    }
   }
 
   span {
     display: block;
     text-align: right;
     color: black;
-    margin-right: 10px;
+    margin-right: 30px;
   }
 `
 export const ImageContainer = styled.div`
