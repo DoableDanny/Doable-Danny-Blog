@@ -64,7 +64,7 @@ export default function EmailSubscribeForm({ page }) {
       </label>
 
       <label>
-        Email (required):
+        Email:
         <UserInput
           name="email"
           type="email"

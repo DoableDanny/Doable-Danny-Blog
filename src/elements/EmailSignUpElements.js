@@ -8,7 +8,7 @@ export const FORM = styled.form`
 `
 
 export const SubscribeInput = styled.input.attrs({ type: "submit" })`
-  padding: 5px 8px;
+  padding: 8px 11px;
   background-color: green;
   -webkit-appearance: none;
   color: #fff;
@@ -25,8 +25,8 @@ export const SubscribeInput = styled.input.attrs({ type: "submit" })`
   }
 `
 export const UserInput = styled.input`
-  margin-bottom: 5px;
-  padding: 5px;
+  margin-bottom: 6px;
+  padding: 8px;
   font-size: 15px;
   width: 100%;
 `
