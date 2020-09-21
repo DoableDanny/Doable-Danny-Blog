@@ -36,6 +36,12 @@ export const ArticleContainer = styled.article`
 
   @media ${props => props.theme.breakpoints.mobile} {
     width: 90%;
+
+    p,
+    li {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
   }
 `
 
