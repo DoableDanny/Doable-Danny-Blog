@@ -27,7 +27,7 @@ export default function BlogPost({ data }) {
       />
       <ArticleContainer>
         <TitleAndDate>
-          <h1>{data.mdx.frontmatter.title}</h1>
+          <h1 style={{ lineHeight: 1.2 }}>{data.mdx.frontmatter.title}</h1>
           <span>-{data.mdx.frontmatter.date}</span>
         </TitleAndDate>
         <ImageContainer>

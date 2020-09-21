@@ -18,11 +18,16 @@ export const ArticleContainer = styled.article`
 
   p,
   li {
-    line-height: 1.6;
     text-align: left;
     font-family: ${props => props.theme.fonts.main};
     padding-top: 8px;
     padding-bottom: 8px;
+  }
+
+  li {
+    font-size: 18px;
+    margin-left: 36px;
+    padding-right: 10px;
   }
 
   a {
@@ -54,10 +59,6 @@ export const TitleAndDate = styled.div`
     text-align: right;
     color: black;
     margin-right: 10px;
-  }
-
-  img {
-    width: 95%;
   }
 `
 
