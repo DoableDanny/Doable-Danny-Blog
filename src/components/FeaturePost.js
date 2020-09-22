@@ -56,7 +56,7 @@ export default function FeaturePost() {
         </StyledImgWrapper>
         <PostTextWrapper>
           <h2>{edge.node.frontmatter.title}</h2>
-          <p>{edge.node.frontmatter.excerpt}</p>
+          <p>"{edge.node.frontmatter.excerpt}"</p>
           <span>- {edge.node.frontmatter.date}</span>
         </PostTextWrapper>
       </Link>

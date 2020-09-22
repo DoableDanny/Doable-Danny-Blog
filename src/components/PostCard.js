@@ -13,7 +13,7 @@ export default function PostCard(props) {
       </StyledImgWrapper>
 
       <h2>{props.title}</h2>
-      <p>{props.excerpt}</p>
+      <p>"{props.excerpt}"</p>
       <span>- {props.date}</span>
     </PostCardContent>
   )

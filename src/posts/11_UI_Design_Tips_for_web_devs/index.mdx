@@ -1,6 +1,6 @@
 ---
 title: 11 UI Design Tips for Web Devs
-slug: 11-UI-Design-Tips-for-Web-Dev-Noobs
+slug: 11-UI-Design-Tips-for-Web-Devs
 date: 2020-09-19
 featureImage: halacious-tZc3vjPCk-Q-unsplash.jpg
 images:
@@ -15,7 +15,7 @@ images:
     tip9.png,
     tip10.png,
   ]
-excerpt: "This is just a placeholder... I'm still tweeking my blog, I hope you don't mind!"
+excerpt: "In the old days of the web, borders were everywhere. Nowadays, it’s better to not use them quite as much – it often looks cleaner. Borders can look a little overkill."
 featuredPost: false
 keywords:
   [
@@ -31,18 +31,7 @@ keywords:
   ]
 ---
 
-## 1. Use quality images
-
-<img
-  src={props.images[0].publicURL}
-  style={{ width: "95%", margin: "20px auto", display: "block" }}
-/>
-
-Clipart may have been great back when you were 10 years old, but using stuff like that now looks extremely unprofessional.
-
-Professional images can be downloaded and used in your projects completely free from https://www.unsplash.com.
-
-## 2. Be consistent
+## 1. Be consistent
 
 <img
   src={props.images[1].publicURL}
@@ -57,9 +46,20 @@ In the top image you can see that the icons are different styles and colours:
 
 The icons in the bottom image all look to be from the same icon set. They all have a simple dark grey outline and that’s about it. The icons also have the same height and width.
 
-Also, in the top image, the text is centred with the icons centred over the top. In the bottom image, the text is left aligned, and so are the icons. Both are fine - consistency is key.
+In the bottom image, the text is left aligned, and so are the icons. I also could've centred the text and put each icon over the centre. Both are fine - consistency is key.
 
-Rule of thumb is to left-align any longer form text e.g. a blog post as it’s easier to read. For shorter amounts of text, you can left-align or centre.
+Rule of thumb is to left-align any longer form text e.g. a blog post, as it’s easier to read. For shorter amounts of text, you can left-align or centre.
+
+## 2. Use quality images
+
+<img
+  src={props.images[0].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Clipart may have been great back when you were 10 years old, but using stuff like that now looks extremely unprofessional.
+
+Professional images can be downloaded and used in your projects completely free from https://www.unsplash.com.
 
 ## 3. Contrast
 
@@ -72,10 +72,10 @@ If your background is light, use dark text. If dark, use light text. Simple enou
 
 Solutions:
 
-- Use an image overlay e.g. if you are using light coloured text, place over the image a dark coloured overlay (a semi-transparent div with background-color using rgba) and reduce the opacity down to darken the appearance of the image and make the light text clearer. Remember to give the text a higher z-index than the overlay so it sits on top!
-- Choose an image like above, where there is a nice consistent coloured section to place your text.
+1. Use an image overlay e.g. if you are using light coloured text, place over the image a dark coloured overlay (a semi-transparent div with background-color using rgba) and reduce the opacity down to darken the appearance of the image and make the light text clearer. Remember to give the text a higher z-index than the overlay so it sits on top!
+2. Choose an image like above, where there is a nice consistent coloured section to place your text.
 
-Also, notice how the logo in the nav bar is aligned vertically with the text and the “start my journey” call to action button… now that’s consistency!
+Also, notice how the logo in the nav bar is aligned vertically with the left edge of the text and “start my journey” call to action button… now that’s consistency! It's key to a sleek looking design.
 
 ## 4. Whitespace
 
@@ -84,7 +84,7 @@ Also, notice how the logo in the nav bar is aligned vertically with the text and
   style={{ width: "95%", margin: "20px auto", display: "block" }}
 />
 
-In the top image, the “SomeCompany” logo at the top has less space to its left than the right-most nav element. In the bottom, we can see the space is roughly equal.
+In the top image, the “SomeCompany” logo at the top has less space to its left than the right-most nav link has to its right. In the bottom, we can see the space is roughly equal.
 
 The paragraph of text in the top image is cramped up too close to the heading and call to action button. In the bottom, it has more breathing room.
 
@@ -96,14 +96,16 @@ Your eyes are probably drawn to “The Road Less Travelled” in the image from 
 
 A common mistake is to make the nav logo too big, or the nav links stand out too much with colour.
 
-## 6. One font
+We want the users attention directed towards the content, not the logo and nav links.
+
+## 6. One font is fine!
 
 <img
   src={props.images[4].publicURL}
   style={{ width: "65%", margin: "20px auto", display: "block" }}
 />
 
-It is fine to use just one font. No need to overcomplicate. Just avoid “Times new roman” (it’s overused) and “Comic sans” (it just looks crap?).
+It is fine to use just one font. No need to overcomplicate. Just avoid “Times new roman” (it’s overused) and “Comic sans” (it just looks naff!?).
 
 Nunito, Helvetica or sans serif are pretty nice modern looking fonts.
 

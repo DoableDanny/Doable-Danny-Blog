@@ -93,7 +93,7 @@ export const MobileLink = styled(GatsbyLink)`
   padding: 3px;
   font-size: 18px;
   color: ${props =>
-    props.thisPage ? "#68fffe " : props.theme.colors.lightBlue2};
+    props.thisPage ? "#A0FCFC " : props.theme.colors.lightBlue2};
   width: 60px;
 
   :hover {
