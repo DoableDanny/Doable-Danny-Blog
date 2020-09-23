@@ -30,8 +30,7 @@ export const ArticleContainer = styled.article`
   }
 
   a {
-    text-decoration: none;
-    color: #009292;
+    color: #008989;
   }
 
   @media ${props => props.theme.breakpoints.mobile} {

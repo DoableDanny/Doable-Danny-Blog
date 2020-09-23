@@ -6,7 +6,7 @@ export default {
   colors: {
     main1: "black",
     lightBlue: "#6BFAFA",
-    lightBlue2: "#00BDBD",
+    lightBlue2: "#00D4D4",
     postParagraph: "#fff",
     postDate: "rgba(255, 255, 255, 0.8)",
     main2: "hsl(207,70%,94%)",

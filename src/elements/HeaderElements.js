@@ -63,7 +63,8 @@ export const NavWrapper = styled.ul`
 `
 
 export const NavLink = styled(GatsbyLink)`
-  text-decoration: none;
+  text-decoration: ${props =>
+    props.thisPage ? "underline !important" : "none"};
   margin-right: 20px;
   font-size: 18px;
   color: ${props =>
@@ -71,7 +72,8 @@ export const NavLink = styled(GatsbyLink)`
       ? "#68fffe !important"
       : `${props.theme.colors.lightBlue2} !important`};
 
-  :hover {
+  :hover,
+  :focus {
     color: ${props => props.theme.colors.lightBlue} !important;
   }
 `
@@ -88,7 +90,7 @@ export const MobileMenuStyle = styled.div`
   }
 `
 export const MobileLink = styled(GatsbyLink)`
-  text-decoration: none;
+  text-decoration: ${props => (props.thisPage ? "underline" : "none")};
   margin-right: 20px;
   padding: 3px;
   font-size: 18px;
@@ -96,7 +98,8 @@ export const MobileLink = styled(GatsbyLink)`
     props.thisPage ? "#A0FCFC " : props.theme.colors.lightBlue2};
   width: 60px;
 
-  :hover {
+  :hover,
+  :focus {
     color: ${props => props.theme.colors.lightBlue} !important;
   }
 `
