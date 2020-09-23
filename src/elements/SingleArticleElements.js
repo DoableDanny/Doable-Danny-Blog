@@ -15,6 +15,10 @@ export const ArticleContainer = styled.article`
     padding-top: 56px;
   }
 
+  ul {
+    list-style-position: inside;
+  }
+
   p,
   li {
     text-align: left;
@@ -25,8 +29,9 @@ export const ArticleContainer = styled.article`
   }
 
   li {
-    margin-left: 36px;
+    margin-left: 20px;
     padding-right: 10px;
+    word-wrap: break-word;
   }
 
   a {
