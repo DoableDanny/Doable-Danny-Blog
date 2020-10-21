@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Img from "gatsby-image"
 
+// Welcome section
 export const WelcomeSection = styled.section`
   background-color: #000;
   padding: 50px;
@@ -9,7 +10,7 @@ export const WelcomeSection = styled.section`
   align-items: center; 
   
 `
-export const TextWrapper = styled.div`
+export const WelcomeTextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -38,4 +39,32 @@ span {
 export const ProfileImg = styled(Img)`
  height: 100%;
  margin-left: 100px;
+`
+
+// About me section
+export const AboutSection = styled.section`
+    background-color: ${props => props.theme.colors.homeSection};
+    padding: 55px;
+`
+export const AboutPWrapper = styled.div`
+    margin-top: 60px;
+    margin-bottom: 60px;
+    width: 60%;
+`
+
+// Home page shared styled components
+export const H = styled.h2`
+    font-size: 2rem;
+    color:#032F35;
+`
+export const P = styled.p`
+    font-size: 2.5rem;
+    color:#032F35;
+    padding-bottom: 20px;
+    line-height: 200% !important;
+    min-width: 290px
+`
+
+export const FlexRow = styled.div`
+    display: flex;
 `
