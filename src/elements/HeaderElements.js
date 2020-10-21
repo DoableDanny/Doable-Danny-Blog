@@ -80,13 +80,12 @@ export const NavLink = styled(GatsbyLink)`
 // MOBILE MENU
 
 export const MobileMenuStyle = styled.div`
-  background-color: #333;
-  display: flex;
-  justify-content: flex-end;
-  visibility: hidden;
+  display: none;
 
   @media only screen and (max-width: 650px) {
-    visibility: visible;
+    background-color: #333;
+    display: flex;
+    justify-content: flex-end;
   }
 `
 export const MobileLink = styled(GatsbyLink)`
