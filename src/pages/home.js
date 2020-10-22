@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
@@ -188,13 +188,41 @@ export default function Home() {
       <ContactMeSection>
         <H color="light">Contact Me</H>
         <span>Get in touch!</span>
-        <form>
-          <FormInput title="Name:" id="name" type="text" />
-          <FormInput title="Email:" id="email" type="email" />
-          <Message id="message" title="Message:" />
-        </form>
+        <ContactMeForm />
       </ContactMeSection>
     </Layout>
+  )
+}
+
+function ContactMeForm() {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+
+  return (
+    <form>
+      <FormInput
+        title="Name:"
+        id="name"
+        type="text"
+        onChange={event => setName(event.currentTarget.value)}
+        value={name}
+      />
+      <FormInput
+        title="Email:"
+        id="email"
+        type="email"
+        onChange={event => setEmail(event.currentTarget.value)}
+        value={email}
+      />
+      <Message
+        id="message"
+        title="Message:"
+        onChange={event => setMessage(event.currentTarget.value)}
+        value={message}
+      />
+      <input type="submit" />
+    </form>
   )
 }
 

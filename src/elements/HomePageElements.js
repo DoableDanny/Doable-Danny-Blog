@@ -197,6 +197,21 @@ export const ContactMeSection = styled.section`
     textarea {
       height: 300px;
       font-size: 1.4rem;
+      margin-bottom: 40px;
+    }
+
+    input[type="submit"] {
+      background-color: ${props => props.theme.colors.lightBlue};
+      outline: none;
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    form {
+      width: 100%;
     }
   }
 `
