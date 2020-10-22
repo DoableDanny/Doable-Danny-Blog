@@ -104,12 +104,7 @@ export const pageQuery = graphql`
             featureImage {
               childImageSharp {
                 fluid {
-                  base64
-                  tracedSVG
-                  srcWebp
-                  srcSetWebp
-                  originalImg
-                  originalName
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
