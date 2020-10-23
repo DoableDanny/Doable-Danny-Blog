@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 export const WelcomeSection = styled.section`
   background-color: #000;
   padding: 50px;
-  height: 85vh;
+  height: 90vh;
   display: flex;
   align-items: center;
 `
@@ -35,21 +35,49 @@ export const WelcomeTextWrapper = styled.div`
   }
 `
 
-export const ProfileImg = styled(Img)`
-  height: 100%;
-  margin-left: 100px;
-`
-
 // About me section
 export const AboutSection = styled.section`
-  background-color: ${props => props.theme.colors.homeSection};
+  background-color: ${props => props.theme.colors.lightBlue};
   padding: 30px;
+
+  @media only screen and (max-width: 55rem) {
+    padding: 30px 0;
+  }
 `
+export const AboutContainer = styled.div`
+  display: flex;
+
+  @media only screen and (max-width: 55rem) {
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
 export const AboutPWrapper = styled.div`
   margin-top: 60px;
   margin-bottom: 60px;
   width: 60%;
   margin-left: 20px;
+
+  @media only screen and (max-width: 55rem) {
+    margin-left: 0;
+    width: 100%;
+  }
+`
+
+export const ProfileImg = styled(Img)`
+  height: 100%;
+  margin-left: 35px;
+  margin-top: 90px;
+  margin-right: 90px;
+  margin-bottom: 100px;
+
+  @media only screen and (max-width: 75rem) {
+    margin-right: 40px;
+  }
+  @media only screen and (max-width: 55rem) {
+    margin-bottom: 0px;
+  }
 `
 
 // My projects section
@@ -166,7 +194,7 @@ export const TechSpan = styled.span`
 
 // Blog section
 export const BlogSection = styled.section`
-  background-color: ${props => props.theme.colors.homeSection};
+  background-color: ${props => props.theme.colors.lightBlue};
   padding: 30px;
   padding-bottom: 60px;
 `
@@ -284,8 +312,4 @@ export const P = styled.p`
   padding-bottom: 10px;
   line-height: 200% !important;
   min-width: 290px;
-`
-
-export const FlexRow = styled.div`
-  display: flex;
 `

@@ -12,7 +12,7 @@ import {
   H,
   P,
   AboutPWrapper,
-  FlexRow,
+  AboutContainer,
   ProjectsSection,
   ProjectModulesContainer,
   ProjectModuleWrapper,
@@ -96,7 +96,8 @@ export default function Home() {
       </WelcomeSection>
       <AboutSection>
         <H>About me</H>
-        <FlexRow>
+        <AboutContainer>
+          <ProfileImg fixed={data.profileAbout.childImageSharp.fixed} />
           <AboutPWrapper>
             <P>2020 has been a year of religious daily coding!</P>
             <P>
@@ -110,8 +111,7 @@ export default function Home() {
               studying algorithms and data structures in JavaScript.
             </P>
           </AboutPWrapper>
-          <ProfileImg fixed={data.profileAbout.childImageSharp.fixed} />
-        </FlexRow>
+        </AboutContainer>
         <H>Skills</H>
         <SkillsLogos />
       </AboutSection>
