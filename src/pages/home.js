@@ -126,6 +126,8 @@ export default function Home() {
           </ProjectModule>
 
           <ProjectModule
+            link="https://codepen.io/DoableDanny/full/zYrJybR"
+            github="https://github.com/DoableDanny/ReactJS-Calculator"
             image={data.projImg1.childImageSharp.fixed}
             span="Front-end"
             title="Calculator"
@@ -139,6 +141,8 @@ export default function Home() {
           </ProjectModule>
 
           <ProjectModule
+            link="https://exercise-logger-danny.herokuapp.com/"
+            github="https://github.com/DoableDanny/Exercise-Tracker-Express-MongoDB"
             image={data.projImg1.childImageSharp.fixed}
             span="Full-stack"
             title="Exercise Tracker"
