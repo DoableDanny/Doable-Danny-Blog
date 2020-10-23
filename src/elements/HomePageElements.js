@@ -123,7 +123,7 @@ export const ProjectModuleTextWrapper = styled.div`
 
   h2 {
     margin-bottom: 30px;
-    font-size: 1.7rem;
+    font-size: 1.7rem !important;
   }
 
   p {

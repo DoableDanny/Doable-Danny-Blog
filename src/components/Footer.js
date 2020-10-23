@@ -5,6 +5,9 @@ import {
   FooterSocialWrapper,
   FooterSocialIcons,
 } from "../elements/FooterElements"
+import twitter from "../images/svg/twitter-3.svg"
+import github from "../images/svg/github-1.svg"
+import codepen from "../images/svg/codepen-icon.svg"
 
 export default function Footer() {
   const data = useStaticQuery(graphql`
@@ -24,7 +27,21 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            <img src={data.twitter.publicURL} alt="Twitter Logo" />
+            <img src={twitter} alt="Twitter Logo" />
+          </a>
+          <a
+            href="https://github.com/DoableDanny"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={github} alt="Github Logo" />
+          </a>
+          <a
+            href="https://codepen.io/DoableDanny"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={codepen} alt="Codepen Logo" />
           </a>
         </FooterSocialIcons>
         <p>Follow me on Twitter where I post my daily coding creations!</p>

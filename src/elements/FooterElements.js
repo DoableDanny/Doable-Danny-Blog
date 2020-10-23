@@ -29,12 +29,11 @@ export const FooterSocialIcons = styled.div`
   flex: 0 0 100%;
 
   img {
-    height: 35px;
-    padding: 0 1rem;
+    height: 50px;
     transition: filter 0.3s ease;
-    border-radius: 25%;
     margin-top: 10px;
     margin-bottom: 5px;
+    margin-right: 20px;
   }
 
   img:hover,
