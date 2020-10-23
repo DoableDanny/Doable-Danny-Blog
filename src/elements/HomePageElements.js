@@ -56,6 +56,7 @@ export const AboutPWrapper = styled.div`
 export const ProjectsSection = styled.section`
   background-color: #000;
   padding: 30px;
+  padding-bottom: 120px;
 `
 
 export const ProjectModulesContainer = styled.div`
@@ -73,8 +74,22 @@ export const ProjectModuleWrapper = styled.div`
     margin-left: 40px;
   }
 
+  span a {
+    margin-left: 15px;
+  }
+
+  a {
+    color: #dcedf0;
+    transition: 0.3s ease;
+
+    :hover {
+      color: #add5dc;
+    }
+  }
+
   @media only screen and (max-width: 55rem) {
     flex-direction: column;
+    text-align: center;
 
     div:first-child {
       margin-left: 0px;
@@ -107,7 +122,6 @@ export const ProjectModuleTextWrapper = styled.div`
   }
 
   h2 {
-    color: #dcedf0;
     margin-bottom: 30px;
   }
 
@@ -133,6 +147,14 @@ export const ProjectModuleTextWrapper = styled.div`
   }
 `
 
+export const SpanContainer = styled.div`
+  display: flex;
+
+  @media only screen and (max-width: 55rem) {
+    justify-content: center;
+  }
+`
+
 export const TechSpan = styled.span`
   color: #86afb5 !important;
   margin-right: 40px;
@@ -144,6 +166,7 @@ export const TechSpan = styled.span`
 export const BlogSection = styled.section`
   background-color: ${props => props.theme.colors.homeSection};
   padding: 30px;
+  padding-bottom: 60px;
 `
 
 export const BlogModulesWrapper = styled.div`
@@ -205,8 +228,10 @@ export const ContactMeSection = styled.section`
 
     textarea {
       height: 300px;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       margin-bottom: 40px;
+      font-family: helvetica;
+      padding: 10px;
     }
 
     input[type="submit"] {

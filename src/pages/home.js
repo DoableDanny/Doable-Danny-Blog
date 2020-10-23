@@ -17,6 +17,7 @@ import {
   ProjectModulesContainer,
   ProjectModuleWrapper,
   ProjectModuleTextWrapper,
+  SpanContainer,
   TechSpan,
   BlogSection,
   BlogModulesWrapper,
@@ -103,6 +104,8 @@ export default function Home() {
         <H color="light">My Projects</H>
         <ProjectModulesContainer>
           <ProjectModule
+            link="https://play.google.com/store/apps/details?id=com.navalsmeditations"
+            github="https://github.com/DoableDanny/Meditation-App-ReactNative"
             image={data.projImg1.childImageSharp.fixed}
             span="Featured project"
             title="60 Days of Meditation App"
@@ -139,7 +142,7 @@ export default function Home() {
             image={data.projImg1.childImageSharp.fixed}
             span="Full-stack"
             title="Exercise Tracker"
-            technologies={["Node, Express, MongoDB"]}
+            technologies={["Node", "Express", "MongoDB"]}
           >
             <P color="light">
               - Built to pass Freecodecamp's APIs and microservices certificate.
@@ -234,21 +237,40 @@ function BlogModule({ image, title, excerpt }) {
   )
 }
 
-function ProjectModule({ image, span, title, children, technologies }) {
+function ProjectModule({
+  image,
+  span,
+  title,
+  children,
+  technologies,
+  link,
+  github,
+}) {
   return (
     <ProjectModuleWrapper>
       <div>
-        <Img fixed={image} />
+        <a href={link} target="_blank">
+          <Img fixed={image} />
+        </a>
       </div>
       <ProjectModuleTextWrapper>
         <span>{span}</span>
-        <h2>{title}</h2>
+        <h2>
+          <a href={link} target="_blank">
+            {title}
+          </a>
+        </h2>
+        <span>
+          <a href={github} target="_blank">
+            View code
+          </a>
+        </span>
         {children}
-        <FlexRow>
+        <SpanContainer>
           {technologies.map(tech => (
             <TechSpan>{tech}</TechSpan>
           ))}
-        </FlexRow>
+        </SpanContainer>
       </ProjectModuleTextWrapper>
     </ProjectModuleWrapper>
   )
