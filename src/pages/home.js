@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/Layout"
@@ -24,7 +24,7 @@ import {
   BlogModuleContainer,
   ContactMeSection,
 } from "../elements/HomePageElements"
-
+import SkillsLogos from "../components/SkillsLogos"
 import { FormInput, Message } from "../components/FormComponents"
 
 export default function Home() {
@@ -37,7 +37,21 @@ export default function Home() {
           }
         }
       }
-      projImg1: file(relativePath: { eq: "proj1.png" }) {
+      projImg1: file(relativePath: { eq: "med-app.jpg" }) {
+        childImageSharp {
+          fixed(width: 400, height: 280) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      projImg2: file(relativePath: { eq: "calc.PNG" }) {
+        childImageSharp {
+          fixed(width: 400, height: 280) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      projImg3: file(relativePath: { eq: "proj1.png" }) {
         childImageSharp {
           fixed(width: 400, height: 280) {
             ...GatsbyImageSharpFixed
@@ -51,6 +65,7 @@ export default function Home() {
               date(formatString: "DD MMM YYYY")
               title
               excerpt
+              slug
               featureImage {
                 childImageSharp {
                   fixed(width: 300, height: 200) {
@@ -98,6 +113,7 @@ export default function Home() {
           <ProfileImg fixed={data.profileAbout.childImageSharp.fixed} />
         </FlexRow>
         <H>Skills</H>
+        <SkillsLogos />
       </AboutSection>
 
       <ProjectsSection>
@@ -128,7 +144,7 @@ export default function Home() {
           <ProjectModule
             link="https://codepen.io/DoableDanny/full/zYrJybR"
             github="https://github.com/DoableDanny/ReactJS-Calculator"
-            image={data.projImg1.childImageSharp.fixed}
+            image={data.projImg2.childImageSharp.fixed}
             span="Front-end"
             title="Calculator"
             technologies={["ReactJS"]}
@@ -143,7 +159,7 @@ export default function Home() {
           <ProjectModule
             link="https://exercise-logger-danny.herokuapp.com/"
             github="https://github.com/DoableDanny/Exercise-Tracker-Express-MongoDB"
-            image={data.projImg1.childImageSharp.fixed}
+            image={data.projImg3.childImageSharp.fixed}
             span="Full-stack"
             title="Exercise Tracker"
             technologies={["Node", "Express", "MongoDB"]}
@@ -170,6 +186,7 @@ export default function Home() {
             }
             title={data.allMdx.edges[0].node.frontmatter.title}
             excerpt={data.allMdx.edges[0].node.frontmatter.excerpt}
+            slug={data.allMdx.edges[0].node.frontmatter.slug}
           />
           <BlogModule
             image={
@@ -178,6 +195,7 @@ export default function Home() {
             }
             title={data.allMdx.edges[1].node.frontmatter.title}
             excerpt={data.allMdx.edges[1].node.frontmatter.excerpt}
+            slug={data.allMdx.edges[1].node.frontmatter.slug}
           />
           <BlogModule
             image={
@@ -186,6 +204,7 @@ export default function Home() {
             }
             title={data.allMdx.edges[2].node.frontmatter.title}
             excerpt={data.allMdx.edges[2].node.frontmatter.excerpt}
+            slug={data.allMdx.edges[2].node.frontmatter.slug}
           />
         </BlogModulesWrapper>
       </BlogSection>
@@ -231,11 +250,13 @@ function ContactMeForm() {
   )
 }
 
-function BlogModule({ image, title, excerpt }) {
+function BlogModule({ image, title, excerpt, slug }) {
   return (
     <BlogModuleContainer>
-      <Img fixed={image} />
-      <h2>{title}</h2>
+      <Link to={`../${slug}`}>
+        <Img fixed={image} />
+        <h2>{title}</h2>
+      </Link>
       <P>{excerpt}</P>
     </BlogModuleContainer>
   )
@@ -253,19 +274,19 @@ function ProjectModule({
   return (
     <ProjectModuleWrapper>
       <div>
-        <a href={link} target="_blank">
+        <a href={link} target="_blank" rel="noreferrer">
           <Img fixed={image} />
         </a>
       </div>
       <ProjectModuleTextWrapper>
         <span>{span}</span>
         <h2>
-          <a href={link} target="_blank">
+          <a href={link} target="_blank" rel="noreferrer">
             {title}
           </a>
         </h2>
         <span>
-          <a href={github} target="_blank">
+          <a href={github} target="_blank" rel="noreferrer">
             View code
           </a>
         </span>

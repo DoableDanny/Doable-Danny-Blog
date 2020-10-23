@@ -83,7 +83,7 @@ export const ProjectModuleWrapper = styled.div`
     transition: 0.3s ease;
 
     :hover {
-      color: #add5dc;
+      opacity: 0.7;
     }
   }
 
@@ -123,11 +123,13 @@ export const ProjectModuleTextWrapper = styled.div`
 
   h2 {
     margin-bottom: 30px;
+    font-size: 1.7rem;
   }
 
   p {
     color: #d3ecf0;
     line-height: 200%;
+    font-size: 1.2rem !important;
   }
 
   @media only screen and (max-width: 75rem) {
@@ -192,7 +194,20 @@ export const BlogModuleContainer = styled.div`
   margin-top: 40px;
   width: 300px;
   text-align: center;
-  ${"" /* border: 4px solid black; */}
+
+  h2 {
+    line-height: 140%;
+    margin-top: 20px;
+  }
+
+  a {
+    color: inherit;
+    transition: 0.3s ease;
+
+    :hover {
+      opacity: 0.6;
+    }
+  }
 `
 
 // Contact me section
@@ -264,7 +279,7 @@ export const H = styled.h2`
   padding-left: 20px;
 `
 export const P = styled.p`
-  font-size: 2.5rem;
+  font-size: 1.3rem !important;
   color: ${props => (props.color === "light" ? "#C5E2E7" : "#032F35")};
   padding-bottom: 10px;
   line-height: 200% !important;

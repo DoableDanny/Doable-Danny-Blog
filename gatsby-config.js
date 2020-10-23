@@ -124,5 +124,13 @@ module.exports = {
         domains: ["https://fonts.gstatic.com/"],
       },
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: `/skills/`,
+        },
+      },
+    },
   ],
 }
