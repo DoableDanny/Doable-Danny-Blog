@@ -108,18 +108,18 @@ export default function Home() {
             title="60 Days of Meditation App"
             technologies={["React Native", "Firebase"]}
           >
-            <P color="light">
+            <p>
               - A React Native app published to the Google play store with 100s
               of active users.
-            </P>
-            <P color="light">
+            </p>
+            <p>
               - Meditation gamified: complete the current day to unlock the
               next. Bonus meditations for day streaks and stars!
-            </P>
-            <P color="light">
+            </p>
+            <p>
               - Stats such as day streak and average session time saved to local
               storage.
-            </P>
+            </p>
           </ProjectModule>
 
           <ProjectModule
@@ -128,13 +128,11 @@ export default function Home() {
             title="Calculator"
             technologies={["ReactJS"]}
           >
-            <P color="light">
+            <p>
               - Built to pass Freecodecamp's front-end-libraries certificate.
-            </P>
-            <P color="light">
-              - Immediate execution logic e.g. 3 + 5 x 6 - 2 / 4 = 11.5.
-            </P>
-            <P color="light">- Watermelon theme!</P>
+            </p>
+            <p>- Immediate execution logic e.g. 3 + 5 x 6 - 2 / 4 = 11.5.</p>
+            <p>- Watermelon theme!</p>
           </ProjectModule>
 
           <ProjectModule

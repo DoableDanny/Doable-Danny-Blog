@@ -108,7 +108,12 @@ export const ProjectModuleTextWrapper = styled.div`
 
   h2 {
     color: #dcedf0;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+  }
+
+  p {
+    color: #d3ecf0;
+    line-height: 200%;
   }
 
   @media only screen and (max-width: 75rem) {
@@ -132,6 +137,7 @@ export const TechSpan = styled.span`
   color: #86afb5 !important;
   margin-right: 40px;
   margin-left: 15px;
+  margin-top: 20px;
 `
 
 // Blog section
@@ -143,11 +149,15 @@ export const BlogSection = styled.section`
 export const BlogModulesWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
-  margin-top: 100px;
+  margin-top: 80px;
 
   @media only screen and (max-width: 1100px) {
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  @media only screen and (max-width: 700px) {
+    display: grid;
+    grid-template-columns: auto;
   }
 `
 
@@ -155,12 +165,11 @@ export const BlogModuleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 40px;
   width: 300px;
   text-align: center;
-  ${"" /* background-color: blue; */}
-  }
+  ${"" /* border: 4px solid black; */}
 `
 
 // Contact me section
@@ -206,6 +215,13 @@ export const ContactMeSection = styled.section`
       border: none;
       border-radius: 10px;
       padding: 15px;
+      transition: 0.3s ease;
+
+      :hover {
+        cursor: pointer;
+        opacity: 0.8;
+        color: #011515;
+      }
     }
   }
 
