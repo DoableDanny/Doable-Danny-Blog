@@ -5,7 +5,7 @@ export const ContainerWrapper = styled.div`
   min-height: 100vh;
 `
 export const ContentWrapper = styled.div`
-  padding-bottom: 13rem;
+  padding-bottom: 10rem;
   width: 100%;
 
   h1,
