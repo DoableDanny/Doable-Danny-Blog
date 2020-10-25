@@ -124,55 +124,64 @@ export default function Home() {
             link="https://play.google.com/store/apps/details?id=com.navalsmeditations"
             github="https://github.com/DoableDanny/Meditation-App-ReactNative"
             image={data.projImg1.childImageSharp.fixed}
+            alt="meditation app"
             span="Featured project"
             title="60 Days of Meditation App"
             technologies={["React Native", "Firebase"]}
           >
-            <p>
-              - A React Native app published to the Google play store with 100s
-              of active users.
-            </p>
-            <p>
-              - Meditation gamified: complete the current day to unlock the
-              next. Bonus meditations for day streaks and stars!
-            </p>
-            <p>
-              - Stats such as day streak and average session time saved to local
-              storage.
-            </p>
+            <ul>
+              <li>
+                A React Native app published to the Google play store with 100s
+                of active users.
+              </li>
+              <li>
+                Meditation gamified: complete the current day to unlock the
+                next. Bonus meditations for day streaks and stars!
+              </li>
+              <li>
+                Stats such as day streak and average session time saved to local
+                storage.
+              </li>
+            </ul>
           </ProjectModule>
 
           <ProjectModule
             link="https://codepen.io/DoableDanny/full/zYrJybR"
             github="https://github.com/DoableDanny/ReactJS-Calculator"
             image={data.projImg2.childImageSharp.fixed}
+            alt="Calculator"
             span="Front-end"
             title="Calculator"
             technologies={["ReactJS"]}
           >
-            <p>
-              - Built to pass Freecodecamp's front-end-libraries certificate.
-            </p>
-            <p>- Immediate execution logic e.g. 3 + 5 x 6 - 2 / 4 = 11.5.</p>
-            <p>- Watermelon theme!</p>
+            <ul>
+              <li>
+                Built to pass Freecodecamp's front-end-libraries certificate.
+              </li>
+              <li>Immediate execution logic e.g. 3 + 5 x 6 - 2 / 4 = 11.5.</li>
+              <li>Watermelon theme!</li>
+            </ul>
           </ProjectModule>
 
           <ProjectModule
             link="https://exercise-logger-danny.herokuapp.com/"
             github="https://github.com/DoableDanny/Exercise-Tracker-Express-MongoDB"
             image={data.projImg3.childImageSharp.fixed}
+            alt="Exercsie tracker"
             span="Full-stack"
             title="Exercise Tracker"
             technologies={["Node", "Express", "MongoDB"]}
           >
-            <P color="light">
-              - Built to pass Freecodecamp's APIs and microservices certificate.
-            </P>
-            <P color="light">
-              - Users and exercises stored to and accessed from database using
-              mongoose.
-            </P>
-            <P color="light">- Express handles post and get requests.</P>
+            <ul>
+              <li>
+                Built to pass Freecodecamp's APIs and microservices certificate.
+              </li>
+              <li>
+                Users and exercises stored to and accessed from database using
+                mongoose.
+              </li>
+              <li>Express handles post and get requests.</li>
+            </ul>
           </ProjectModule>
         </ProjectModulesContainer>
       </Section>
@@ -265,6 +274,7 @@ function BlogModule({ image, title, excerpt, slug }) {
 
 function ProjectModule({
   image,
+  alt,
   span,
   title,
   children,
@@ -276,7 +286,7 @@ function ProjectModule({
     <ProjectModuleWrapper>
       <div>
         <a href={link} target="_blank" rel="noreferrer">
-          <Img fixed={image} />
+          <Img fixed={image} alt={alt} />
         </a>
       </div>
       <ProjectModuleTextWrapper>

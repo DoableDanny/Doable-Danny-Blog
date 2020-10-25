@@ -90,13 +90,6 @@ export const ProfileImg = styled(Img)`
   }
 `
 
-// // My projects section
-// export const ProjectsSection = styled.section`
-//   background-color: ${props => props.theme.colors.main1};
-//   padding: 30px;
-//   padding-bottom: 120px;
-// `
-
 export const ProjectModulesContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -106,11 +99,11 @@ export const ProjectModulesContainer = styled.div`
 export const ProjectModuleWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 120px;
+  margin-top: 100px;
 
-  div:first-child {
-    margin-left: 40px;
-  }
+  ${"" /* div:first-child {
+    margin-left: 20px;
+  } */}
 
   span a {
     margin-left: 15px;
@@ -150,18 +143,22 @@ export const ProjectModuleTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  ${"" /* background-color: blue; */}
   width: 600px;
   margin-left: 100px;
 
   span:first-child {
     color: ${props => props.theme.colors.lightBlue};
-    margin-left: 15px;
   }
 
   h2 {
     margin-bottom: 30px;
+    margin-left: 0;
     font-size: 1.7rem !important;
+    line-height: 130%;
+  }
+
+  span a {
+    margin-left: 0;
   }
 
   p {
@@ -170,10 +167,20 @@ export const ProjectModuleTextWrapper = styled.div`
     font-size: 1.2rem !important;
   }
 
+  ul {
+    color: #d3ecf0;
+    line-height: 150%;
+    font-size: 1.2rem;
+  }
+
+  ul li {
+    margin-top: 20px;
+  }
+
   @media only screen and (max-width: 75rem) {
     width: 400px;
   }
-  @media only screen and (max-width: 65rem) {
+  @media only screen and (max-width: 60rem) {
     margin-left: 40px;
     width: 350px;
   }
@@ -198,7 +205,6 @@ export const SpanContainer = styled.div`
 export const TechSpan = styled.span`
   color: #86afb5 !important;
   margin-right: 40px;
-  margin-left: 15px;
   margin-top: 20px;
 `
 
