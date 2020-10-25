@@ -231,7 +231,7 @@ export const BlogModuleContainer = styled.div`
 
   h2 {
     line-height: 140%;
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   a {
@@ -242,6 +242,10 @@ export const BlogModuleContainer = styled.div`
       opacity: 0.6;
     }
   }
+
+  ${"" /* p {
+    margin-top: 5px;
+  } */}
 `
 
 // Contact me section
