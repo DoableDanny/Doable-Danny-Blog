@@ -251,6 +251,7 @@ export const ContactMeSection = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 30px;
+  padding-top: 50px;
   padding-bottom: 90px;
 
   h2 {
