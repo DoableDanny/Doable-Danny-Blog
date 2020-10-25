@@ -17,6 +17,7 @@ import {
   ProjectsSection,
   ProjectModulesContainer,
   ProjectModuleWrapper,
+  ProjectModuleImgWrapper,
   ProjectModuleTextWrapper,
   SpanContainer,
   TechSpan,
@@ -284,11 +285,11 @@ function ProjectModule({
 }) {
   return (
     <ProjectModuleWrapper>
-      <div>
+      <ProjectModuleImgWrapper>
         <a href={link} target="_blank" rel="noreferrer">
           <Img fixed={image} alt={alt} />
         </a>
-      </div>
+      </ProjectModuleImgWrapper>
       <ProjectModuleTextWrapper>
         <span>{span}</span>
         <h2>

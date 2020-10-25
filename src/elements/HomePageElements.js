@@ -90,6 +90,7 @@ export const ProfileImg = styled(Img)`
   }
 `
 
+// Project showcase section
 export const ProjectModulesContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -100,14 +101,6 @@ export const ProjectModuleWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-top: 100px;
-
-  ${"" /* div:first-child {
-    margin-left: 20px;
-  } */}
-
-  span a {
-    margin-left: 15px;
-  }
 
   a {
     color: #dcedf0;
@@ -121,18 +114,20 @@ export const ProjectModuleWrapper = styled.div`
   @media only screen and (max-width: 55rem) {
     flex-direction: column;
     text-align: center;
-
-    div:first-child {
-      margin-left: 0px;
-      margin-bottom: 20px;
-    }
   }
+`
 
+export const ProjectModuleImgWrapper = styled.div`
+  margin-bottom: 25px !important;
+
+  @media only screen and (max-width: 55rem) {
+    margin-left: 0px;
+    margin-bottom: 0px;
+  }
   @media only screen and (max-width: 400px) {
-    div:first-child {
-      width: 300px;
-    }
-    div:first-child img {
+    width: 300px;
+
+    img {
       width: 300px !important;
       height: 230px !important;
     }
@@ -155,6 +150,7 @@ export const ProjectModuleTextWrapper = styled.div`
     margin-left: 0;
     font-size: 1.7rem !important;
     line-height: 130%;
+    width: 100%;
   }
 
   span a {
@@ -208,13 +204,7 @@ export const TechSpan = styled.span`
   margin-top: 20px;
 `
 
-// // Blog section
-// export const BlogSection = styled.section`
-//   background-color: ${props => props.theme.colors.main2};
-//   padding: 30px;
-//   padding-bottom: 60px;
-// `
-
+// Blog section
 export const BlogModulesWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
