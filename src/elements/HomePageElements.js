@@ -1,10 +1,15 @@
 import styled from "styled-components"
 import Img from "gatsby-image"
 
+const marginLeft = "70px"
+const marginLeftMobile = "10px"
+const breakPoint1 = "50rem"
+
 // Welcome section
 export const WelcomeSection = styled.section`
-  background-color: #000;
-  padding: 50px;
+  background-color: ${props => props.theme.colors.main1};
+  padding-top: 50px;
+  padding-bottom: 50px;
   height: 90vh;
   display: flex;
   align-items: center;
@@ -13,7 +18,7 @@ export const WelcomeTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 18px;
+  margin-left: ${marginLeft};
 
   span {
     color: ${props => props.theme.colors.lightBlue};
@@ -22,28 +27,32 @@ export const WelcomeTextWrapper = styled.div`
   }
 
   h1 {
-    color: #e3f1f3;
-    font-size: 4rem;
-    line-height: 4rem;
+    color: #cbdee1;
+    font-size: 3.5rem;
+    line-height: 3rem;
     margin: 35px 0;
   }
 
   h2 {
-    color: #cbdee1;
+    color: #e3f1f3;
     margin-left: 3px;
-    font-size: 2rem;
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+
+  @media only screen and (max-width: ${breakPoint1}) {
+    margin-left: ${marginLeftMobile};
+  }
+  @media ${props => props.theme.breakpoints.mobile} {
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 3rem;
+    }
   }
 `
 
-// About me section
-export const AboutSection = styled.section`
-  background-color: ${props => props.theme.colors.lightBlue};
-  padding: 30px;
-
-  @media only screen and (max-width: 55rem) {
-    padding: 30px 0;
-  }
-`
 export const AboutContainer = styled.div`
   display: flex;
 
@@ -62,6 +71,7 @@ export const AboutPWrapper = styled.div`
   @media only screen and (max-width: 55rem) {
     margin-left: 0;
     width: 100%;
+    max-width: 740px;
   }
 `
 
@@ -80,12 +90,12 @@ export const ProfileImg = styled(Img)`
   }
 `
 
-// My projects section
-export const ProjectsSection = styled.section`
-  background-color: #000;
-  padding: 30px;
-  padding-bottom: 120px;
-`
+// // My projects section
+// export const ProjectsSection = styled.section`
+//   background-color: ${props => props.theme.colors.main1};
+//   padding: 30px;
+//   padding-bottom: 120px;
+// `
 
 export const ProjectModulesContainer = styled.div`
   display: flex;
@@ -192,12 +202,12 @@ export const TechSpan = styled.span`
   margin-top: 20px;
 `
 
-// Blog section
-export const BlogSection = styled.section`
-  background-color: ${props => props.theme.colors.lightBlue};
-  padding: 30px;
-  padding-bottom: 60px;
-`
+// // Blog section
+// export const BlogSection = styled.section`
+//   background-color: ${props => props.theme.colors.main2};
+//   padding: 30px;
+//   padding-bottom: 60px;
+// `
 
 export const BlogModulesWrapper = styled.div`
   display: flex;
@@ -240,7 +250,7 @@ export const BlogModuleContainer = styled.div`
 
 // Contact me section
 export const ContactMeSection = styled.section`
-  background-color: black;
+  background-color: ${props => props.theme.colors.main1};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -301,10 +311,23 @@ export const ContactMeSection = styled.section`
 `
 
 // Home page shared styled components
+export const Section = styled.section`
+  background-color: ${props =>
+    props.color === "dark"
+      ? props.theme.colors.main1
+      : props.theme.colors.main2};
+  padding-top: 50px;
+  padding-bottom: 50px;
+`
+
 export const H = styled.h2`
   font-size: 2.3rem;
   color: ${props => (props.color === "light" ? "#E3F1F3" : "#032F35")};
-  padding-left: 20px;
+  margin-left: ${marginLeft} !important;
+
+  @media only screen and (max-width: ${breakPoint1}) {
+    margin-left: ${marginLeftMobile} !important;
+  }
 `
 export const P = styled.p`
   font-size: 1.3rem !important;
@@ -312,4 +335,8 @@ export const P = styled.p`
   padding-bottom: 10px;
   line-height: 200% !important;
   min-width: 290px;
+
+  @media only screen and (max-width: ${breakPoint1}) {
+    font-size: 1.2rem !important;
+  }
 `

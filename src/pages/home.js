@@ -9,6 +9,7 @@ import {
   WelcomeTextWrapper,
   ProfileImg,
   AboutSection,
+  Section,
   H,
   P,
   AboutPWrapper,
@@ -94,7 +95,7 @@ export default function Home() {
           <h2>Full-Stack Web Developer</h2>
         </WelcomeTextWrapper>
       </WelcomeSection>
-      <AboutSection>
+      <Section color="light">
         <H>About me</H>
         <AboutContainer>
           <ProfileImg fixed={data.profileAbout.childImageSharp.fixed} />
@@ -114,9 +115,9 @@ export default function Home() {
         </AboutContainer>
         <H>Skills</H>
         <SkillsLogos />
-      </AboutSection>
+      </Section>
 
-      <ProjectsSection>
+      <Section color="dark">
         <H color="light">My Projects</H>
         <ProjectModulesContainer>
           <ProjectModule
@@ -174,9 +175,9 @@ export default function Home() {
             <P color="light">- Express handles post and get requests.</P>
           </ProjectModule>
         </ProjectModulesContainer>
-      </ProjectsSection>
+      </Section>
 
-      <BlogSection>
+      <Section color="light">
         <H>Latest Blog Posts!</H>
         <BlogModulesWrapper>
           <BlogModule
@@ -207,7 +208,7 @@ export default function Home() {
             slug={data.allMdx.edges[2].node.frontmatter.slug}
           />
         </BlogModulesWrapper>
-      </BlogSection>
+      </Section>
 
       <ContactMeSection>
         <H color="light">Contact Me</H>

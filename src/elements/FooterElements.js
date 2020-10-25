@@ -22,6 +22,7 @@ export const FooterSocialWrapper = styled.div`
     text-align: center;
     flex: 0 0 100%;
     color: ${props => props.theme.colors.lightBlue};
+    font-size: 1.1rem;
   }
 `
 

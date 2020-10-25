@@ -31,7 +31,7 @@ export const HeaderWrapper = styled.div`
   h1 {
     margin-left: 80px;
     font-family: roboto mono;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   @media only screen and (max-width: 380px) {
@@ -83,7 +83,7 @@ export const MobileMenuStyle = styled.div`
   display: none;
 
   @media only screen and (max-width: 650px) {
-    background-color: #333;
+    background-color: #051f59;
     display: flex;
     justify-content: flex-end;
   }

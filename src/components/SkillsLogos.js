@@ -45,8 +45,15 @@ const LogoContainer = styled.div`
     margin: 8px;
 
     :hover {
-      filter: drop-shadow(5px 5px 4px #4444dd);
+      filter: drop-shadow(5px 5px 4px #487ff5);
       cursor: grab;
+    }
+  }
+
+  @media only screen and (max-width: 50rem) {
+    img {
+      width: 70px;
+      height: 70px;
     }
   }
 `
