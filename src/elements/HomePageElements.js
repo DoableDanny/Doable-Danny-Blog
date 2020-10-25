@@ -242,10 +242,6 @@ export const BlogModuleContainer = styled.div`
       opacity: 0.6;
     }
   }
-
-  ${"" /* p {
-    margin-top: 5px;
-  } */}
 `
 
 // Contact me section
@@ -257,8 +253,17 @@ export const ContactMeSection = styled.section`
   padding: 30px;
   padding-bottom: 90px;
 
+  h2 {
+    text-align: center;
+    width: 100%;
+    font-size: 2.3rem;
+    color: #e3f1f3;
+  }
+
   span {
     color: ${props => props.theme.colors.lightBlue};
+    width: 100%;
+    text-align: center;
   }
 
   form {
@@ -274,9 +279,10 @@ export const ContactMeSection = styled.section`
     }
 
     input {
-      padding: 10px;
+      padding: 8px;
       margin-bottom: 30px;
       font-size: 1.2rem;
+      border-radius: 5px;
     }
 
     textarea {
@@ -285,6 +291,7 @@ export const ContactMeSection = styled.section`
       margin-bottom: 40px;
       font-family: helvetica;
       padding: 10px;
+      border-radius: 5px;
     }
 
     input[type="submit"] {

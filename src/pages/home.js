@@ -221,7 +221,7 @@ export default function Home() {
       </Section>
 
       <ContactMeSection>
-        <H color="light">Contact Me</H>
+        <h2 color="light">Contact Me</h2>
         <span>Get in touch!</span>
         <ContactMeForm />
       </ContactMeSection>
