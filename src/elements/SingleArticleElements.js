@@ -18,6 +18,9 @@ export const ArticleContainer = styled.article`
   ul {
     list-style-position: inside;
   }
+  ol {
+    list-style-position: inside;
+  }
 
   p,
   li {
