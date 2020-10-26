@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const AboutPageContainer = styled.div`
   display: flex;
   flex-direction: row;
+  margin-top: 24px;
 
   @media only screen and (max-width: 58rem) {
     flex-direction: column;

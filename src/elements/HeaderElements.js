@@ -5,8 +5,9 @@ export const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
   z-index: 100;
+  right: 0;
+  left: 0;
   background-color: ${props => props.theme.colors.main1};
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -82,6 +83,12 @@ export const NavLink = styled(GatsbyLink)`
 
 export const MobileMenuStyle = styled.div`
   display: none;
+  position: fixed;
+  top: 53px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding-top: 5px;
 
   @media only screen and (max-width: 650px) {
     background-color: #051f59;

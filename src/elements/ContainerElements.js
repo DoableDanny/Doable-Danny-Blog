@@ -3,10 +3,11 @@ import styled from "styled-components"
 export const ContainerWrapper = styled.div`
   position: relative;
   min-height: 100vh;
+  overflow-x: hidden;
 `
 export const ContentWrapper = styled.div`
   padding-bottom: 10rem;
-  padding-top: 4rem;
+  padding-top: 3rem;
   width: 100%;
 
   h1,

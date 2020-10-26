@@ -10,7 +10,7 @@ export const WelcomeSection = styled.section`
   background-color: ${props => props.theme.colors.main1};
   padding-top: 50px;
   padding-bottom: 50px;
-  height: 90vh;
+  height: 95vh;
   display: flex;
   align-items: center;
 `

@@ -6,7 +6,7 @@ export const FeaturedPostWrapper = styled.div`
   padding-bottom: 10px;
   box-shadow: ${props => props.theme.shadows.shadow1};
   background-color: ${props => props.theme.colors.main1};
-  margin: 40px auto 20px auto;
+  margin: 80px auto 20px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
