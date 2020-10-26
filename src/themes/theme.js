@@ -10,7 +10,6 @@ export default {
     lightBlue2: "#00D4D4",
     postParagraph: "#fff",
     postDate: "rgba(255, 255, 255, 0.8)",
-    main2: "hsl(207,70%,94%)",
     dark1: "hsl(227,2%,12%)",
     dark2: "hsl(227,2%,26%)",
     dark3: "hsl(227,2%,64%)",

@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import {
   FooterWrapper,
   FooterSocialWrapper,
@@ -10,14 +9,6 @@ import github from "../images/svg/github-1.svg"
 import codepen from "../images/svg/codepen-icon.svg"
 
 export default function Footer() {
-  const data = useStaticQuery(graphql`
-    query {
-      twitter: file(relativePath: { eq: "twitter.png" }) {
-        publicURL
-      }
-    }
-  `)
-
   return (
     <FooterWrapper>
       <FooterSocialWrapper>

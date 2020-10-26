@@ -17,18 +17,18 @@ import styled from "styled-components"
 export default function SkillsLogos() {
   return (
     <LogoContainer>
-      <img src={html} />
-      <img src={css} />
-      <img src={js} />
-      <img src={sass} />
-      <img src={mongodb} />
-      <img src={express} />
-      <img src={react} />
-      <img src={node} />
-      <img src={redux} />
-      <img src={gatsby} />
-      <img src={python} />
-      <img src={firebase} />
+      <img src={html} alt="html logo" />
+      <img src={css} alt="css logo" />
+      <img src={js} alt="js logos" />
+      <img src={sass} alt="sass logo" />
+      <img src={mongodb} alt="mongodb logo" />
+      <img src={express} alt="expressJS logo" />
+      <img src={react} alt="reactJS logo" />
+      <img src={node} alt="nodeJS logo" />
+      <img src={redux} alt="redux logo" />
+      <img src={gatsby} alt="gatsby logo" />
+      <img src={python} alt="python logo" />
+      <img src={firebase} alt="firebase logo" />
     </LogoContainer>
   )
 }

@@ -52,22 +52,24 @@ export default function EmailSubscribeForm({ page }) {
       >
         Subscribe to be notified of new blog posts!
       </h2>
-      <label>
+      <label htmlFor="name">
         Name (optional):
         <UserInput
           name="name"
           type="text"
+          id="name"
           value={userDetails.name}
           onChange={handleChange}
           placeholder="Enter your name here... "
         />
       </label>
 
-      <label>
+      <label htmlFor="email">
         Email:
         <UserInput
           name="email"
           type="email"
+          id="email"
           value={userDetails.email}
           onChange={handleChange}
           placeholder="Enter your email..."
