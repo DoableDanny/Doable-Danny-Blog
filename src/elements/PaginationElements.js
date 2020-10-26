@@ -36,6 +36,10 @@ export const PaginationWrapper = styled.div`
     text-decoration: underline;
   }
 
+  @media ${props => props.theme.breakpoints.mobile} {
+    margin-bottom: 20px;
+  }
+
   @media only screen and (max-width: 400px) {
     a:nth-child(4),
     span {
