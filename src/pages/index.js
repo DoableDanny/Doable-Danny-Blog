@@ -236,6 +236,7 @@ function ContactMeForm() {
       name="contact"
       method="POST"
       data-netlify="true"
+      action="/"
     >
       <FormInput
         title="Name:"
