@@ -229,15 +229,32 @@ function ContactMeForm() {
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
 
+  const handleSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodeURI({ "form-name": "contact", name, email, message }),
+    })
+      .then(() => alert("Thank you, I will reply shortly!"))
+      .catch(error => alert(error))
+
+    e.preventDefault()
+  }
+
   return (
     <form
       // action="mailto:doabledanny@gmail.com"
       // enctype="text/plain"
+      // enctype="multipart/form-data"
+      // action="/index/"
       name="contact"
-      method="POST"
+      method="post"
       data-netlify="true"
-      action="/"
+      data-netlify-honeypot="bot-field"
+      onSubmit={e => handleSubmit(e)}
     >
+      {/* Input needed for netlify forms */}
+      <input type="hidden" name="form-name" value="contact" />
       <FormInput
         title="Name:"
         id="name"
