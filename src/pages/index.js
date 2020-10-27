@@ -232,10 +232,10 @@ function ContactMeForm() {
   return (
     <form
       // action="mailto:doabledanny@gmail.com"
-      method="POST"
-      enctype="text/plain"
+      // enctype="text/plain"
       name="contact"
-      netlify
+      method="POST"
+      data-netlify="true"
     >
       <FormInput
         title="Name:"
