@@ -231,9 +231,11 @@ function ContactMeForm() {
 
   return (
     <form
-      action="mailto:doabledanny@gmail.com"
-      method="post"
+      // action="mailto:doabledanny@gmail.com"
+      method="POST"
       enctype="text/plain"
+      name="contact"
+      netlify
     >
       <FormInput
         title="Name:"
