@@ -43,7 +43,7 @@ export default function Home() {
           }
         }
       }
-      projImg2: file(relativePath: { eq: "calc.PNG" }) {
+      projImg2: file(relativePath: { eq: "blog.PNG" }) {
         childImageSharp {
           fixed(width: 400, height: 280) {
             ...GatsbyImageSharpFixed
@@ -144,20 +144,18 @@ export default function Home() {
           </ProjectModule>
 
           <ProjectModule
-            link="https://codepen.io/DoableDanny/full/zYrJybR"
-            github="https://github.com/DoableDanny/ReactJS-Calculator"
+            link="https://www.doabledanny.com/blog/"
+            github="https://github.com/DoableDanny/Doable-Danny-Blog"
             image={data.projImg2.childImageSharp.fixed}
             alt="Calculator"
             span="Front-end"
-            title="Calculator"
-            technologies={["ReactJS"]}
+            title="Personal Blog"
+            technologies={["Gatsby", "ReactJS", "GraphQL"]}
           >
             <ul>
-              <li>
-                Built to pass Freecodecamp's front-end-libraries certificate.
-              </li>
-              <li>Immediate execution logic e.g. 3 + 5 x 6 - 2 / 4 = 11.5.</li>
-              <li>Watermelon theme!</li>
+              <li>New page created programatically for every nth blog post.</li>
+              <li>Images and article metadata pulled in with GraphQL.</li>
+              <li>Includes comments section and email subscribe form.</li>
             </ul>
           </ProjectModule>
 
