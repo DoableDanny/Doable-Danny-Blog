@@ -43,7 +43,14 @@ export default function AllPosts({ pageContext, data }) {
       {currentPage === 1 ? <FeaturePost /> : null}
       {currentPage === 1 ? <EmailSubscribeForm page={currentPage} /> : null}
       {currentPage === 1 ? (
-        <h3 style={{ textAlign: "center", marginTop: 62, fontSize: 22 }}>
+        <h3
+          style={{
+            textAlign: "center",
+            marginTop: 80,
+            marginBottom: 0,
+            fontSize: 22,
+          }}
+        >
           Recent Posts
         </h3>
       ) : null}
