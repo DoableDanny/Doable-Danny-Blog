@@ -17,8 +17,8 @@ export default function AllPosts({ pageContext, data }) {
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
-  const prevPage = currentPage - 1 === 1 ? "/" : `/${currentPage - 1}`
-  const nextPage = `/${currentPage + 1}`
+  const prevPage = currentPage - 1 === 1 ? "/blog/" : `/blog/${currentPage - 1}`
+  const nextPage = `/blog/${currentPage + 1}`
 
   // Back ten pages
   const isPastTen = currentPage > 10
@@ -26,9 +26,9 @@ export default function AllPosts({ pageContext, data }) {
   if (currentPage <= 10) {
     minusTen = false
   } else if (currentPage === 11) {
-    minusTen = `/`
+    minusTen = `/blog/`
   } else {
-    minusTen = `${currentPage - 10}`
+    minusTen = `/blog/${currentPage - 10}`
   }
 
   // Forward ten pages
