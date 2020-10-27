@@ -84,7 +84,7 @@ export default function Home() {
   )
 
   return (
-    <Layout>
+    <Layout thisPage={"home"}>
       <Seo title={"Doable Danny | Home"} />
       <WelcomeSection>
         <WelcomeTextWrapper>

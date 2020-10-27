@@ -38,7 +38,7 @@ export default function AllPosts({ pageContext, data }) {
   const posts = data.allMdx.edges
 
   return (
-    <Layout thisPage={"home"}>
+    <Layout thisPage={"blog"}>
       <Seo title={`Doable Danny | Blog`} />
       {currentPage === 1 ? <FeaturePost /> : null}
       {currentPage === 1 ? <EmailSubscribeForm page={currentPage} /> : null}

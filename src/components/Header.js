@@ -40,8 +40,8 @@ const Nav = ({ thisPage }) => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/about/" thisPage={thisPage === `about` ? true : false}>
-          About
+        <NavLink to="/blog/" thisPage={thisPage === `blog` ? true : false}>
+          Blog
         </NavLink>
       </li>
       <li>
@@ -61,8 +61,8 @@ const MobileMenu = ({ thisPage }) => {
       <MobileLink to="/" thisPage={thisPage === `home` ? true : false}>
         Home
       </MobileLink>
-      <MobileLink to="/about/" thisPage={thisPage === `about` ? true : false}>
-        About
+      <MobileLink to="/blog/" thisPage={thisPage === `blog` ? true : false}>
+        Blog
       </MobileLink>
       <MobileLink to="/links/" thisPage={thisPage === `links` ? true : false}>
         Links
