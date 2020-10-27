@@ -291,7 +291,7 @@ export const ContactMeSection = styled.section`
     }
 
     textarea {
-      height: 300px;
+      height: 250px;
       font-size: 1.2rem;
       margin-bottom: 40px;
       font-family: helvetica;
