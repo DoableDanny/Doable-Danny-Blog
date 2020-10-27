@@ -330,6 +330,7 @@ export const Section = styled.section`
 
 export const H = styled.h2`
   font-size: 2.3rem;
+  line-height: 2.3rem !important;
   color: ${props => (props.color === "light" ? "#E3F1F3" : "#032F35")};
   margin-left: ${marginLeft} !important;
 

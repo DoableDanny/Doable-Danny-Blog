@@ -4,6 +4,7 @@ export const ContainerWrapper = styled.div`
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
+  width: 100%;
 `
 export const ContentWrapper = styled.div`
   padding-bottom: 10rem;

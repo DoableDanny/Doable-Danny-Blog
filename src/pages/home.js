@@ -232,7 +232,11 @@ function ContactMeForm() {
   const [message, setMessage] = useState("")
 
   return (
-    <form>
+    <form
+      action="mailto:doabledanny@gmail.com"
+      method="post"
+      enctype="text/plain"
+    >
       <FormInput
         title="Name:"
         id="name"

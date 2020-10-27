@@ -5,8 +5,9 @@ export const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
   z-index: 100;
-  right: 0;
-  left: 0;
+  ${"" /* right: 0;
+  left: 0; */}
+  width: 100%;
   background-color: ${props => props.theme.colors.main1};
   display: flex;
   justify-content: space-between;
