@@ -43,9 +43,13 @@ export const WelcomeTextWrapper = styled.div`
   @media only screen and (max-width: ${breakPoint1}) {
     margin-left: ${marginLeftMobile};
   }
-  @media ${props => props.theme.breakpoints.mobile} {
+  @media only screen and (max-width: 450px) {
+    span {
+      font-size: 1rem;
+    }
     h1 {
       font-size: 2.5rem;
+      margin-bottom: 10px;
     }
     h2 {
       font-size: 3rem;

@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const ArticleContainer = styled.article`
   width: 650px;
   margin: 20px auto;
+  margin-top: 60px;
   box-shadow: ${props => props.theme.shadows.shadow1};
 
   h2,

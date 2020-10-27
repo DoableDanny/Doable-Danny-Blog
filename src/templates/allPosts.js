@@ -58,7 +58,7 @@ export default function AllPosts({ pageContext, data }) {
         <PostCardsContainer>
           {posts.map((post, i) => (
             <Link
-              to={`../${post.node.frontmatter.slug}`}
+              to={`../../${post.node.frontmatter.slug}`}
               style={{
                 textDecoration: "none",
                 color: "inherit",

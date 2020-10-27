@@ -18,7 +18,7 @@ export default function BlogPost({ data }) {
   const seoImage = data.mdx.frontmatter.featureImage.publicURL
 
   return (
-    <Layout>
+    <Layout thisPage={"blog"}>
       <Seo
         title={data.mdx.frontmatter.title}
         image={seoImage}
