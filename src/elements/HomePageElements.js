@@ -133,7 +133,7 @@ export const ProjectModuleImgWrapper = styled.div`
 
     img {
       width: 300px !important;
-      height: 230px !important;
+      height: 240px !important;
     }
   }
 `
@@ -150,7 +150,7 @@ export const ProjectModuleTextWrapper = styled.div`
   }
 
   h2 {
-    margin-bottom: 30px;
+    margin-bottom: 22px;
     margin-left: 0;
     font-size: 1.7rem !important;
     line-height: 130%;
@@ -161,15 +161,9 @@ export const ProjectModuleTextWrapper = styled.div`
     margin-left: 0;
   }
 
-  p {
-    color: #d3ecf0;
-    line-height: 200%;
-    font-size: 1.2rem !important;
-  }
-
   ul {
     color: #d3ecf0;
-    line-height: 150%;
+    line-height: 180%;
     font-size: 1.2rem;
   }
 
@@ -191,6 +185,12 @@ export const ProjectModuleTextWrapper = styled.div`
   }
   @media only screen and (max-width: 400px) {
     width: 300px;
+    ul {
+      font-size: 1.1rem !important;
+    }
+  }
+  @media only screen and (max-width: 340px) {
+    width: 265px;
   }
 `
 
@@ -212,7 +212,7 @@ export const TechSpan = styled.span`
 export const BlogModulesWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
-  margin-top: 80px;
+  margin-top: 70px;
 
   @media only screen and (max-width: 1100px) {
     display: grid;
