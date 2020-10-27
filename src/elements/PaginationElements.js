@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 
 export const PaginationWrapper = styled.div`
   padding: 3rem 0;
+  margin-top: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +37,7 @@ export const PaginationWrapper = styled.div`
     text-decoration: underline;
   }
 
-  @media ${props => props.theme.breakpoints.mobile} {
+  @media only screen and (max-width: 575px) {
     margin-bottom: 20px;
   }
 
