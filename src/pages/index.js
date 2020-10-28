@@ -38,22 +38,22 @@ export default function Home() {
       }
       projImg1: file(relativePath: { eq: "med-app.jpg" }) {
         childImageSharp {
-          fixed(width: 400, height: 280) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 400, maxHeight: 280) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
       projImg2: file(relativePath: { eq: "blog.PNG" }) {
         childImageSharp {
-          fixed(width: 400, height: 280) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 400, maxHeight: 280) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
       projImg3: file(relativePath: { eq: "proj1.png" }) {
         childImageSharp {
-          fixed(width: 400, height: 280) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 400, maxHeight: 280) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -78,10 +78,6 @@ export default function Home() {
       }
     }
   `)
-
-  console.log(
-    data.allMdx.edges[0].node.frontmatter.featureImage.childImageSharp.fixed
-  )
 
   return (
     <Layout thisPage={"home"}>
@@ -121,7 +117,7 @@ export default function Home() {
           <ProjectModule
             link="https://play.google.com/store/apps/details?id=com.navalsmeditations"
             github="https://github.com/DoableDanny/Meditation-App-ReactNative"
-            image={data.projImg1.childImageSharp.fixed}
+            image={data.projImg1.childImageSharp.fluid}
             alt="meditation app"
             span="Featured project"
             title="60 Days of Meditation App"
@@ -146,7 +142,7 @@ export default function Home() {
           <ProjectModule
             link="https://www.doabledanny.com/blog/"
             github="https://github.com/DoableDanny/Doable-Danny-Blog"
-            image={data.projImg2.childImageSharp.fixed}
+            image={data.projImg2.childImageSharp.fluid}
             alt="Calculator"
             span="Front-end"
             title="Personal Blog"
@@ -162,7 +158,7 @@ export default function Home() {
           <ProjectModule
             link="https://exercise-logger-danny.herokuapp.com/"
             github="https://github.com/DoableDanny/Exercise-Tracker-Express-MongoDB"
-            image={data.projImg3.childImageSharp.fixed}
+            image={data.projImg3.childImageSharp.fluid}
             alt="Exercsie tracker"
             span="Full-stack"
             title="Exercise Tracker"
@@ -193,6 +189,7 @@ export default function Home() {
             title={data.allMdx.edges[0].node.frontmatter.title}
             excerpt={data.allMdx.edges[0].node.frontmatter.excerpt}
             slug={data.allMdx.edges[0].node.frontmatter.slug}
+            date={data.allMdx.edges[0].node.frontmatter.date}
           />
           <BlogModule
             image={
@@ -202,6 +199,7 @@ export default function Home() {
             title={data.allMdx.edges[1].node.frontmatter.title}
             excerpt={data.allMdx.edges[1].node.frontmatter.excerpt}
             slug={data.allMdx.edges[1].node.frontmatter.slug}
+            date={data.allMdx.edges[1].node.frontmatter.date}
           />
           <BlogModule
             image={
@@ -211,6 +209,7 @@ export default function Home() {
             title={data.allMdx.edges[2].node.frontmatter.title}
             excerpt={data.allMdx.edges[2].node.frontmatter.excerpt}
             slug={data.allMdx.edges[2].node.frontmatter.slug}
+            date={data.allMdx.edges[2].node.frontmatter.date}
           />
         </BlogModulesWrapper>
       </Section>
@@ -229,29 +228,13 @@ function ContactMeForm() {
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
 
-  // const handleSubmit = e => {
-  //   fetch("/", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //     body: encodeURI({ "form-name": "contact", name, email, message }),
-  //   })
-  //     // .then(() => alert("Thank you, I will reply shortly!"))
-  //     .catch(error => alert(error))
-
-  //   e.preventDefault()
-  // }
-
   return (
     <form
-      // action="mailto:doabledanny@gmail.com"
-      // enctype="text/plain"
-      // enctype="multipart/form-data"
       action="/success"
       name="contact"
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      // onSubmit={e => handleSubmit(e)}
     >
       {/* Input needed for netlify forms */}
       <input type="hidden" name="form-name" value="contact" />
@@ -280,7 +263,7 @@ function ContactMeForm() {
   )
 }
 
-function BlogModule({ image, title, excerpt, slug }) {
+function BlogModule({ image, title, excerpt, slug, date }) {
   return (
     <BlogModuleContainer>
       <Link to={`../${slug}`}>
@@ -288,6 +271,7 @@ function BlogModule({ image, title, excerpt, slug }) {
         <h2>{title}</h2>
       </Link>
       <P>{excerpt}</P>
+      <span>- {date}</span>
     </BlogModuleContainer>
   )
 }
@@ -306,7 +290,7 @@ function ProjectModule({
     <ProjectModuleWrapper>
       <ProjectModuleImgWrapper>
         <a href={link} target="_blank" rel="noreferrer">
-          <Img fixed={image} alt={alt} />
+          <Img fluid={image} alt={alt} />
         </a>
       </ProjectModuleImgWrapper>
       <ProjectModuleTextWrapper>

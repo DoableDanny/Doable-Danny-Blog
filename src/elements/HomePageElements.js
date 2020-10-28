@@ -123,6 +123,8 @@ export const ProjectModuleWrapper = styled.div`
 
 export const ProjectModuleImgWrapper = styled.div`
   margin-bottom: 25px !important;
+  background-color: pink;
+  width: 400px;
 
   @media only screen and (max-width: 55rem) {
     margin-left: 0px;
@@ -130,11 +132,6 @@ export const ProjectModuleImgWrapper = styled.div`
   }
   @media only screen and (max-width: 400px) {
     width: 300px;
-
-    img {
-      width: 300px !important;
-      height: 240px !important;
-    }
   }
 `
 
@@ -232,10 +229,21 @@ export const BlogModuleContainer = styled.div`
   margin-top: 40px;
   width: 300px;
   text-align: center;
+  margin-bottom: 20px;
 
   h2 {
     line-height: 140%;
     margin-top: 30px;
+    color: #041740;
+  }
+
+  span {
+    text-align: right !important;
+    color: #0a3aa1;
+  }
+
+  p {
+    margin-bottom: 0px;
   }
 
   a {
@@ -335,7 +343,7 @@ export const Section = styled.section`
 export const H = styled.h2`
   font-size: 2.3rem;
   line-height: 2.3rem !important;
-  color: ${props => (props.color === "light" ? "#E3F1F3" : "#032F35")};
+  color: ${props => (props.color === "light" ? "#E3F1F3" : "#041740")};
   margin-left: ${marginLeft} !important;
 
   @media only screen and (max-width: ${breakPoint1}) {
@@ -344,7 +352,7 @@ export const H = styled.h2`
 `
 export const P = styled.p`
   font-size: 1.3rem !important;
-  color: ${props => (props.color === "light" ? "#C5E2E7" : "#032F35")};
+  color: ${props => (props.color === "light" ? "#C5E2E7" : "#041740")};
   padding-bottom: 10px;
   line-height: 200% !important;
   min-width: 290px;
