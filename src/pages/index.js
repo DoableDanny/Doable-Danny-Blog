@@ -11,6 +11,7 @@ import {
   Section,
   H,
   P,
+  BtnPrimary,
   AboutPWrapper,
   AboutContainer,
   ProjectModulesContainer,
@@ -258,7 +259,7 @@ function ContactMeForm() {
         onChange={event => setMessage(event.currentTarget.value)}
         value={message}
       />
-      <input type="submit" />
+      <BtnPrimary type="submit">Send</BtnPrimary>
     </form>
   )
 }

@@ -38,6 +38,7 @@ export const WelcomeTextWrapper = styled.div`
     margin-left: 3px;
     font-size: 4rem;
     line-height: 4rem;
+    margin-bottom: 45px;
   }
 
   @media only screen and (max-width: ${breakPoint1}) {
@@ -306,21 +307,6 @@ export const ContactMeSection = styled.section`
       padding: 10px;
       border-radius: 5px;
     }
-
-    input[type="submit"] {
-      background-color: ${props => props.theme.colors.lightBlue};
-      outline: none;
-      border: none;
-      border-radius: 10px;
-      padding: 15px;
-      transition: 0.3s ease;
-
-      :hover {
-        cursor: pointer;
-        opacity: 0.8;
-        color: #011515;
-      }
-    }
   }
 
   @media only screen and (max-width: 650px) {
@@ -360,4 +346,19 @@ export const P = styled.p`
   @media only screen and (max-width: ${breakPoint1}) {
     font-size: 1.2rem !important;
   }
+`
+
+export const BtnPrimary = styled.button`
+   background-color: ${props => props.theme.colors.lightBlue};
+      outline: none;
+      border: none;
+      border-radius: 10px;
+      padding: 15px 25px;
+      transition: 0.3s ease;
+      font-size: 1.2rem;
+
+      :hover {
+        cursor: pointer;
+        opacity: 0.8;
+        color: #011515;
 `
