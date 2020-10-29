@@ -236,10 +236,12 @@ function ContactMeForm() {
       method="post"
       // data-netlify="true"
       // data-netlify-honeypot="bot-field"
-      action="https://formsubmit.co/doabledanny@gmail.com"
+      action="https://formsubmit.co/47b18bd77788e64e48bcc3e00ef9332a"
     >
       {/* Input needed for netlify forms */}
       {/* <input type="hidden" name="form-name" value="contact" /> */}
+      <input type="hidden" name="_next" value="/success" />
+
       <FormInput
         title="Name:"
         id="name"
