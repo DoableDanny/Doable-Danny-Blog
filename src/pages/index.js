@@ -240,7 +240,11 @@ function ContactMeForm() {
     >
       {/* Input needed for netlify forms */}
       {/* <input type="hidden" name="form-name" value="contact" /> */}
-      <input type="hidden" name="_next" value="/success" />
+      <input
+        type="hidden"
+        name="_next"
+        value="https://www.doabledanny.com/success/"
+      />
 
       <FormInput
         title="Name:"
