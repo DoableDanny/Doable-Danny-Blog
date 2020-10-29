@@ -239,8 +239,7 @@ export const BlogModuleContainer = styled.div`
   }
 
   span {
-    text-align: right !important;
-    color: #0a3aa1;
+    color: rgba(0, 0, 0, 0.7);
   }
 
   p {
