@@ -16,6 +16,16 @@ export const ArticleContainer = styled.article`
     padding-top: 56px;
   }
 
+  h2 {
+    font-size: 2.1rem;
+    line-height: 2.1rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+
   ul {
     list-style-position: inside;
   }
