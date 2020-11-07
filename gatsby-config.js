@@ -12,7 +12,7 @@ module.exports = {
     description:
       "A collection of my thoughts and writings on topics such as web development, programming, and meditation.",
     url: "https://www.doabledanny.com/",
-    image: "/icon.jpg",
+    image: "icon.jpg",
     twitterUsername: "@doabledanny",
     social: [
       {
