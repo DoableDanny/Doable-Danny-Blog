@@ -15,7 +15,18 @@ import { Seo } from "../components/Seo"
 export default function BlogPost({ data }) {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fluid
 
-  const seoImage = data.mdx.frontmatter.featureImage.publicURL
+  // Getting SEO Image
+  const imgSrc =
+    data.mdx.frontmatter.featureImage &&
+    data.mdx.frontmatter.featureImage.childImageSharp.fluid.src
+
+  let origin = ""
+  if (typeof window !== "undefined") {
+    origin = window.location.origin
+  }
+
+  const seoImage = origin + imgSrc
+  // end of getting SEO img
 
   return (
     <Layout thisPage={"blog"}>
