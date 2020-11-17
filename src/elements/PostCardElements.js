@@ -30,7 +30,7 @@ export const PostCardContent = styled.div`
 
   h2 {
     text-align: center;
-    color: ${props => props.theme.colors.lightBlue};
+    color: #99ffff;
   }
 
   p {
