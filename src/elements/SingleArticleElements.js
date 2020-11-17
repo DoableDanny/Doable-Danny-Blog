@@ -52,6 +52,22 @@ export const ArticleContainer = styled.article`
     color: #008989;
   }
 
+  pre {
+    max-width: 100%;
+    overflow: auto;
+    background: #ddd;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  code {
+    max-width: 100%;
+    background: #ddd;
+    word-wrap: break-word;
+    font-size: 20px;
+    line-height: 145%;
+  }
+
   @media ${props => props.theme.breakpoints.mobile} {
     width: 90%;
 
@@ -64,8 +80,6 @@ export const ArticleContainer = styled.article`
 `
 
 export const TitleAndDate = styled.div`
-  // background-color: pink;
-
   margin-top: 32px;
   margin-bottom: 40px;
 

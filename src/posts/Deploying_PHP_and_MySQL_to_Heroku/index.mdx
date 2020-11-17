@@ -1,0 +1,282 @@
+---
+title: How to Deploy a PHP and MySQL site to Heroku and configure the database with PHPMyAdmin
+slug: Deploy-PHP-And-MySQL-to-Heroku
+date: 2020-11-20
+featureImage: feature.JPG
+images:
+  [
+    2.png,
+    3.png,
+    4.png,
+    5.png,
+    6.png,
+    7a.png,
+    7b.png,
+    8a.png,
+    8b.png,
+    8c.png,
+    8d.png,
+    9a.png,
+    9b.png,
+    10.png,
+    12a.png,
+    12b.png,
+    12c.png,
+    12d.png,
+    12e.png,
+  ]
+excerpt: "This is just a placeholder... I'm still tweeking my blog, I hope you don't mind!"
+featuredPost: false
+keywords:
+  [
+    "code",
+    "programming",
+    "web dev",
+    "computer programming",
+    "Deploy",
+    "Heroku",
+    "PHP",
+    "MySQL",
+    "XAMPP",
+    "PHPMyAdmin",
+  ]
+---
+
+## Intro
+
+Heroku offers a generous free tier for hosting up to five full-stack projects. But documentation for getting a PHP with MySQL site up and running with Heroku is poor - it took me way to much Googling. Yet the process isn't difficult, so I created this blog post to help others and myself in future deployments.
+
+## 1. Create an account on Heroku and download Heroku CLI tools
+
+Sign up to Heroku [here](https://id.heroku.com/login).
+
+Then download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) tools to allow you to write Heroku commands from your command line.
+
+## 2. Open up your project folder in CLI
+
+I’m using VS code’s integrated terminal and like to store my files in /c/xampp/htdocs/project-name but you can choose whatever you prefer.
+
+<img
+  src={props.images[0].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+## 3. Login to Heroku from the terminal
+
+We next issue the command “heroku login”, then press any key. A login page will be opened in the browser where you can login.
+
+<img
+  src={props.images[1].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+## 4. Create an initial PHP file
+
+We will deploy this test file.
+
+<img
+  src={props.images[2].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+## 5. Create a composer.json file
+
+Every PHP project is required to have one when deploying to Heroku.
+
+<img
+  src={props.images[3].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+## 6. Initialise a git repository, add everything then commit
+
+1. `git init`
+2. `git add .`
+3. `git commit -m "Added index file and composer.json"`
+
+<img
+  src={props.images[4].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Now for the Heroku stuff!
+
+## 7. Create an Heroku project
+
+This can easily be done through the command line but I prefer to use the Heroku website.
+
+Login to Heroku and go to your apps [dashboard](https://dashboard.heroku.com/apps).
+
+Then click “create new app”.
+
+<img
+  src={props.images[5].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Choose any available app name you want, choose your region, then click create app.
+
+<img
+  src={props.images[6].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+## 8. Push the app to Heroku
+
+Tell git the remote Heroku repository we want to push to:
+
+`heroku git:remote -a dannys-tutorial-app`
+
+Replace “dannys-tutorial-app” with your app name from the previous step.
+
+<img
+  src={props.images[7].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Then deploy to Heroku! Make sure to state the correct branch, here I am using the main branch:
+
+`git push heroku main`
+
+<img
+  src={props.images[8].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Heroku will then provide you with the URL to your app.
+
+<img
+  src={props.images[9].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+And here we have it, our app has been deployed!
+
+<img
+  src={props.images[10].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+## 9. Now to add a MySQL database
+
+During development of your app, your app wouldv’e been connected to a local database on your machine which Heroku has no access to. So we need to set up a new MySQL database within Heroku. To do this we need to add the “ClearDB” add-on to our app.
+
+Go to your app dashboard (https://dashboard.heroku.com/apps) and select your app.
+
+Click Resources then add the ClearDB Add-on:
+
+<img
+  src={props.images[11].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Be sure to select the free option then submit the order. You will probably be prompted to add your credit card details. Unfortunately this is required in order to add add-ons such as this to your project. But as long as you select the free option, Heroku won’t charge you.
+
+<img
+  src={props.images[12].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+## 10. Get your database URL
+
+Got to “settings” then scroll down to “config vars”. Copy your database URL into a text editor or word document for later use.
+
+<img
+  src={props.images[13].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Here’s mine: `mysql://b0cc1049d026d1:da2394e8@eu-cdbr-west-03.cleardb.net/heroku_3b61f10a737bcca?reconnect=true`
+
+The URL contains the information you need to connect to your new Heroku MySQL database via PHPMyAdmin:
+
+Username: b0cc1049d026d1
+
+Password: da2394e8
+
+Host: eu-cdbr-west-03.cleardb.net
+
+## 11. Configure PHPMyAdmin to connect to the database
+
+We now need to tell PHPMyAdmin our Heroku database information so that it can connect to it.
+
+You need find your config.inc.php file which stores configuration information. My PHPMyAdmin came with XAMPP and so my config file is located here:
+
+C:\xampp\phpMyAdmin\config.inc.php
+
+Open up this file in any text editor, I’m using VS code but you could use something like notepad as well.
+
+Copy the code below to the bottom of the file (but still within the PHP tags). Change the host, username and password to the one’s you obtained from the URL before.
+
+```
+/* Heroku remote server */
+$i++;
+$cfg['Servers'][$i]['host'] = 'eu-cdbr-west-03.cleardb.net';  //provide hostname
+$cfg['Servers'][$i]['user'] = 'b0cc1049d026d1';  //user name for your remote server
+$cfg['Servers'][$i]['password'] = 'da2394e8';  //password
+$cfg['Servers'][$i]['auth_type'] = 'config';  // keep it as config
+
+```
+
+## 12. Configure your Heroku MySQL database
+
+Open up PHPMyAdmin. If using XAMPP it can be done as below:
+
+<img
+  src={props.images[14].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Open up the server side-panel and select your newly added Heroku server:
+
+<img
+  src={props.images[15].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+<img
+  src={props.images[16].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Go over to databases and select your Heroku database.
+
+<img
+  src={props.images[17].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+You can now create the tables you need in your database.
+
+<img
+  src={props.images[18].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+## 13. Connect to the Heroku database from PHP
+
+Copy in the code below to load in your Heroku database configuration variables to your app. This will connect your app to the database.
+
+```
+<?php
+
+//Get Heroku ClearDB connection information
+$cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server   = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db       = substr($cleardb_url["path"],1);
+
+$active_group = 'default';
+$query_builder = TRUE;
+
+// Connect to DB
+$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+?>
+
+```
+
+And that’s it! We have deployed a PHP project to Heroku, made a remote MySQL database, configured the database using PHPMyAdmin, and finally connected our app to the database.
+
+Hope that helped! Leave a comment if you have any questions or feedback (positive or negative) :)

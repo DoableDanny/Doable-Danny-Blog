@@ -21,6 +21,7 @@ export const Seo = ({ description, keywords, title, image, url, author }) => {
           "web dev",
           "mindfulness",
         ]
+        const metaTwitterUsername = data.site.siteMetadata.twitterUsername
         return (
           <Helmet
             title={title}
@@ -52,7 +53,7 @@ export const Seo = ({ description, keywords, title, image, url, author }) => {
               },
               {
                 name: `twitter:creator`,
-                content: metaAuthor,
+                content: metaTwitterUsername,
               },
               {
                 name: `twitter:card`,
@@ -95,6 +96,7 @@ const detailsQuery = graphql`
         description
         author
         image
+        twitterUsername
       }
     }
   }
