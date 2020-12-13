@@ -23,7 +23,7 @@ export const WelcomeTextWrapper = styled.div`
   span {
     color: ${props => props.theme.colors.lightBlue};
     margin-left: 3px;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   h1 {
