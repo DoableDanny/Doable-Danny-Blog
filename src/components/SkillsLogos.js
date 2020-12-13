@@ -11,6 +11,7 @@ import redux from "../images/svg/redux.svg"
 import gatsby from "../images/svg/gatsby.svg"
 import python from "../images/svg/python-5.svg"
 import firebase from "../images/svg/firebase-1.svg"
+import php from "../images/svg/php.svg"
 
 import styled from "styled-components"
 
@@ -29,6 +30,7 @@ export default function SkillsLogos() {
       <img src={gatsby} alt="gatsby logo" />
       <img src={python} alt="python logo" />
       <img src={firebase} alt="firebase logo" />
+      <img src={php} alt="php logo" />
     </LogoContainer>
   )
 }
