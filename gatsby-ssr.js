@@ -32,7 +32,6 @@ const components = {
     // It's possible to have a pre without code in it
     return <pre {...preProps} />
   },
-  wrapper: ({ children }) => <>{children}</>,
 }
 
 export const wrapRootElement = ({ element }) => (

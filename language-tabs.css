@@ -2,16 +2,17 @@
   position: relative;
   -webkit-overflow-scrolling: touch;
   font-size: 20px;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 .gatsby-highlight pre[class*="language-"] {
   -webkit-overflow-scrolling: touch;
+  padding: 24px 16px;
 }
 .gatsby-highlight pre[class*="language-"]::before {
-  background: rgb(0, 0, 0);
+  background: rgb(0, 0, 0) !important;
   border-radius: 0 0 0.25rem 0.25rem;
   color: white;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 0.025rem;
   padding: 0.1rem 0.5rem;
   position: absolute;
@@ -20,18 +21,23 @@
   text-transform: uppercase;
   top: 0;
 }
-.gatsby-highlight pre[class="language-js"]::before {
+.gatsby-highlight pre[class~="language-js"]::before {
   content: "js";
-  background: #f7df1e;
-  color: black;
+  background: #f7df1e !important;
+  color: black !important;
 }
-.gatsby-highlight pre[class="language-html"]::before {
+.gatsby-highlight pre[class~="language-html"]::before {
   content: "html";
-  background: #005a9c;
+  background: #005a9c !important;
   color: white;
 }
-.gatsby-highlight pre[class="language-css"]::before {
+.gatsby-highlight pre[class~="language-css"]::before {
   content: "css";
-  background: #ff9800;
+  background: #ff9800 !important;
+  color: white;
+}
+.gatsby-highlight pre[class~="language-php"]::before {
+  content: "php";
+  background: #d066e6 !important;
   color: white;
 }
