@@ -52,7 +52,7 @@ export const ArticleContainer = styled.article`
     color: #008989;
   }
 
-  pre {
+   pre {
     max-width: 100%;
     overflow: auto;
     background: #ddd;
@@ -66,7 +66,9 @@ export const ArticleContainer = styled.article`
     word-wrap: break-word;
     font-size: 20px;
     line-height: 145%;
+  } 
   }
+
 
   @media ${props => props.theme.breakpoints.mobile} {
     width: 90%;

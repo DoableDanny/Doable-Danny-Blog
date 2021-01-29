@@ -1,6 +1,8 @@
 import React from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
+import { MDXProvider } from "@mdx-js/react"
 import Theme from "./src/themes/theme"
+import Code from "./src/components/Code"
 
 const GloablStyles = createGlobalStyle`
     * {
@@ -19,9 +21,25 @@ const GloablStyles = createGlobalStyle`
     }
 `
 
+// For styling code blocks with prism
+const components = {
+  pre: preProps => {
+    const props = preToCodeBlock(preProps)
+    if (props) {
+      return <Code {...props} />
+    }
+
+    // It's possible to have a pre without code in it
+    return <pre {...preProps} />
+  },
+  wrapper: ({ children }) => <>{children}</>,
+}
+
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={Theme}>
-    <GloablStyles />
-    {element}
-  </ThemeProvider>
+  <MDXProvider components={components}>
+    <ThemeProvider theme={Theme}>
+      <GloablStyles />
+      {element}
+    </ThemeProvider>
+  </MDXProvider>
 )

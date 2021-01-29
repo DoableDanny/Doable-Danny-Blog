@@ -1,0 +1,36 @@
+---
+title: "How to Make a Timer that Runs in the Background in React Native"
+slug: react-native-background-timer
+date: 2021-01-29
+featureImage: feature-img.jpg
+images: []
+excerpt: "How to make a timer that runs in the background."
+featuredPost: false
+keywords:
+  [
+    "100DaysOfCode",
+    "code",
+    "programming",
+    "web dev",
+    "computer programming",
+    "learning programming",
+    "web design",
+    "React Native",
+    "background",
+    "timer",
+  ]
+---
+
+Hello
+
+```js
+// Runs when timerOn value changes to start or stop timer
+useEffect(() => {
+  if (timerOn) startTimer()
+  else BackgroundTimer.stopBackgroundTimer()
+
+  return () => {
+    BackgroundTimer.stopBackgroundTimer()
+  }
+}, [timerOn])
+```
