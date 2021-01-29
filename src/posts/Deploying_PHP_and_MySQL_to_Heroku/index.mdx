@@ -210,14 +210,13 @@ Open up this file in any text editor, I’m using VS code but you could use some
 
 Copy the code below to the bottom of the file (but still within the PHP tags). Change the host, username and password to the one’s you obtained from the URL before.
 
-```
+```php
 /* Heroku remote server */
 $i++;
-$cfg['Servers'][$i]['host'] = 'eu-cdbr-west-03.cleardb.net';  //provide hostname
-$cfg['Servers'][$i]['user'] = 'b0cc1049d026d1';  //user name for your remote server
-$cfg['Servers'][$i]['password'] = 'da2394e8';  //password
-$cfg['Servers'][$i]['auth_type'] = 'config';  // keep it as config
-
+$cfg["Servers"][$i]["host"] = "eu-cdbr-west-03.cleardb.net"; //provide hostname
+$cfg["Servers"][$i]["user"] = "b0cc1049d026d1"; //user name for your remote server
+$cfg["Servers"][$i]["password"] = "da2394e8"; //password
+$cfg["Servers"][$i]["auth_type"] = "config"; // keep it as config
 ```
 
 ## 12. Configure your Heroku MySQL database
@@ -259,24 +258,21 @@ You can now create the tables you need in your database.
 
 Copy in the code below to load in your Heroku database configuration variables to your app. This will connect your app to the database.
 
-```
+```php
 <?php
-
 //Get Heroku ClearDB connection information
-$cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
-$cleardb_server   = $cleardb_url["host"];
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = $cleardb_url["host"];
 $cleardb_username = $cleardb_url["user"];
 $cleardb_password = $cleardb_url["pass"];
-$cleardb_db       = substr($cleardb_url["path"],1);
+$cleardb_db = substr($cleardb_url["path"],1);
 
 $active_group = 'default';
 $query_builder = TRUE;
 
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-
 ?>
-
 ```
 
 And that’s it! We have deployed a PHP project to Heroku, made a remote MySQL database, configured the database using PHPMyAdmin, and finally connected our app to the database.

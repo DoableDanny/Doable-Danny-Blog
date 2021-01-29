@@ -1,12 +1,14 @@
 .gatsby-highlight {
   position: relative;
   -webkit-overflow-scrolling: touch;
+  font-size: 20px;
+  line-height: 1.5;
 }
 .gatsby-highlight pre[class*="language-"] {
   -webkit-overflow-scrolling: touch;
 }
 .gatsby-highlight pre[class*="language-"]::before {
-  background: black;
+  background: rgb(0, 0, 0);
   border-radius: 0 0 0.25rem 0.25rem;
   color: white;
   font-size: 12px;
