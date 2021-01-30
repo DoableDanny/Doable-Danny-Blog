@@ -44,10 +44,9 @@
 .highlight-line {
   background-color: rgb(72, 79, 92);
   display: block;
-  margin-right: -4em;
+  margin-right: -5em;
   margin-left: -1em;
   padding-right: 1em;
   padding-left: 0.75em;
   border-left: 0.3em solid #f99;
-  /* width: 100%; */
 }
