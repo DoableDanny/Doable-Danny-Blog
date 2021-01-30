@@ -26,6 +26,11 @@
   background: #f7df1e !important;
   color: black !important;
 }
+.gatsby-highlight pre[class~="language-jsx"]::before {
+  content: "jsx";
+  background: #f7df1e !important;
+  color: black !important;
+}
 .gatsby-highlight pre[class~="language-html"]::before {
   content: "html";
   background: #005a9c !important;
