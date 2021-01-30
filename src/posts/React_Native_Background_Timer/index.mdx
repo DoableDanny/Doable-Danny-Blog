@@ -23,11 +23,13 @@ keywords:
 
 Danny is writing this artcle as you read these lines!
 
-```html
+```html {1-2}
 <div class="wrapper">
   <h1>Hello</h1>
 </div>
 ```
+
+...
 
 ```css
 .wrapper {
@@ -37,7 +39,7 @@ Danny is writing this artcle as you read these lines!
 
 ...
 
-```js
+```js {1}
 document.querySelector(".wrapper").innerHtml = `<h1>Hello World</h1>`
 const hello = "hi mate"
 ```
