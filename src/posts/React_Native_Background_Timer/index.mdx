@@ -4,7 +4,7 @@ slug: react-native-background-timer
 date: 2021-01-30
 featureImage: feature-img.jpg
 images: [1.PNG, 2.PNG]
-excerpt: "How to make a timer that runs in the background on both Android and IOS."
+excerpt: "If you start the timer, then go onto another app, the timer will continue to countdown in the background. The code in this tutorial should work on both Android and IOS 👌"
 featuredPost: false
 keywords:
   [
@@ -24,6 +24,8 @@ keywords:
 ## Intro
 
 In this tutorial we will be creating a countdown timer that can run in the background e.g. if you start the timer, then go onto the Facebook app, the timer will continue to countdown. The code in this tutorial should work on both Android and IOS 👌
+
+I also made a [video tutorial](https://www.youtube.com/watch?v=rcWx0eJb1gY&ab_channel=DoableDanny) to make your lives easier!
 
 This is what our app will look like. I kept styling super minimal to better focus on functionality.
 
@@ -90,7 +92,7 @@ Here's what we've got so far:
 
 ## 3. Adding State and a UseEffect Hook to Start/Stop the Timer
 
-We can now add our two and only state variables to the top of our functional App component. 3601 corresponds to 01 hour 00 mins 01 sec. timerOn will be toggled on or off by the start/stop button.
+We can now add two state variables (all we will need) to the top of our functional App component. 3601 seconds corresponds to 01 hour : 00 mins : 01 sec. The state variable timerOn will be toggled on or off by the start/stop button.
 
 Next add a useEffect hook which will run whenever the timerOn variable is changed. If timerOn is true, then we run the startTimer function which we’ll define in step 4. Otherwise, we stop the background timer.
 
@@ -112,7 +114,7 @@ When a function is returned from a useEffect, it basically means componentWillUn
   }, [timerOn]);
 ```
 
-Now is a good time to add an onPress event listener to the button.
+Now is a good time to add an onPress event listener to the button to toggle the timerOn boolean value.
 
 ```jsx
 <Button title="Start/Stop" onPress={() => setTimerOn(timerOn => !timerOn)} />
@@ -120,7 +122,7 @@ Now is a good time to add an onPress event listener to the button.
 
 ## 4. Define startTimer function
 
-startTimer, when called, starts the countdown. The runBackgroundTimer method works on both iOS and Android. This will be called every 1s (1000ms). If there are any seconds left, then we will minus 1. When seconds hits 0, we return 0 to ensure that we don’t go into negative time.
+The startTimer function, when called, starts the countdown. The runBackgroundTimer method works on both iOS and Android. This will be called every 1s (1000ms). If there are any seconds left, then we will minus 1. When seconds hits 0, we return 0 to ensure that we don’t go into negative time.
 
 ```jsx
 const startTimer = () => {
@@ -166,7 +168,7 @@ const clockify = () => {
 }
 ```
 
-Here is an example of how this works. We have 3601 seconds left.
+Here is an example of how this works if we have 3601 seconds left:
 
 ### First, we calculate the hours
 
@@ -194,6 +196,8 @@ So 3601 secs = 1 Hour : 0 Mins : 1 Sec
 To tidy things up, we can add displayHours, displayMins and displaySecs to ensure we always have two digits e.g. 05 mins, not 5 mins.
 
 ## 7. Rendering Out the Time
+
+The clockify function returns an object, so we can access those hours, mins and secs values easily.
 
 ```jsx {4-5}
 return (
