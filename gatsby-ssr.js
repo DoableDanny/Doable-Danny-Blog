@@ -1,6 +1,8 @@
 import React from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { MDXProvider } from "@mdx-js/react"
+import { preToCodeBlock } from "mdx-utils"
+
 import Theme from "./src/themes/theme"
 import Code from "./src/components/Code"
 
