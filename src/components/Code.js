@@ -21,26 +21,6 @@ const Code = ({ codeString, language, metastring, ...props }) => {
   const shouldHighlightLine = calculateLinesToHighlight(metastring)
 
   return (
-    // <Highlight
-    //   {...defaultProps}
-    //   code={codeString}
-    //   language={language}
-    //   theme={theme}
-    // >
-    //   {({ className, style, tokens, getLineProps, getTokenProps }) => (
-    //     <div className="gatsby-highlight" data-language={language}>
-    //       <pre className={className} style={style}>
-    //         {tokens.map((line, i) => (
-    //           <div {...getLineProps({ line, key: i })}>
-    //             {line.map((token, key) => (
-    //               <span {...getTokenProps({ token, key })} />
-    //             ))}
-    //           </div>
-    //         ))}
-    //       </pre>
-    //     </div>
-    //   )}
-    // </Highlight>
     <Highlight
       {...defaultProps}
       code={codeString}
@@ -52,7 +32,6 @@ const Code = ({ codeString, language, metastring, ...props }) => {
           <pre className={className} style={style}>
             {tokens.map((line, index) => {
               const lineProps = getLineProps({ line, key: index })
-              console.log(shouldHighlightLine(index))
               if (shouldHighlightLine(index)) {
                 lineProps.className = `${lineProps.className} highlight-line`
               }
