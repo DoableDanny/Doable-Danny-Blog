@@ -11,7 +11,7 @@ module.exports = {
     author: "Danny Adams",
     description:
       "A collection of my thoughts and writings on topics such as web development, programming, and meditation.",
-    url: "https://www.doabledanny.com/",
+    siteUrl: "https://www.doabledanny.com/",
     image: "icon.jpg",
     twitterUsername: "@doabledanny",
     social: [
@@ -141,6 +141,12 @@ module.exports = {
         rule: {
           include: `/skills/`,
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/success`, `/links`],
       },
     },
   ],

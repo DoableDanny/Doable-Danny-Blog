@@ -11,7 +11,7 @@ export const Seo = ({ description, keywords, title, image, url, author }) => {
           description || data.site.siteMetadata.description
         const metaTitle = title || data.site.siteMetadata.title
         const metaAuthor = author || data.site.siteMetadata.author
-        const metaUrl = url || data.site.siteMetadata.url
+        const metaUrl = url || data.site.siteMetadata.siteUrl
         const metaImage = image || data.site.siteMetadata.image
         const metaKeywords = keywords || [
           "Doable Danny Blog",
