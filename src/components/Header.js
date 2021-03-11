@@ -44,11 +44,6 @@ const Nav = ({ thisPage }) => {
           Blog
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/links/" thisPage={thisPage === `links` ? true : false}>
-          Links
-        </NavLink>
-      </li>
     </NavWrapper>
   )
 }
@@ -63,9 +58,6 @@ const MobileMenu = ({ thisPage }) => {
       </MobileLink>
       <MobileLink to="/blog/" thisPage={thisPage === `blog` ? true : false}>
         Blog
-      </MobileLink>
-      <MobileLink to="/links/" thisPage={thisPage === `links` ? true : false}>
-        Links
       </MobileLink>
     </MobileMenuStyle>
   )

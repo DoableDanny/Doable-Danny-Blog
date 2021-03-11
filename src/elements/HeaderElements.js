@@ -60,14 +60,19 @@ export const NavWrapper = styled.ul`
   list-style: none;
   margin-right: 7vw;
 
+  li:first-of-type {
+    margin-right: 40px;
+  }
+
   @media only screen and (max-width: 800px) {
     margin-right: 0;
   }
 `
 
 export const NavLink = styled(GatsbyLink)`
-  text-decoration: ${props =>
-    props.thisPage ? "underline !important" : "none"};
+  border-bottom: ${props =>
+    props.thisPage ? `1px solid ${props.theme.colors.lightBlue}` : "none"};
+  padding-bottom: 8px;
   margin-right: 20px;
   font-size: 18px;
   color: ${props =>
@@ -81,7 +86,6 @@ export const NavLink = styled(GatsbyLink)`
   }
 `
 // MOBILE MENU
-
 export const MobileMenuStyle = styled.div`
   display: none;
   position: fixed;
@@ -105,6 +109,10 @@ export const MobileLink = styled(GatsbyLink)`
   color: ${props =>
     props.thisPage ? "#A0FCFC " : props.theme.colors.lightBlue2};
   width: 60px;
+
+  :first-of-type {
+    margin-right: 40px;
+  }
 
   :hover,
   :focus {
