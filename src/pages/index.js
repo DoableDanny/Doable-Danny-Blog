@@ -30,7 +30,7 @@ import { FormInput, Message } from "../components/FormComponents"
 export default function Home() {
   const data = useStaticQuery(graphql`
     query {
-      profileAbout: file(relativePath: { eq: "profileAbout.jpg" }) {
+      profileAbout: file(relativePath: { eq: "prof.PNG" }) {
         childImageSharp {
           fixed(width: 300, height: 400) {
             ...GatsbyImageSharpFixed
