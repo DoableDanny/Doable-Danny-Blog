@@ -1,0 +1,120 @@
+---
+title: "How to Point DynaDot Custom Domain to Netlify"
+slug: point-dynadot-domain-to-netlify
+date: 2021-04-14
+featureImage: feature-img.jpg
+images:
+  [
+   3.png,
+   4.png,
+   5.png,
+   7.png,
+   7b.png,
+   8.png,
+   8b.png,
+   8c.png,
+   8d.png,
+   9.png
+  ]
+excerpt: "We want to copy celebrities to look good. We copy experts as we think they are more knowledgeable than us. We copy large groups because if lots of others are doing it, then maybe I should too?
+
+"
+featuredPost: false
+keywords:
+  [
+    "100DaysOfCode",
+    "code",
+    "programming",
+    "web dev",
+    "computer programming",
+    "learning programming",
+    "web design",
+    "psychology",
+    "persuasive web design",
+  ]
+---
+
+1. Purchase your custom domain from DynaDot. I purchased the domain www.60DaysOfMeditation.com
+2. Upload your app/website to Netlify.
+3. Go to your app on Netlify and click “Domain Settings”.
+
+<img
+  src={props.images[0].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+4. Click “Add custom domain”.
+
+<img
+  src={props.images[1].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+5. Add your custom domain that you purchased from DynaDot and click “verify”. Then click “yes, add domain”.
+
+<img
+  src={props.images[2].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+6. As we can see, www.60daysofmeditation.com has been added as the new primary domain. Netlify also automatically makes you a subdomain without “www.”, so if someone types just 60DaysOfMeditation.com, Netlify redirects to the primary domain, nice!
+7. Now we need to point our DynaDot purchased domain name server to Netlify. Click “Go to DNS panel”.
+
+<img
+  src={props.images[3].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+<img
+  src={props.images[4].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+## 8. Point your domain’s name servers to Netlify
+
+Go to DynaDot and into “manage domains”. Click the domain in question (in my case, 60DaysOfMeditation.com).
+
+<img
+  src={props.images[5].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Click DNS settings.
+
+<img
+  src={props.images[6].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Select “Name Servers”.
+
+<img
+  src={props.images[7].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+Copy in your custom hostnames from Netlify and click “save name server”.
+
+<img
+  src={props.images[8].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+## 9. Verify DNS configuration
+
+Wait 10 minutes then go back to Netlify and into your site’s “domain management” setting.
+
+Click “verify DNS configuration”.
+
+If you get an error, try clicking it again a couple of times or try it a little later and it should work.
+
+<img
+  src={props.images[9].publicURL}
+  style={{ width: "95%", margin: "20px auto", display: "block" }}
+/>
+
+And that’s it! My website can now be accessed via www.60DaysOfMeditation.com . Fantastic!
+
+If that was helpful, you can say thanks by subscribing to [my YouTube channel](https://www.youtube.com/channel/UC0URylW_U4i26wN231yRqvA) where I post coding tutorials.
+
+Have a great day!
