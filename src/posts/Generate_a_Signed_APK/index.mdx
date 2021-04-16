@@ -1,0 +1,143 @@
+---
+title: "How to Generate a Signed APK for the Google Play Store"
+slug: react-native-signed-APK
+date: 2021-04-16
+featureImage: feature-img.jpg
+images: [1.png]
+excerpt: "In this tutorial I'll show you how to make a signed release APK that can be uploaded to the play store."
+featuredPost: false
+keywords:
+  [
+    "signed apk",
+    "react native",
+    "android",
+    "release apk",
+    "signed release",
+    "play store",
+    "gradle variables",
+  ]
+---
+
+## Intro
+
+In this tutorial I'll show you how to make a signed release APK that can be uploaded to the play store.
+
+I'll show you how to securely load in your gradle variables so that the project can be safely pushed to Git (something that is annoyingly not covered in other tutorials!).
+
+## 1. Generate an upload key.
+
+You can generate a private signing key using keytool. On Windows keytool must be run from C:\Program Files\Java\jdkx.x.x_x\bin.
+
+`$ keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000`
+
+This command prompts you for passwords for the keystore and key and for the Distinguished Name fields for your key. It then generates the keystore as a file called my-upload-key.keystore.
+
+The keystore contains a single key, valid for 10000 days.
+
+## 2. Setting up Gradle variables and safely loading them in
+
+Place the my-upload-key.keystore file under the android/app directory in your project folder.
+
+Create a new file in the android folder: android/keystore.properties and add the following (but obviously with your own passwords).
+
+```
+MYAPP_UPLOAD_STORE_FILE=my-upload-key.keystore
+MYAPP_UPLOAD_KEY_ALIAS=my-key-alias
+MYAPP_UPLOAD_STORE_PASSWORD=YOUR_PASSWORD_HERE
+MYAPP_UPLOAD_KEY_PASSWORD=YOUR_PASSWORD_HERE
+
+```
+
+Then add this new file to .gitignore so you can safely push to github without exposing your variables:
+
+`keystore.properties`
+
+Next, modify your android/app/build.gradle code to load in your keystore properties:
+
+```js
+// Load keystore
+def keystorePropertiesFile = rootProject.file("keystore.properties");
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+// ...
+
+android{
+
+    // ...
+
+ signingConfigs {
+        release {
+            if ( keystorePropertiesFile.exists() ) {
+                storeFile file(keystoreProperties['MYAPP_UPLOAD_STORE_FILE'])
+                storePassword keystoreProperties['MYAPP_UPLOAD_STORE_PASSWORD']
+                keyAlias keystoreProperties['MYAPP_UPLOAD_KEY_ALIAS']
+                keyPassword keystoreProperties['MYAPP_UPLOAD_KEY_PASSWORD']
+            }
+
+        }
+  }
+    buildTypes {
+        release {
+            // ...
+            signingConfig signingConfigs.release
+        }
+    }
+
+    // ...
+}
+
+```
+
+Doing it this way ensures that the project will still work if someone else clones it from Git without the keystore.properties file - perfect.
+
+## 3. Generate the Android bundle file manually
+
+Remove current index.android.bundle file:
+
+`$ rm android/app/src/main/assets/index.android.bundle`
+
+If no such file exists then you will get ‘No such file or directory’ message.
+
+Next, generate the android bundle, note the below is one command:
+
+`npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res`
+
+You will likely get a “duplicate resources” error (at least I always do). Go to /android/app/src/main/res folder and delete any files that begin with “drawable”.
+
+<img
+  src={props.images[0].publicURL}
+  style={{ width: "70%", margin: "20px auto", display: "block" }}
+/>
+
+Navigate to android folder:
+
+`cd android`
+
+And run the following command to generate your release APK:
+
+`./gradlew clean && ./gradlew assembleRelease`
+
+If any errors, delete android/.gradle and android/app/build/ and retry.
+
+Your signed APK should now be located at android/app/build/outputs/apk/app-release.apk.
+
+Once your build is successful then from your project’s root folder run below command to test your app in your device:
+
+`react-native run-android --variant=release`
+
+If you have any issues, try the following before re-doing the steps above:
+
+- Make sure to uninstall the old app on emulator/phone.
+- Delete old android/.gradle and android/app/build folder.
+- Npm cache clean –force.
+- Delete and reinstall node_modules.
+
+## Conclusion
+
+And that's it, we have created a signed APK! If that was helpful, you can say thanks by subscribing to [my YouTube channel](https://www.youtube.com/channel/UC0URylW_U4i26wN231yRqvA) where I make coding tutorials.
+
+## Resources
+
+- https://reactnative.dev/docs/signed-apk-android
+- https://stackoverflow.com/questions/20562189/sign-apk-without-putting-keystore-info-in-build-gradle
