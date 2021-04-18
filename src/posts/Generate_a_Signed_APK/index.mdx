@@ -1,5 +1,5 @@
 ---
-title: "How to Generate a Signed APK for the Google Play Store"
+title: "How to Generate a React Native Signed Release Build APK for Android"
 slug: react-native-signed-APK
 date: 2021-04-16
 featureImage: feature-img.jpg
@@ -15,12 +15,15 @@ keywords:
     "signed release",
     "play store",
     "gradle variables",
+    "release build apk",
+    "release bundle",
+    "release build",
   ]
 ---
 
 ## Intro
 
-In this tutorial I'll show you how to make a signed release APK that can be uploaded to the play store.
+In this tutorial I'll show you how to make a React Native signed release build APK for Android that can be uploaded to the [Google Play store](https://play.google.com/store).
 
 I'll show you how to securely load in your gradle variables so that the project can be safely pushed to Git (something that is annoyingly not covered in other tutorials!).
 
@@ -28,7 +31,7 @@ I'll show you how to securely load in your gradle variables so that the project 
 
 You can generate a private signing key using keytool. On Windows keytool must be run from C:\Program Files\Java\jdkx.x.x_x\bin.
 
-`$ keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000`
+`keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000`
 
 This command prompts you for passwords for the keystore and key and for the Distinguished Name fields for your key. It then generates the keystore as a file called my-upload-key.keystore.
 
@@ -91,11 +94,11 @@ android{
 
 Doing it this way ensures that the project will still work if someone else clones it from Git without the keystore.properties file - perfect.
 
-## 3. Generate the Android bundle file manually
+## 3. Generate the Android release bundle file manually
 
 Remove current index.android.bundle file:
 
-`$ rm android/app/src/main/assets/index.android.bundle`
+`rm android/app/src/main/assets/index.android.bundle`
 
 If no such file exists then you will get ‘No such file or directory’ message.
 
@@ -109,6 +112,8 @@ You will likely get a “duplicate resources” error (at least I always do). Go
   src={props.images[0].publicURL}
   style={{ width: "70%", margin: "20px auto", display: "block" }}
 />
+
+## 4. Generate the Android signed release build APK
 
 Navigate to android folder:
 
@@ -124,7 +129,7 @@ Your signed APK should now be located at android/app/build/outputs/apk/app-relea
 
 Once your build is successful then from your project’s root folder run below command to test your app in your device:
 
-`react-native run-android --variant=release`
+`npx react-native run-android --variant=release`
 
 If you have any issues, try the following before re-doing the steps above:
 
