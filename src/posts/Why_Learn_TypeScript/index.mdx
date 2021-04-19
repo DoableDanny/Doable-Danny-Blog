@@ -1,0 +1,175 @@
+---
+title: "A Quick Real-Project Example for Why You Should Definitely Learn TypeScript in 2021"
+slug: why-learn-typescript-example
+date: 2021-04-16
+featureImage: feature-img.jpg
+images: [1.png, 2.png]
+excerpt: "In this tutorial I'll show you how to make a signed release APK that can be uploaded to the play store."
+featuredPost: false
+keywords:
+  [
+    "learn typescript",
+    "should i learn typescript in 2021",
+    "why to learn typescript",
+    "is it worth learning typescript",
+    "why you should learn typescript",
+    "should i learn typescript",
+    "typescript vs javascript",
+  ]
+---
+
+## Intro
+
+I was recently making a meditation app called “[Atomic Meditation](https://play.google.com/store/apps/details?id=com.doabledanny.atomicmeditation)” with React Native, and finally saw a strong reason to begin learning and using TypeScript for medium to larger size projects.
+
+Before we start, I should explain that if you’ve never used React Native before, you can still follow this article. I’ll explain what’s going on as we go. Also, if you’ve used ReactJS, React Native, for the purpose of this article, is identical!
+
+Let me show you how regular old JavaScript got me into a pickle...
+
+## Day 1 – All Going Well
+
+In React Native there is something called Async Storage, which very simply allows you to store data permanently in your user’s mobile phone.
+
+e.g.
+
+```jsx
+AsyncStorage.setItem("@key", value)
+```
+
+Async Storage only allows you to store strings, so to save a number, you would have to first convert it to a string.
+
+Below, we are using the ReactJS useState hook to declare a variable called sessionCount and set its initial state to 0, and a setSessionCount function that allows us to alter the state of sessionCount.
+
+```jsx
+const [sessionCount, setSessionCount] = useState(0)
+```
+
+Let’s say that the user completes a meditation session (recall that I was making a meditation app), and `sessionCount` is keeping track of the total number of sessions that our user (who I will now lovingly refer to as Anxious Andy) has completed. We now need to add 1 to `sessionCount`. So, `setSessionCount` is called and 1 is added to the previous value. We then have to save this data as a string.
+
+We shall do all of this in a function, let’s call it `saveData`:
+
+```jsx
+// User completes a meditation…
+const saveData = () => {
+  setSessionCount(prev => {
+    const newSessionCount = prev + 1
+
+    AsyncStorage.setItem("@my_number", newSessionCount.toString())
+
+    return newSessionCount
+  })
+}
+```
+
+Everything goes well and A-little-less-anxious Andy calmly closes the app with a heightened sense of well-being.
+
+## Day 2 – The Calm Before the Storm
+
+Anxious Andy retrieves a notification, reminding him it’s meditation time in 5 minutes. But he’s eager, so he goes straight to his room, pulls out his desk chair, sits comfortably (but alert), and opens up his [Atomic Meditation app](https://play.google.com/store/apps/details?id=com.doabledanny.atomicmeditation).
+
+Now, when the app loads, Andy’s session data needs to be fetched from storage. In React, the useEffect hook allows us to execute a callback function when the component has mounted.
+
+In the callback function, we asynchronously get the data from storage and then setSessionCount to the data we get back (“1”).
+
+e.g.
+
+```jsx
+useEffect(() => {
+  AsyncStorage.getItem("@my_number").then(data => setSessionCount(data))
+}, [])
+```
+
+Now Anxious Andy completes another meditation successfully, so 1 needs to be added to sessionCount to keep track of the total number of sessions that he’s completed.
+
+This new value is also saved permanently to storage – just as before.
+
+e.g.
+
+```jsx
+// User completes a meditation...
+const saveData = () => {
+  setSessionCount(prev => {
+    const newSessionCount = prev + 1
+
+    AsyncStorage.setItem("@my_number", newSessionCount.toString())
+
+    return newSessionCount
+  })
+}
+```
+
+The user has now completed 2 meditation sessions.
+
+## Day 3 – The Storm
+
+Anxious-no-more Andy pulls out his phone and opens the app for his 3rd straight session (he’s doing well).
+
+He wants to find out how well he’s doing, so he goes to the Stats Screen. “Ohh, lots of juicy statistics”, he murmurs to himself. “This app is awesome!”
+
+But his love for the app diminishes quickly…
+
+The app tells him he’s completed 11 sessions. He’s only completed 2!
+
+<img
+  src={props.images[0].publicURL}
+  style={{ width: "85%", margin: "20px auto", display: "block" }}
+  alt="Stats screen with incorrect data"
+/>
+
+## What went wrong
+
+**In day 1**, we initially set `sessionCount` to 0 (a number).
+
+The user completed a meditation, so we added 1. We then converted it to a string, “1”, and saved it to async storage (recall async storage only accepts strings).
+
+**In day 2**, we retrieved the session count from async storage and `setSessionCount` to the value we received, “1” (a string).
+
+The user completed a meditation, so we added 1 to `sessionCount`. But “1” + 1 in JavaScript is “11”, not 2.
+
+We forgot to convert the data we got back from storage back into an integer.
+
+The worst thing is that our program flagged no errors, this bug went freely unnoticed and caused us problems down the road. It can be difficult to find the source of problems like this!
+
+JavaScript allowed us to freely and unknowingly change the data type of a variable throughout our program.
+
+## The Solution – TypeScript
+
+If you’re not familiar with TypeScript, basically it’s JavaScript with a few extra superpowers. Variables cannot change types – if they do, TypeScript will throw an error.
+
+Browsers can’t understand TypeScript, so all of your TypeScript files are compiled down in JavaScript files (or a single “bundle” JS file).
+
+[Adding TypeScript to an existing React Native project](https://reactnative.dev/docs/typescript) is easy – an npm install and a couple of config files and it’s done!
+
+Now all I have to do is change my file from App.js to App.tsx to get automatic type checking.
+
+As soon as the file extension is changed, TypeScript throws a wobbler (English slang for tantrum) telling me that the `sessionCount` variable which I initialised to a type of number is being assigned to a string:
+
+<img
+  src={props.images[1].publicURL}
+  style={{ width: "100%", margin: "20px auto", display: "block" }}
+  alt="TypeScript error"
+/>
+
+I now have to perform a check to make sure the data is not null, and then convert that data from a string to a number (using parseInt) to get rid of the error:
+
+```jsx
+useEffect(() => {
+  AsyncStorage.getItem("@my_number").then(data => {
+    if (data) {
+      setSessionCount(parseInt(data))
+    }
+  })
+}, [])
+```
+
+TypeScript forces us to write better, more robust code. Awesome!
+
+## Conclusion
+
+We can now sleep a little easier knowing that our variables can’t freely change type throughout our program. Thanks TypeScript.
+
+**N.B.** JavaScript is still great for smaller projects. But for medium to large projects, or small projects that have the potential to scale, TypeScript is probably a worthy investment. And if you know JavaScript, learning TypeScript isn’t difficult – [check out The Net Ninja’s TypeScript series](https://www.youtube.com/watch?v=2pZmKW9-I_k&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI&ab_channel=TheNetNinja).
+
+If you enjoyed this article, then you can say thanks by checking out [my Atomic Meditation app](https://play.google.com/store/apps/details?id=com.doabledanny.atomicmeditation). Meditation is a great way to quieten the mind and cut away anxiety. The app is inspired by the bestselling book Atomic Habits, and is based on doing at least 2 minutes of meditation every day to develop a daily meditation habit. Please leave me a review if you enjoy it, it helps!
+
+Have a great day :)
