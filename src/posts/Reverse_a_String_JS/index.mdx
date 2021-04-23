@@ -1,0 +1,117 @@
+---
+title: "How to Reverse a String Using JavaScript | 4 Ways | Performance Discussed"
+slug: how-to-reverse-a-string-using-javascript
+date: 2021-04-23
+featureImage: feature-img.jpg
+excerpt: "In this post I’ll show you 4 ways to reverse a string using JavaScript. I'll also discuss performance to give you some extra ways to think about writing functions so you can show off in job interviews!"
+featuredPost: false
+keywords:
+  [
+    "how to reverse a string using javascript",
+    "reverse a string in javascript using for loop",
+    "reverse string javascript recursion",
+    "javascript function to reverse a string",
+    "recursive javascript function to reverse a string",
+    "function reverse string javascript",
+    "reverse string",
+    "javascript reverse method",
+    "javascript pointers",
+  ]
+---
+
+**”Write a JavaScript function to reverse a string.”**
+
+It’s a common interview question and one you should definitely know how to solve. Interviewers also like watching you sweat and so may ask you to do it without using the `reverse()` method.
+
+In this post I’ll show you 4 ways to reverse a string using JavaScript. I'll also discuss performance to give you some extra ways to think about writing functions so you can show off in job interviews!
+
+I also made a YouTube video: [How to Reverse a String in JavaScript Without Using the Reverse Array Method](https://www.youtube.com/watch?v=GqlaV-n5dP0&ab_channel=DoableDanny). If you enjoy the article or video, go ahead and [subscribe to my channel](https://www.youtube.com/channel/UC0URylW_U4i26wN231yRqvA)!
+
+## 1. Reverse a string using a for loop
+
+This is the most straight-forward way of reversing a string. We simply split the string into an array of characters, then loop over this array from the end and push each character into a new array. We can then join this array into a string and return it.
+
+In terms of performance, we can do better. We have to loop through every character in the array.
+
+```js
+function revStr(str) {
+  let arr = []
+  let charsArr = str.split("")
+
+  for (let i = charsArr.length - 1; i >= 0; i--) {
+    arr.push(charsArr[i])
+  }
+
+  return arr.join("")
+}
+```
+
+## 2. Reverse a string using pointers
+
+In this function, we start by creating an array of empty spaces. The number of empty spaces is equal to the length of the string. The reason we do this is so the array can be built-up from both the front and end.
+
+We then define two pointers: left and right. The left pointer begins pointing with the first character of the string and the right pointer points at the last character.
+
+In the while loop, we are making the left side of the array equal to the rightmost characters in the string, and the right side of the array equal to the leftmost characters in the string. When the pointers meet in the middle, the array has been built and we can then break out of the loop and return the joined array.
+
+The advantage of using pointers over a for loop is that we can build the array from both sides, meaning the number of loops is cut in half. The disadvantage is that we have to store an extra variable in memory (right) but this is no big deal.
+
+```js
+function revStr(str) {
+  let arr = new Array(str.length)
+
+  let left = 0
+  let right = str.length - 1
+
+  while (left <= right) {
+    arr[left] = str[right]
+    arr[right] = str[left]
+
+    left++
+    right--
+  }
+
+  return arr.join("")
+}
+```
+
+## 3. Reverse a string using recursion
+
+Recursive solutions are often less obvious. Here the function calls itself until it reaches the base case – an empty string. The first character is chopped off the string using the substr method and then added to the end of the string.
+
+In terms of performance, the number of function calls and operations increase linearly with the length of the input string.
+
+```js
+function revStr(str) {
+  console.log(str)
+  if (str === "") {
+    return str
+  } else {
+    return revStr(str.substr(1)) + str[0]
+  }
+}
+```
+
+## 4. Reverse a string using the reverse method
+
+If the interviewer doesn’t specify to not use the reverse method, keep things easy – an interview is stressful enough – and use the reverse method.
+
+```js
+function revStr(str) {
+  return str.split("").reverse().join("")
+}
+```
+
+And don’t be afraid to show off you ES6 syntax knowledge by writing the function as a savvy one-liner:
+
+```js
+const revStr = str => str.split("").reverse().join("")
+```
+
+## Conclusion
+
+You now know 4 ways to reverse a string using JavaScript using a for loop, pointers, recursion and the reverse method.
+
+If this was helpful, you can say thanks by signing up to [my blog](https://www.doabledanny.com/blog/) or subscribing to my [YouTube channel](https://www.youtube.com/channel/UC0URylW_U4i26wN231yRqvA).
+
+Have a great day :)
