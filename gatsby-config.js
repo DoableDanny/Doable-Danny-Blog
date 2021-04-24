@@ -160,9 +160,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-sitemap`,
+      resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        exclude: [`/success`, `/links`],
+        siteUrl: `https://www.doabledanny.com`,
+        stripQueryString: true,
       },
     },
     {
@@ -184,6 +185,12 @@ module.exports = {
             host: null,
           },
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/success`, `/links`],
       },
     },
   ],
