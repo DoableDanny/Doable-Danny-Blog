@@ -1,5 +1,4 @@
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
   const result = await graphql(`
     query {
       allMdx(sort: { fields: frontmatter___date, order: DESC }) {
@@ -17,7 +16,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // CREATE PAGINATED PAGES FOR POSTS
 
-  const postPerPage = 2
+  const postPerPage = 1
 
   const numPages = Math.ceil(result.data.allMdx.edges.length / postPerPage)
 

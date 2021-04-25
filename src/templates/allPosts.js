@@ -13,47 +13,34 @@ import { Seo } from "../components/Seo"
 import EmailSubscribeForm from "../components/EmailSubscribeForm"
 
 export default function AllPosts({ pageContext, data }) {
-  // Forward and backwards one page
   const { currentPage, numPages } = pageContext
-  const isFirst = currentPage === 1
-  const isLast = currentPage === numPages
-  const prevPage = currentPage - 1 === 1 ? "/blog/" : `/blog/${currentPage - 1}`
-  const nextPage = `/blog/${currentPage + 1}`
-
-  // Back ten pages
-  const isPastTen = currentPage > 10
-  let minusTen
-  if (currentPage <= 10) {
-    minusTen = false
-  } else if (currentPage === 11) {
-    minusTen = `/blog/`
-  } else {
-    minusTen = `/blog/${currentPage - 10}`
-  }
-
-  // Forward ten pages
-  let plusTen = currentPage + 10 <= numPages ? `${currentPage + 10}` : false
-  const abletoforwardten = currentPage + 10 <= numPages ? true : false
 
   const posts = data.allMdx.edges
 
   return (
     <Layout thisPage={"blog"}>
-      <Seo title={`Doable Danny | Blog`} />
-      {currentPage === 1 ? <FeaturePost /> : null}
-      {currentPage === 1 ? <EmailSubscribeForm page={currentPage} /> : null}
+      <Seo
+        title={`Doable Danny | Blog`}
+        description="A collection of articles on topics such as web development, react, react native, PHP, JavaScript, TypeScript, marketing and freelancing"
+      />
+
       {currentPage === 1 ? (
-        <h3
-          style={{
-            textAlign: "center",
-            marginTop: 80,
-            marginBottom: 0,
-            fontSize: 22,
-          }}
-        >
-          Recent Posts
-        </h3>
+        <>
+          <FeaturePost />
+          <EmailSubscribeForm page={currentPage} />
+          <h3
+            style={{
+              textAlign: "center",
+              marginTop: 80,
+              marginBottom: 0,
+              fontSize: 22,
+            }}
+          >
+            Recent Posts
+          </h3>
+        </>
       ) : null}
+
       <CenterAllPostCards>
         <PostCardsContainer>
           {posts.map((post, i) => (
@@ -77,18 +64,7 @@ export default function AllPosts({ pageContext, data }) {
           ))}
         </PostCardsContainer>
       </CenterAllPostCards>
-      <Pagination
-        isFirst={isFirst}
-        isLast={isLast}
-        prevPage={prevPage}
-        nextPage={nextPage}
-        currentPage={currentPage}
-        numPages={numPages}
-        minusTen={minusTen}
-        isPastTen={isPastTen}
-        plusTen={plusTen}
-        abletoforwardten={abletoforwardten}
-      />
+      <Pagination currentPage={currentPage} numPages={numPages} />
     </Layout>
   )
 }
