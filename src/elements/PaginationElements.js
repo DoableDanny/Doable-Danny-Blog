@@ -9,20 +9,6 @@ export const PaginationWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  a:nth-child(1) {
-    color: ${props =>
-      props.isPastTen ? props.theme.colors.dark1 : props.theme.colors.dark3};
-    pointer-events: ${props => (props.isPastTen ? "auto" : "none")};
-    cursor: ${props => (props.isPastTen ? "pointer" : "default")};
-  }
-
-  a:nth-child(2) {
-    color: ${props =>
-      props.isFirst ? props.theme.colors.dark3 : props.theme.colors.dark1};
-    pointer-events: ${props => (props.isFirst ? "none" : "auto")};
-    cursor: ${props => (props.isFirst ? "default" : "pointer")};
-  }
-
   span {
     font-size: 1rem;
   }
@@ -47,22 +33,6 @@ export const PaginationWrapper = styled.div`
       font-size: 0.7rem;
     }
   }
-
-  a:nth-child(5) {
-    color: ${props =>
-      props.isLast ? props.theme.colors.dark3 : props.theme.colors.dark1};
-    pointer-events: ${props => (props.isLast ? "none" : "auto")};
-    cursor: ${props => (props.isLast ? "default" : "pointer")};
-  }
-
-  a:nth-child(6) {
-    color: ${props =>
-      props.abletoforwardten
-        ? props.theme.colors.dark1
-        : props.theme.colors.dark3};
-    pointer-events: ${props => (props.abletoforwardten ? "auto" : "none")};
-    cursor: ${props => (props.abletoforwardten ? "pointer" : "default")};
-  }
 `
 
 export const PaginationElement = styled(props => <Link {...props} />)`
@@ -83,6 +53,21 @@ export const PaginationElement = styled(props => <Link {...props} />)`
 
   @media only screen and (max-width: 400px) {
     font-size: 0.7rem;
+    margin: 0 0.6rem;
+  }
+`
+
+export const NonClickableElement = styled.span`
+  font-size: 0.875rem !important;
+  margin: 0 2rem;
+  color: ${props => props.theme.colors.dark3};
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    margin: 0 0.7rem;
+  }
+
+  @media only screen and (max-width: 400px) {
+    font-size: 0.7rem !important;
     margin: 0 0.6rem;
   }
 `

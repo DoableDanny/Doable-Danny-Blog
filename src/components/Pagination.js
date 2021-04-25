@@ -2,6 +2,7 @@ import React from "react"
 import {
   PaginationWrapper,
   PaginationElement,
+  NonClickableElement,
 } from "../elements/PaginationElements"
 
 const Pagination = ({ currentPage, numPages }) => {
@@ -27,13 +28,13 @@ const Pagination = ({ currentPage, numPages }) => {
       abletoforwardten={ableToForwardTen}
     >
       {!isPastTen ? (
-        <span>Minus Ten</span>
+        <NonClickableElement>Minus Ten</NonClickableElement>
       ) : (
         <PaginationElement to={minusTen}>Minus Ten</PaginationElement>
       )}
 
       {isFirst ? (
-        <span>Prev Page</span>
+        <NonClickableElement>Prev Page</NonClickableElement>
       ) : (
         <PaginationElement to={prevPage}>Prev Page</PaginationElement>
       )}
@@ -43,13 +44,13 @@ const Pagination = ({ currentPage, numPages }) => {
       <PaginationElement to={`/blog/${numPages}`}>{numPages}</PaginationElement>
 
       {isLast ? (
-        <span>Next Page</span>
+        <NonClickableElement>Next Page</NonClickableElement>
       ) : (
         <PaginationElement to={nextPage}>Next Page</PaginationElement>
       )}
 
       {!ableToForwardTen ? (
-        <span>Plus Ten</span>
+        <NonClickableElement>Plus Ten</NonClickableElement>
       ) : (
         <PaginationElement to={plusTen}>Plus Ten</PaginationElement>
       )}
