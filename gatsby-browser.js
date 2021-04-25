@@ -17,7 +17,8 @@ const GloablStyles = createGlobalStyle`
     body, html {
         font-family: ${props => props.theme.fonts.main};
         height: 100%;
-        background:  ${props => props.theme.colors.light1}) ;
+        background:  ${props => props.theme.colors.light1});
+        scroll-behavior: smooth;
     }
 `
 
