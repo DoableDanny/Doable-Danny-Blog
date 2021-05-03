@@ -6,7 +6,7 @@ import {
   UserInput,
 } from "../elements/EmailSignUpElements"
 
-export default function EmailSubscribeForm({ page }) {
+export default function EmailSubscribeForm({ page, noTitle }) {
   const [userDetails, setUserDetails] = useState({
     name: "",
     email: "",
@@ -44,14 +44,15 @@ export default function EmailSubscribeForm({ page }) {
 
   return (
     <FORM onSubmit={handleSubmit}>
-      <h2
+    {!noTitle && <h2
         style={{
           textAlign: "center",
           color: "black",
         }}
       >
         Subscribe to be notified of new blog posts!
-      </h2>
+      </h2> }
+      
       <label htmlFor="name">
         Name (optional):
         <UserInput
