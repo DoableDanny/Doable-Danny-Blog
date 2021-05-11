@@ -13,6 +13,7 @@ let sideBannerTopDistance = 0
 
 const AffiliateBanners = () => {
   const [articleHeight, setArticleHeight] = useState(0)
+  const isBrowser = typeof window !== "undefined"
 
   const bannerDiv = useRef()
 
@@ -26,7 +27,7 @@ const AffiliateBanners = () => {
 
   return (
     <>
-      {window.screen.width > 999 ? (
+      {isBrowser && window.screen.width > 999 ? (
         <SideBannerContainerDiv ref={bannerDiv} articleHeight={articleHeight}>
           {articleHeight > 0 &&
             SIDE_BANNER_LINKS.map((link, i) => {
