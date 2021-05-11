@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export const ArticleContainer = styled.article`
+  position: relative;
   width: 650px;
   margin: 20px auto;
   margin-top: 60px;

@@ -25,7 +25,7 @@ export default function success() {
         <EmailSubscribeForm noTitle />
         <p style={{ textAlign: "center", marginBottom: 80 }}>
           I'll email you no more than once per week & you can unsubscribe at any
-          time. Your time will be respected.
+          time. Your inbox will be respected!
         </p>
       </div>
     </Layout>

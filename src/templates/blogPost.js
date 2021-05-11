@@ -11,6 +11,7 @@ import {
   ImageContainer,
 } from "../elements/SingleArticleElements"
 import { Seo } from "../components/Seo"
+import AffiliateBanners from "../components/AffiliateBanners"
 
 export default function BlogPost({ data }) {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fluid
@@ -36,6 +37,7 @@ export default function BlogPost({ data }) {
         description={data.mdx.frontmatter.excerpt}
         keywords={data.mdx.frontmatter.keywords}
       />
+
       <ArticleContainer>
         <TitleAndDate>
           <h1 style={{ lineHeight: 1.2 }}>{data.mdx.frontmatter.title}</h1>
@@ -50,18 +52,31 @@ export default function BlogPost({ data }) {
         <MDXRenderer images={data.mdx.frontmatter.images}>
           {data.mdx.body}
         </MDXRenderer>
+
+        <AffiliateBanners />
       </ArticleContainer>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: 56,
+        }}
+      >
+        <iframe
+          src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=26&l=ur1&category=kindle&banner=0PK824ECCGEVHTPD8082&f=ifr&linkID=10877bf0182a7f68402ed651c89833ae&t=doabledanny-20&tracking_id=doabledanny-20"
+          width={468}
+          height={60}
+          scrolling="no"
+          border={0}
+          marginwidth={0}
+          style={{ border: "none" }}
+          frameborder={0}
+        ></iframe>
+      </div>
 
       <EmailSubscribeForm page={data.mdx.frontmatter.slug} />
 
-      <div style={{ marginTop: 30, marginLeft: "15%", color: "blue" }}>
-        <HyvorTalk.CommentCount
-          websiteId={1101}
-          id={data.mdx.frontmatter.slug}
-          mode="number"
-        />
-        <span>...</span>
-      </div>
       <HyvorTalk.Embed
         websiteId={1101}
         id={data.mdx.frontmatter.slug}
