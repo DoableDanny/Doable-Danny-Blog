@@ -11,7 +11,7 @@ import {
   ImageContainer,
 } from "../elements/SingleArticleElements"
 import { Seo } from "../components/Seo"
-import AffiliateBanners from "../components/AffiliateBanners"
+import AffiliateBanners from "../components/AffiliateBanners/SideBanners"
 
 export default function BlogPost({ data }) {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fluid
@@ -65,6 +65,7 @@ export default function BlogPost({ data }) {
       >
         <iframe
           src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=26&l=ur1&category=kindle&banner=0PK824ECCGEVHTPD8082&f=ifr&linkID=10877bf0182a7f68402ed651c89833ae&t=doabledanny-20&tracking_id=doabledanny-20"
+          title="small-amazon-banner-audible"
           width={468}
           height={60}
           scrolling="no"

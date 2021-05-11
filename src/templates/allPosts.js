@@ -11,6 +11,7 @@ import Pagination from "../components/Pagination"
 
 import { Seo } from "../components/Seo"
 import EmailSubscribeForm from "../components/EmailSubscribeForm"
+import HorizontalBanners from "../components/AffiliateBanners/HorizontalBanners"
 
 export default function AllPosts({ pageContext, data }) {
   const { currentPage, numPages } = pageContext
@@ -24,27 +25,7 @@ export default function AllPosts({ pageContext, data }) {
         description="A collection of articles on topics such as web development, react, react native, PHP, JavaScript, TypeScript, marketing and freelancing"
       />
 
-      <div
-        style={{
-          width: "100%",
-          marginLeft: "auto",
-          marginRight: "auto",
-          marginTop: 16,
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <iframe
-          src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=48&l=ur1&category=amz_music&banner=159S8R1P9HH8N29W4P82&f=ifr&linkID=830be6483b3f8b04d469ea34324a40c6&t=doabledanny-20&tracking_id=doabledanny-20"
-          width={728}
-          height={90}
-          scrolling="no"
-          border={0}
-          marginWidth={0}
-          style={{ border: "none" }}
-          frameBorder={0}
-        ></iframe>
-      </div>
+      <HorizontalBanners />
 
       {currentPage === 1 ? (
         <>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react"
-import { SideBannerContainerDiv } from "../elements/AffiliateBannerElements"
+import { SideBannerContainerDiv } from "../../elements/AffiliateBannerElements"
 
 const SIDE_BANNER_LINKS = [
   "//rcm-na.amazon-adsystem.com/e/cm?o=1&p=14&l=ur1&category=primevideo&banner=0PEFSZ0VQTRVV35WMYG2&f=ifr&linkID=893a335c37f64b4cd0657cba5de68fa9&t=doabledanny-20&tracking_id=doabledanny-20",
