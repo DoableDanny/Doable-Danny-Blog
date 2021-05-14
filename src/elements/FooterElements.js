@@ -3,12 +3,14 @@ import styled from "styled-components"
 export const FooterWrapper = styled.div`
   background: ${props => props.theme.colors.main1};
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   position: absolute;
   bottom: 0;
   width: 100%;
   padding: 1.8rem;
+  color: ${props => props.theme.colors.lightBlue};
 `
 export const FooterSocialWrapper = styled.div`
   display: flex;

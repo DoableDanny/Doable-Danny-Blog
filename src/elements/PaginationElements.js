@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 export const PaginationWrapper = styled.div`
   padding: 3rem 0;
-  margin-top: 15px;
+  margin-bottom: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,10 +24,13 @@ export const PaginationWrapper = styled.div`
   }
 
   @media only screen and (max-width: 575px) {
-    margin-bottom: 20px;
+    margin-bottom: 130px;
+    margin-top: 24px;
   }
 
   @media only screen and (max-width: 400px) {
+    margin-bottom: 180px;
+
     a:nth-child(4),
     span {
       font-size: 0.7rem;

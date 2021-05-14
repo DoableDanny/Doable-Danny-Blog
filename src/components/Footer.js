@@ -47,11 +47,11 @@ export default function Footer() {
           </a>
           where I post my daily coding creations!
         </p>
-        <p style={{ fontSize: "0.8rem" }}>
-          Affiliate disclosure: As an Amazon Associate, we may earn commissions
-          from qualifying purchases from Amazon.com.
-        </p>
       </FooterSocialWrapper>
+      <p style={{ fontSize: "0.81rem", paddingBottom: 8, textAlign: "center" }}>
+        Affiliate disclosure: As an Amazon Associate, we may earn commissions
+        from qualifying purchases from Amazon.com.
+      </p>
     </FooterWrapper>
   )
 }
