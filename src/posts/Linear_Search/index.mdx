@@ -1,0 +1,105 @@
+---
+title: Linear Search in JavaScript
+slug: linear-search-in-javascript
+date: 2021-05-31
+featureImage: feature.jpg
+images: [gif.gif, gif_2.gif, table.PNG]
+excerpt: "In this article we'll discuss Linear Search logic, the time and space complexity of Linear Search, and when to use Linear Search."
+featuredPost: false
+---
+
+## Intro
+
+Linear search is a very common searching algorithm; It is implemented under the hood in the JavaScript built-in methods `indexOf()`, `includes()`, `find()`, and `findIndex()`.
+
+It is also the most straight-forward searching algorithm: it simply loops over each element in an array and stops if that element equals our target value.
+
+_Disclosure: I’m always looking for things I think my readers will value. If I make an affiliate partnership like the one featured in this article, then I may see a share of revenue._
+
+## Linear Search steps
+
+I think that with this algorithm, the gif below explains it all. But here are the steps in words:
+
+1. Linear search will accept an array and a target value.
+2. Start searching from the beginning of the array.
+3. Check if that value equals the target:
+
+- If so, stop and return that values index.
+- If not, move onto the next element.
+
+4. Repeat step 3 until all elements are checked. If target not found, return -1.
+
+<img
+  src={props.images[0].publicURL}
+  style={{ width: "85%", margin: "20px auto", display: "block" }}
+  alt="Linear search steps gif"
+/>
+
+_Source of the above gif: [bournetocode.com](https://bournetocode.com/projects/GCSE_Computing_Fundamentals/pages/3-1-3-searc_alg.html)_
+
+And if you ever find yourself looking for a specific length of French fry:
+
+<img
+  src={props.images[1].publicURL}
+  style={{ width: "85%", margin: "20px auto", display: "block" }}
+  alt="Linear searching for a french fry"
+/>
+
+## Linear Search in JavaScript
+
+```js
+function linearSearch(arr, target) {
+  for (let i in arr) {
+    if (arr[i] === target) return i
+  }
+
+  return -1
+}
+
+console.log(linearSearch([1, 2, 3, 4], 1)) // 0
+console.log(linearSearch([1, 2, 3, 4], 4)) // 3
+console.log(linearSearch([1, 2, 3, 4], 6)) // -1
+console.log(linearSearch([3, 4, 1, 6, 3], 6)) // 3
+```
+
+We simply loop over each element in the array, and check to see if the current element is equal to the target; if so, we return that elements index. If the target isn’t found, then we simply return -1 at the end of the function.
+
+## Time complexity of Linear Search
+
+### Best-case time complexity of Linear Search
+
+If our target value is at the beginning of the array, the algorithm will always run at constant time, O(1). The algorithm will always only have to perform one comparison, no matter what the size of the array.
+
+### Worst-case time complexity of Linear Search
+
+If our target is the last element in the array, then the algorithm will have to make n comparisons (n being the length of the input array). This means that the Big O notation of Linear Search is Big O(n) – linear time complexity.
+
+### Average-case time complexity of Linear Search
+
+If our target element is somewhere in the middle of the array, then the time complexity will be approximately O(n/2), which simplifies to O(n) – linear time.
+
+## Space complexity of Linear Search
+
+Linear Search has a space complexity of O(1) – constant space. It uses no auxiliary data structures to find the target value.
+
+## Performance summary table
+
+<img
+  src={props.images[2].publicURL}
+  style={{ width: "100%", margin: "20px auto", display: "block" }}
+  alt="time and space complexity of linear search summary table"
+/>
+
+## When to use Linear Search
+
+Linear search is the best we can do when searching in unsorted arrays, such as [2, 3, 1].
+
+Whilst there are searching algorithms that can perform faster, such as Binary Search, they can only search through sorted arrays.
+
+If you enjoyed this post, subscribe to [my newsletter](https://www.doabledanny.com/newsletter-signup/). I write on topics such as algorithms, UI design and freelancing. I’ll email you once per week with my latest article and bonus tips and tricks. I like to dive deeply into topics to give you all the information you need in one place!
+
+And if you want to further your knowledge of algorithms and data structures, check out: [JavaScript Algorithms and Data Structures Masterclass by Colt Steele](https://ad.admitad.com/g/05dgete24sfa55577a70b3e3b7aadc/?ulp=https%3A%2F%2Fwww.udemy.com%2Fcourse%2Fjs-algorithms-and-data-structures-masterclass%2F). It’s the best Udemy course I’ve ever taken 👌.
+
+Thanks for reading,
+
+Have a great day!
