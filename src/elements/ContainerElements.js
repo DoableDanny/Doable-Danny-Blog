@@ -7,7 +7,7 @@ export const ContainerWrapper = styled.div`
   width: 100%;
 `
 export const ContentWrapper = styled.div`
-  padding-bottom: 10rem;
+  padding-bottom: 16rem;
   padding-top: 3rem;
   width: 100%;
 

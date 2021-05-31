@@ -12,6 +12,7 @@ export default function success() {
           marginTop: 50,
           marginLeft: "auto",
           marginRight: "auto",
+          marginBottom: 50,
           maxWidth: 550,
         }}
       >
