@@ -4,6 +4,8 @@ import rangeParser from "parse-numeric-range"
 import Highlight, { defaultProps } from "prism-react-renderer"
 import theme from "prism-react-renderer/themes/vsDark"
 
+import { Pre } from "../elements/CodeElements"
+
 // Determines if a line of code needs to be highlighted
 const calculateLinesToHighlight = meta => {
   const RE = /{([\d,-]+)}/
@@ -29,7 +31,7 @@ const Code = ({ codeString, language, metastring, ...props }) => {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className="gatsby-highlight" data-language={language}>
-          <pre className={className} style={style}>
+          <Pre className={className} style={style}>
             {tokens.map((line, index) => {
               const lineProps = getLineProps({ line, key: index })
               if (shouldHighlightLine(index)) {
@@ -43,7 +45,7 @@ const Code = ({ codeString, language, metastring, ...props }) => {
                 </div>
               )
             })}
-          </pre>
+          </Pre>
         </div>
       )}
     </Highlight>
