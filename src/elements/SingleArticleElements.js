@@ -80,6 +80,11 @@ export const ArticleContainer = styled.article`
       padding-bottom: 8px;
     }
   }
+
+  figcaption {
+    text-align: center;
+    font-size: 18px;
+  }
 `
 
 export const TitleAndDate = styled.div`
