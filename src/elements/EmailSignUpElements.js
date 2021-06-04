@@ -18,6 +18,7 @@ export const SubscribeInput = styled.input.attrs({ type: "submit" })`
   cursor: pointer;
   border: none;
   border-radius: 5px;
+  margin-top: 32px;
 
   :hover {
     transform: scale(1.05);
