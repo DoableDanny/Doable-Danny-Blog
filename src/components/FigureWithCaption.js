@@ -5,7 +5,7 @@ const FigureWithCaption = ({ src, alt, caption, href, a_text }) => {
     <figure>
       <img
         src={src}
-        style={{ width: "85%", margin: "20px auto", display: "block" }}
+        style={{ width: "95%", margin: "20px auto", display: "block" }}
         alt={alt}
         loading="lazy"
       />

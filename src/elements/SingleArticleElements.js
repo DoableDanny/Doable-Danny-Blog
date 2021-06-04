@@ -27,9 +27,7 @@ export const ArticleContainer = styled.article`
     line-height: 1.5rem;
   }
 
-  ul {
-    list-style-position: inside;
-  }
+  ul,
   ol {
     list-style-position: inside;
   }
@@ -53,7 +51,7 @@ export const ArticleContainer = styled.article`
     color: #008989;
   }
 
-   pre {
+  pre {
     max-width: 100%;
     overflow: auto;
     background: #ddd;
@@ -67,9 +65,19 @@ export const ArticleContainer = styled.article`
     word-wrap: break-word;
     font-size: 20px;
     line-height: 145%;
-  } 
   }
 
+  table {
+    margin-right: auto;
+    margin-left: auto;
+    border-collapse: collapse;
+    font-size: 18px;
+
+    td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  }
 
   @media ${props => props.theme.breakpoints.mobile} {
     width: 90%;
