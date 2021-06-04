@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import {
   SuggestedArticlesContainer,
@@ -44,6 +44,7 @@ const SuggestedArticles = () => {
             title={edge.node.frontmatter.title}
             excerpt={edge.node.frontmatter.excerpt}
             date={edge.node.frontmatter.date}
+            slug={edge.node.frontmatter.slug}
           />
         ))}
       </SuggestedArticlesContainer>
@@ -51,27 +52,29 @@ const SuggestedArticles = () => {
   )
 }
 
-const SuggestedArticle = ({ image, title, excerpt, date }) => {
+const SuggestedArticle = ({ image, title, excerpt, date, slug }) => {
   console.log(image)
   return (
-    <SuggestedArticleWrapper>
-      <div
-        style={{
-          width: 300,
-          height: 200,
-          overflow: "hidden",
-          position: "relative",
-        }}
-      >
-        <Img
-          fixed={image}
-          style={{ position: "absolute", left: -30, top: 0 }}
-        />
-      </div>
-      <h2>{title}</h2>
-      <p>{excerpt}</p>
-      <span>- {date}</span>
-    </SuggestedArticleWrapper>
+    <Link to={`../${slug}`}>
+      <SuggestedArticleWrapper>
+        <div
+          style={{
+            width: 300,
+            height: 200,
+            overflow: "hidden",
+            position: "relative",
+          }}
+        >
+          <Img
+            fixed={image}
+            style={{ position: "absolute", left: -30, top: 0 }}
+          />
+        </div>
+        <h2>{title}</h2>
+        <p>{excerpt}</p>
+        <span>- {date}</span>
+      </SuggestedArticleWrapper>
+    </Link>
   )
 }
 

@@ -5,6 +5,19 @@ export const SuggestedArticlesContainer = styled.div`
   justify-content: center;
   margin-top: 60px;
 
+  a {
+    text-decoration: none;
+    color: black;
+    border-radius: 20px;
+    padding: 8px 0;
+    transition: transform 2s, background-color 1s;
+
+    :hover {
+      background-color: ${props => props.theme.colors.lightBlue};
+      transform: scale(1.05);
+    }
+  }
+
   @media only screen and (max-width: 920px) {
     flex-direction: column;
     align-items: center;
