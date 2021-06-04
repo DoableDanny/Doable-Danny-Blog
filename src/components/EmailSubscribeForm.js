@@ -44,15 +44,22 @@ export default function EmailSubscribeForm({ page, noTitle }) {
 
   return (
     <FORM onSubmit={handleSubmit}>
-    {!noTitle && <h2
-        style={{
-          textAlign: "center",
-          color: "black",
-        }}
-      >
-        Subscribe to be notified of new blog posts!
-      </h2> }
-      
+      {!noTitle && (
+        <>
+          <h2
+            style={{
+              textAlign: "center",
+              color: "black",
+            }}
+          >
+            Subscribe to be notified of new blog posts!
+          </h2>
+          <span style={{ textAlign: "center", margin: "16px 0" }}>
+            No spam ever. One-click unsubscribe whenever.
+          </span>
+        </>
+      )}
+
       <label htmlFor="name">
         Name (optional):
         <UserInput

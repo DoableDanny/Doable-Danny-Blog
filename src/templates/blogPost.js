@@ -5,6 +5,7 @@ import Image from "gatsby-image"
 import HyvorTalk from "hyvor-talk-react"
 import Layout from "../components/Layout"
 import EmailSubscribeForm from "../components/EmailSubscribeForm"
+import SuggestedArticles from "../components/SuggestedArticles"
 import {
   ArticleContainer,
   TitleAndDate,
@@ -55,6 +56,8 @@ export default function BlogPost({ data }) {
 
         <AffiliateBanners />
       </ArticleContainer>
+
+      <SuggestedArticles />
 
       <div
         style={{
