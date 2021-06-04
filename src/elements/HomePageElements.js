@@ -2,58 +2,52 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 
 const marginLeft = "70px"
-const marginLeftMobile = "10px"
+const marginLeftAndRightMobile = "16px"
 const breakPoint1 = "50rem"
 
 // Welcome section
 export const WelcomeSection = styled.section`
   background-color: ${props => props.theme.colors.main1};
-  padding-top: 50px;
+  padding-top: 60px;
   padding-bottom: 50px;
-  height: 95vh;
+  min-height: 95vh;
   display: flex;
   align-items: center;
 `
-export const WelcomeTextWrapper = styled.div`
+export const WelcomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-left: ${marginLeft};
+  margin-right: ${marginLeftAndRightMobile};
+  max-width: 800px;
+
+  * {
+    margin: 16px 0px !important;
+  }
 
   span {
     color: ${props => props.theme.colors.lightBlue};
-    margin-left: 3px;
     font-size: 1.4rem;
-  }
-
-  h1 {
-    color: #cbdee1;
-    font-size: 3.5rem;
-    line-height: 3rem;
-    margin: 35px 0;
   }
 
   h2 {
     color: #e3f1f3;
-    margin-left: 3px;
     font-size: 4rem;
     line-height: 4rem;
-    margin-bottom: 45px;
   }
 
   @media only screen and (max-width: ${breakPoint1}) {
-    margin-left: ${marginLeftMobile};
+    margin-left: ${marginLeftAndRightMobile};
   }
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 550px) {
     span {
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
+
     h2 {
-      font-size: 3rem;
+      font-size: 2.5rem;
+      line-height: 3.2rem;
     }
   }
 `
@@ -151,7 +145,7 @@ export const ProjectModuleTextWrapper = styled.div`
     margin-bottom: 22px;
     margin-left: 0;
     font-size: 1.7rem !important;
-    line-height: 130%;
+    line-height: 140%;
     width: 100%;
   }
 
@@ -244,6 +238,7 @@ export const BlogModuleContainer = styled.div`
 
   p {
     margin-bottom: 0px;
+    line-height: 170% !important;
   }
 
   a {
@@ -332,7 +327,7 @@ export const H = styled.h2`
   margin-left: ${marginLeft} !important;
 
   @media only screen and (max-width: ${breakPoint1}) {
-    margin-left: ${marginLeftMobile} !important;
+    margin-left: ${marginLeftAndRightMobile} !important;
   }
 `
 export const P = styled.p`
@@ -347,17 +342,39 @@ export const P = styled.p`
   }
 `
 
-export const BtnPrimary = styled.button`
-   background-color: ${props => props.theme.colors.lightBlue};
-      outline: none;
-      border: none;
-      border-radius: 10px;
-      padding: 15px 25px;
-      transition: 0.3s ease;
-      font-size: 1.2rem;
+export const LinkBtn = styled.a`
+  background-color: ${props =>
+    props.color === "primary"
+      ? props.theme.colors.lightBlue
+      : props.theme.colors.main2};
+  border-radius: 10px;
+  padding: 15px 25px;
+  transition: 0.3s ease;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 100%;
+  color: "black";
+  margin-right: ${props => (props.mr ? "32px !important" : 0)};
+  text-align: center;
+  text-decoration: none;
 
-      :hover {
-        cursor: pointer;
-        opacity: 0.8;
-        color: #011515;
+  :hover {
+    cursor: pointer;
+    color: #011515;
+    transform: scale(1.05);
+    box-shadow: ${props => props.theme.shadows.shadow1};
+  }
+
+  @media only screen and (max-width: ${breakPoint1}) {
+    font-weight: normal;
+  }
+`
+
+export const LinkBtnRow = styled.div`
+  display: flex;
+  width: 100%;
+
+  @media only screen and (max-width: ${breakPoint1}) {
+    flex-direction: column;
+  }
 `

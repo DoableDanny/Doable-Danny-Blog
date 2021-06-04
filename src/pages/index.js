@@ -1,17 +1,18 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/Layout"
 import { Seo } from "../components/Seo"
 import {
   WelcomeSection,
-  WelcomeTextWrapper,
+  WelcomeContainer,
   ProfileImg,
   Section,
   H,
   P,
-  BtnPrimary,
+  LinkBtn,
+  LinkBtnRow,
   AboutPWrapper,
   AboutContainer,
   ProjectModulesContainer,
@@ -68,7 +69,7 @@ export default function Home() {
               slug
               featureImage {
                 childImageSharp {
-                  fixed(width: 300, height: 200) {
+                  fixed(width: 350, height: 200) {
                     ...GatsbyImageSharpFixed
                   }
                 }
@@ -84,11 +85,26 @@ export default function Home() {
     <Layout thisPage={"home"}>
       <Seo title={"Doable Danny | Home"} />
       <WelcomeSection>
-        <WelcomeTextWrapper>
-          <span>Hi, my name is</span>
-          <h1>Danny Adams</h1>
-          <h2>Full-Stack Web Developer</h2>
-        </WelcomeTextWrapper>
+        <WelcomeContainer>
+          <span>Hi! I’m Danny 👋</span>
+          <h2>I'm a Full-Stack Web Developer and Writer.</h2>
+          <p style={{ color: "#fff" }}>
+            If you're looking to learn about UI design, algorithms, and
+            freelancing, you're in the right place!
+          </p>
+          <LinkBtnRow>
+            <LinkBtn color="primary" mr onClick={() => navigate("/blog/")}>
+              Articles
+            </LinkBtn>
+            <LinkBtn
+              color="secondary"
+              href="https://twitter.com/doabledanny"
+              target="_blank"
+            >
+              Say hi on Twitter
+            </LinkBtn>
+          </LinkBtnRow>
+        </WelcomeContainer>
       </WelcomeSection>
       <Section color="light">
         <H>About me</H>
@@ -113,7 +129,7 @@ export default function Home() {
       </Section>
 
       <Section color="dark">
-        <H color="light">My Projects</H>
+        <H color="light">Here are some of my favourite projects...</H>
         <ProjectModulesContainer>
           <ProjectModule
             link="https://play.google.com/store/apps/details?id=com.navalsmeditations"
@@ -157,23 +173,18 @@ export default function Home() {
           </ProjectModule>
 
           <ProjectModule
-            link="https://exercise-logger-danny.herokuapp.com/"
-            github="https://github.com/DoableDanny/Exercise-Tracker-Express-MongoDB"
+            link="https://breakout-game-danny.herokuapp.com/"
+            github="https://github.com/DoableDanny/Breakout-Game-with-Online-Leader-Board"
             image={data.projImg3.childImageSharp.fluid}
-            alt="Exercsie tracker"
+            alt="Classic Breakout Game!"
             span="Full-stack"
-            title="Exercise Tracker"
-            technologies={["Node", "Express", "MongoDB"]}
+            title="Classic Breakout Game!"
+            technologies={["PHP", "MySQL", "JavaScript"]}
           >
             <ul>
-              <li>
-                Built to pass Freecodecamp's APIs and microservices certificate.
-              </li>
-              <li>
-                Users and exercises stored to and accessed from database using
-                mongoose.
-              </li>
-              <li>Express handles post and get requests.</li>
+              <li>Online leaderboard implemented with PHP and MySQL.</li>
+              <li>Front-end built with HTML canvas and vanilla JS logic.</li>
+              <li>Game was used to host a competition on Twitter!</li>
             </ul>
           </ProjectModule>
         </ProjectModulesContainer>
@@ -261,7 +272,9 @@ function ContactMeForm() {
         onChange={event => setMessage(event.currentTarget.value)}
         value={message}
       />
-      <BtnPrimary type="submit">Send</BtnPrimary>
+      <LinkBtn type="submit" color="primary">
+        Send
+      </LinkBtn>
     </form>
   )
 }
@@ -270,7 +283,21 @@ function BlogModule({ image, title, excerpt, slug, date }) {
   return (
     <BlogModuleContainer>
       <Link to={`../${slug}`}>
-        <Img fixed={image} />
+        <div
+          style={{
+            width: 300,
+            margin: "0 auto",
+            overflow: "hidden",
+            position: "relative",
+            height: 200,
+          }}
+        >
+          <Img
+            fixed={image}
+            style={{ position: "absolute", left: "50%", marginLeft: -180 }}
+          />
+        </div>
+
         <h2>{title}</h2>
       </Link>
       <P>{excerpt}</P>
