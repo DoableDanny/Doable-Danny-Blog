@@ -13,7 +13,7 @@ export const SuggestedArticlesContainer = styled.div`
     transition: transform 2s, background-color 1s;
 
     :hover {
-      background-color: ${props => props.theme.colors.lightBlue};
+      background-color: #c0fdfd;
       transform: scale(1.05);
     }
   }
