@@ -90,7 +90,7 @@ export default function BlogPost({ data }) {
   )
 }
 
-// $id is a variable passed into this query from gatsby-node.js. This query then finds that posts data.
+// $id is a variable passed into this query from gatsby-node.js. This query then finds that posts data. The fixed image has 2:1 aspect ratio for Twitter cards.
 export const pageQuery = graphql`
   query SinglePostQuery($id: String!) {
     mdx(id: { eq: $id }) {
