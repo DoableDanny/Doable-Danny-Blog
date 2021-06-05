@@ -20,7 +20,7 @@ export default function BlogPost({ data }) {
   // Getting SEO Image
   const imgSrc =
     data.mdx.frontmatter.featureImage &&
-    data.mdx.frontmatter.featureImage.childImageSharp.fluid.src
+    data.mdx.frontmatter.featureImage.childImageSharp.fixed.src
 
   let origin = ""
   if (typeof window !== "undefined") {
@@ -109,6 +109,9 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
+            }
+            fixed(height: 600, width: 1200) {
+              src
             }
           }
         }

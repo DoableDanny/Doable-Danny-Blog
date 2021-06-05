@@ -31,7 +31,6 @@ const SuggestedArticles = () => {
     }
   `)
 
-  console.log(data.allMdx.edges[0].node.frontmatter)
   return (
     <div style={{ marginTop: 100 }}>
       <h2 style={{ textAlign: "center" }}>
@@ -53,7 +52,6 @@ const SuggestedArticles = () => {
 }
 
 const SuggestedArticle = ({ image, title, excerpt, date, slug }) => {
-  console.log(image)
   return (
     <Link to={`../${slug}`}>
       <SuggestedArticleWrapper>
