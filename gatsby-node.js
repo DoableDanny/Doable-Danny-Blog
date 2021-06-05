@@ -39,7 +39,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const slug = edge.node.frontmatter.slug
     const id = edge.node.id
     actions.createPage({
-      path: `${slug.toLowerCase()}/`,
+      path: slug,
       component: require.resolve(`./src/templates/blogPost.js`),
       context: { id },
     })
