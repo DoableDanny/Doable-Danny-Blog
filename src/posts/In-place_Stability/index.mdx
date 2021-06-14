@@ -1,0 +1,100 @@
+---
+title: Important Algorithm Concepts | Algorithm Stability, In-place Algorithms, and Comparison Algorithms
+slug: algorithm-concepts
+date: 2021-06-14
+featureImage: feature.jpg
+excerpt: "In this article we'll define algorithm stability with an example, discuss in-place and out-of-place algorithms, and define comparison algorithms"
+featuredPost: false
+---
+
+In this article, we will discuss some important properties of algorithms that can help you to decide which algorithm is best suited to the job.
+
+In this article we will define and discuss:
+
+- Algorithm stability
+- In-place and out-of-place algorithms
+- Comparison and non-comparison sorts
+
+Don’t worry if you’ve never heard these terms before, I’ll explain them fully as we go.
+
+_Disclosure: I’m always looking for things I think my readers will value. This article contains some affilate links to products that I have used and found helpful. If you purchase these, then I may see a share of the revenue. This comes at no extra cost to you._
+
+## What is stability in sorting algorithms and why is it important?
+
+Stable means that two elements with equal values will appear in the same order in the sorted output as they appear in the unsorted input array.
+
+For example, if we wanted to sort:
+
+`[“Cherries“, “Blackberries”, “Apples”, “Bananas”]`
+
+into alphabetical order by first letter, with a stable sorting algorithm, the output would be:
+
+`[“Apples”, “Blackberries”, “Bananas”, “Cherries”]`
+
+As you can see, “Blackberries” and “Bananas” remained in the same relative positions in the input and output array because the algorithm is stable.
+Stable sorting algorithms:
+
+- Bubble Sort
+- Merge Sort
+- Radix Sort
+
+If the algorithm was unstable, then “Bananas” and “Blackberries” may be interchanged (`[“Apples”, “Bananas”, “Blackberries”, “Cherries”]`).
+
+Unstable sorting algorithms:
+
+- Selection Sort
+- Heap Sort
+- Quick Sort
+
+Why is it important to know if an algorithm is stable?
+
+Suppose we have an array of first and last names and we needed to sort by first name, then by last name, e.g.:
+
+`[“Danny Adams”, “Bill Gates”, “Dan Jenkins”, “Dylan Grub”]`
+
+First, we could sort by first name using either a stable or unstable algorithm because we don’t need to preserve relative positions. Let’s say we use an unstable sorting algorithm, and we get back:
+
+`[“Bill Gates”, “Dylan Grub”, “Dan Jenkins”, “Danny Adams”]`
+
+The array is now in order by first name – great. But now we need to be careful: the relative positions need to be respected when we sort by last name; we don’t want “Bill Gates” to get swapped with “Dylan Grub” – this could happen if we used an unstable sorting algorithm.
+
+Using a stable algorithm to sort by last name, we’d safely end up with:
+`[“Bill Gates”, “Danny Adams”, “Dylan Grub”, “Dan Jenkins”]`
+
+Happy days.
+
+## What is an In-place sorting algorithm?
+
+An in-place sorting algorithm is an algorithm which transforms input using no auxiliary data structure; however, a small amount of extra storage space is allowed for auxiliary variables.
+
+In simple terms, “in-place” just means that the input is overwritten (via swapping or replacement) by the output as the algorithm executes.
+
+The advantage of in-place algorithms is that they take up less space in memory. The input is overwritten, and so no extra data structures are required; this doesn’t include constant time variables, which will never take up much space, such as the i in for-loops.
+
+In-place algorithms have constant space complexity. Out-of-place algorithms have greater than constant space complexity, e.g.: linear time or quadratic time.
+
+In-place algorithms: Bubble Sort, Selection Sort, Insertion Sort, Heap Sort.
+
+Out-of-place: Merge Sort.
+
+## What is a comparison algorithm?
+
+A comparison sorting algorithm is an algorithm that only reads the list of elements through a single abstract comparison operation (usually a “less than” or “equal to”) that determines which of the two elements should occur first in the final sorted output array.
+
+Comparison sorting algorithms:
+
+- Bubble Sort
+- Selection Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+
+An example of a non-comparison-type sorting algorithm would be Radix Sort. It avoids comparison by creating and distributing elements into buckets according to their radix. Radix Sort exploits the face that information about the size of a number is encoded in the number of digits; more digits equals a bigger number.
+
+If you enjoyed this post, subscribe to [my newsletter](https://www.doabledanny.com/newsletter-signup/). I write on topics such as algorithms, UI design and freelancing. I’ll email you once per week with my latest article along with bonus tips and tricks. I like to dive deeply into topics to give you all the information you need in one place!
+
+And if you want to further your knowledge of algorithms and data structures, check out: [JavaScript Algorithms and Data Structures Masterclass by Colt Steele](https://ad.admitad.com/g/05dgete24sfa55577a70b3e3b7aadc/?ulp=https%3A%2F%2Fwww.udemy.com%2Fcourse%2Fjs-algorithms-and-data-structures-masterclass%2F). It’s the best Udemy course I’ve ever taken 👌.
+
+Thanks for reading,
+
+Have a great day!
