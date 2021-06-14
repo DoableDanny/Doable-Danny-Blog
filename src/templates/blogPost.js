@@ -73,9 +73,9 @@ export default function BlogPost({ data }) {
           height={60}
           scrolling="no"
           border={0}
-          marginwidth={0}
+          marginWidth={0}
           style={{ border: "none" }}
-          frameborder={0}
+          frameBorder={0}
         ></iframe>
       </div>
 

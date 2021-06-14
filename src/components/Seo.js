@@ -3,6 +3,13 @@ import { Helmet } from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
 export const Seo = ({ description, keywords, title, image, url, author }) => {
+  // Ensure full url for Twitter cards
+  if (image) {
+    image = image[0] === "/" ? `https://www.doabledanny.com${image}` : image
+  }
+
+  console.log(image)
+
   return (
     <StaticQuery
       query={detailsQuery}
