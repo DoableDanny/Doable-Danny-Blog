@@ -1,0 +1,184 @@
+---
+title: How to Compare Arrays in JavaScript Efficiently
+slug: compare-arrays-in-javascript
+date: 2021-06-28
+featureImage: feature.jpg
+# images: [gif.gif, gif_2.gif, table.PNG]
+excerpt: "In this article I'll derive two solutions to a problem that involves comparing two arrays in JavaScript. The first solution will be using highly inefficient nested for-loops; the second solution uses efficient frequency counter objects."
+featuredPost: false
+---
+
+In this article, I’m going to show you two ways of solving a typical interview-style question. The first solution is more obvious and less efficient. The second solution introduces a great problem-solving tool: frequency counter objects, which greatly improves the efficiency.
+
+Here’s what you’ll gain from reading this article:
+
+- A framework for approaching problems
+- A very useful, highly performant problem solving technique
+- An improved ability to analyse functions and improve performance
+
+I also made a [YouTube video](https://www.youtube.com/watch?v=pL-ZMMYVCSM&t=296s&ab_channel=DoableDannyDoableDanny) for those that like video. If you enjoy the video, consider subscribing to [my channel](https://www.youtube.com/channel/UC0URylW_U4i26wN231yRqvA?sub_confirmation=1).
+
+_Disclosure: I’m always looking for things I think my readers will value. This article contains some affilate links to products that I have used and found helpful. If you purchase these, then I may see a share of the revenue. This comes at no extra cost to you._
+
+## The problem
+
+“Write a function called “squared” which takes two arrays. The function should return true if every value in the array has its value squared in the second array. The frequency of values must be the same.”
+
+-- Your interviewer
+
+At first, I will show you the “Naïve” way of solving the problem – the more obvious way that isn’t efficient.
+
+I’ll then show you an efficient way to solve the problem using “frequency counter objects”. This is a very handy technique to have in your problem-solving toolbox (your brain).
+
+## Understanding the problem
+
+**Problem solving 101:** Before we attempt to write a solution, it’s very important to understand the problem - to give some examples and the results we expect. We can then use these examples as tests to ensure our solution is working correctly.
+
+**Examples:**
+
+1. Squared([1, 2, 3], [9, 1, 4]) // true
+2. Squared([1, 2, 3], [1, 4]) // false
+3. Squared([2, 2, 3], [4, 9, 9]) // false
+
+**Example 1 is true because:**
+
+- 1<sup>2</sup> = 1 (yep, that’s in array 2)
+- 2<sup>2</sup> = 4 (yep, that’s in array 2)
+- 3<sup>2</sup> = 9 (yep, that’s in array 2)
+
+**Example 2 is false because:**
+
+- 1<sup>2</sup> = 1 (yep, that’s in array 2)
+- 2<sup>2</sup> = 4 (yep, that’s in array 2)
+- 3<sup>2</sup> = 9 (nope, that's not in array 2)
+
+**Example 3 is false because:**
+
+- 2<sup>2</sup> = 4 (yep that’s in array 2)
+- 2<sup>2</sup> = 4 (nope, there is only one 4 in array 2)
+- 3<sup>2</sup> = 9 (yep, but we won’t even get to this check because the function returned false beforehand)
+
+## The “naïve” way
+
+First, we check if the arrays are not equal length. If not, we return false and get out of the function early because the frequency of values can’t possibly be the same.
+
+Next, we loop over each number (num) in arr1. Inside the loop, we use `indexOf()` to look for the position of `num2` in arr2. The value is assigned to the variable `foundIndex`.
+
+If the value was not found, indexOf returns -1. So, we can check if foundIndex = -1, and return false if so.
+
+If all is good, we move on and remove this value from arr2 using the `splice()` method. This ensures the frequency of values in both arrays are the same.
+
+After looping over each number, and all the checks pass, we can return true.
+
+```js
+function squared(arr1, arr2) {
+  if (arr1.length !== arr2.length) return false
+
+  for (let num of arr1) {
+    let foundIndex = arr2.indexOf(num ** 2)
+
+    if (foundIndex === -1) return false
+
+    arr2.splice(foundIndex, 1)
+  }
+
+  return true
+}
+```
+
+## Performance
+
+This algorithm has a Big O(n<sup>2</sup>) because we loop over every single item in the first array, then inside this loop, we are looping over every single item in the second array (with `indexOf()`) at worst-case.
+
+If you don’t know (or have forgotten) what Big O is, check out this video: [Big O Notation in JavaScript](https://www.youtube.com/watch?v=lWldunWaLPs&t=327s&ab_channel=DoableDanny). It’s an important topic!
+
+If the arrays are of length n, then the number of operations will be n \* n = n<sup>2</sup>. Hence Big O(n<sup>2</sup>).
+
+Now, this is not quite true because the second array becomes shorter on each loop, so on average we will only loop over half the second array (0.5n). The Big O will be of n \* 0.5n = 0.5n<sup>2</sup>. But Big O looks at big picture stuff, and as the input approaches infinity, the 0.5 will be insignificant and so we simplify to Big O(n<sup>2</sup>).
+
+## A smarter way – Frequency Counter Objects – Big O(n)
+
+### What are Frequency Counter Objects?
+
+Frequency counters are objects that tally things up. Here’s two examples of where they would be useful:
+
+- [The number of times a character appears in a string](https://www.youtube.com/watch?v=oyBXiJgU--U&ab_channel=DoableDanny)
+- The number of times a number appears in an array
+
+Using frequency counters can also significantly improve the performance of an algorithm, as it can often remove the need to use nested for-loops.
+
+Here’s what the frequency counter object for [1, 2, 3, 4, 3] would look like:
+
+```js
+let frequencyCounter = {
+  1: 1,
+  2: 1,
+  3: 2,
+  4: 1,
+}
+```
+
+All the numbers appear once, apart from 3, which appears twice.
+
+### The solution
+
+To create a frequency counter object, we loop over the array in question. We then create a key and give it a value of the current value + 1, or if it’s the first time we’ve encountered this number, `frequencyCounter[num]` will be undefined and so we initialise the value to 1.
+
+I used two for…of loops as I felt it was easier to read, but it could also be done with just one for-loop.
+
+The frequency counter objects can then be compared. We first check if each key squared from frequency counter 1 is a key in frequency counter 2. If not, return false.
+
+Next, we check if the frequencies (values) are equal. If not, return false.
+
+And if we get through all this unscathed, we get to the bottom and return true.
+
+```js
+function squared(arr1, arr2) {
+  if (arr1.length !== arr2.length) return false
+
+  let frequencyCounter1 = {}
+  let frequencyCounter2 = {}
+
+  // Create frequencyCounter1
+  for (let num of arr1) {
+    frequencyCounter1[num] = frequencyCounter1[num] + 1 || 1
+  }
+
+  // Create frequencyCounter2
+  for (let num of arr2) {
+    frequencyCounter2[num] = frequencyCounter2[num] + 1 || 1
+  }
+
+  // Compare frequency counters
+  for (let key in frequencyCounter1) {
+    if (!(key ** 2 in frequencyCounter2)) return false
+
+    if (frequencyCounter1[key] !== frequencyCounter2[key ** 2]) return false
+  }
+
+  return true
+}
+```
+
+## Performance
+
+1. To create frequencyCounter1, we loop over all the numbers in arr1 => n loops
+2. Same for frequencyCounter2 => n loops
+3. To compare the frequency counters, we loop over all the keys in frequencyCounter1 => at worst case, n loops
+
+Total = n + n + n = 3n
+
+Resulting in a Big O(n) – linear time complexity.
+
+Much better than our first effort of with Big O(n<sup>2</sup>) – quadratic time complexity.
+
+## Awesome references
+
+- I can attribute almost all of my knowledge of algorithms and data structures to one outstanding course: [JavaScript Algorithms and Data Structures Masterclass by Colt Steele](https://ad.admitad.com/g/05dgete24sfa55577a70b3e3b7aadc/?ulp=https%3A%2F%2Fwww.udemy.com%2Fcourse%2Fjs-algorithms-and-data-structures-masterclass%2F).
+- If you prefer books: [JavaScript Data Structures and Algorithms: An Introduction to Understanding and Implementing Core Data Structure and Algorithm Fundamentals by Sammie Bae](https://www.amazon.co.uk/gp/product/1484239873/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=doabledanny-21&creative=6738&linkCode=as2&creativeASIN=1484239873&linkId=445fcf63f9402faf2b2b0ef6c5c2f5d8)
+
+If you enjoyed this post, subscribe to [my newsletter](https://www.doabledanny.com/newsletter-signup/). I write on topics such as algorithms, UI design and freelancing. I’ll only email you once per week and you can unsubscribe at any time. Your inbox will be respected!
+
+Thanks for reading.
+
+Have a great day!
