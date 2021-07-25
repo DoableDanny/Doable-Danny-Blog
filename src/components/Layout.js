@@ -2,7 +2,7 @@ import React from "react"
 import Header from "./Header"
 import Footer from "./Footer"
 import { ContainerWrapper, ContentWrapper } from "../elements/ContainerElements"
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 export default function Layout({ children, thisPage }) {
   const data = useStaticQuery(
