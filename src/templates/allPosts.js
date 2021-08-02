@@ -11,7 +11,6 @@ import Pagination from "../components/Pagination"
 
 import { Seo } from "../components/Seo"
 import EmailSubscribeForm from "../components/EmailSubscribeForm"
-import HorizontalBanners from "../components/AffiliateBanners/HorizontalBanners"
 
 export default function AllPosts({ pageContext, data }) {
   const { currentPage, numPages } = pageContext
@@ -24,8 +23,6 @@ export default function AllPosts({ pageContext, data }) {
         title={`Doable Danny | Blog`}
         description="A collection of articles on topics such as web development, react, react native, PHP, JavaScript, TypeScript, marketing and freelancing"
       />
-
-      <HorizontalBanners />
 
       {currentPage === 1 ? (
         <>
