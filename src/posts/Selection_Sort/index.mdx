@@ -38,7 +38,7 @@ Selection Sort is an in-place, unstable and comparison-type algorithm.
 
 **Unstable** means that two elements with equal values could appear in different order in the sorted output compared with how they appeared in the unsorted input array.
 
-For example, [“Andrew”, “Betty”, “Adam”] could be sorted to [“Adam”, “Andrew”, “Betty”] using an unstable algorithm – notice how “Adam” and “Andrew” changed relative order despite having the same first letter; this wouldn’t happen if we used a stable algorithm, like Insertion Sort.
+For example, [“Andrew”, “Betty”, “Adam”] could be sorted to [“Adam”, “Andrew”, “Betty”] using an unstable algorithm – notice how “Adam” and “Andrew” changed relative order despite having the same first letter; this wouldn’t happen if we used a stable algorithm, like [Insertion Sort](https://www.doabledanny.com/insertion-sort-in-javascript).
 
 And finally, a **comparison sort** is a sorting algorithm that only reads the list of elements through a single abstract comparison operation (usually a “less than” or “equal to”) that determines which of the two elements should occur first in the final sorted output array.
 
@@ -153,7 +153,7 @@ One thing which distinguishes selection sort from other sorting algorithms is th
 
 This is a lot better than [Bubble Sort](https://www.doabledanny.com/bubble-sort-in-javascript) which potentially swaps at every comparison - n^2. This could be useful if, for some reason, you were worried about writing to memory a lot, but this is rarely a problem.
 
-It can be seen as an advantage in some situations that Selection Sort will always perform the same no matter what the order of the array; but usually, this is a disadvantage: it’s usually better if an algorithm varies a lot in its performance if it means it performs the sort quicker when the array is almost sorted. For these reasons, Insertion Sort is often a better choice.
+It can be seen as an advantage in some situations that Selection Sort will always perform the same no matter what the order of the array; but usually, this is a disadvantage: it’s usually better if an algorithm varies a lot in its performance if it means it performs the sort quicker when the array is almost sorted. For these reasons, [Insertion Sort](https://www.doabledanny.com/insertion-sort-in-javascript) is often a better choice.
 
 For larger arrays, Selection Sort is greatly outperformed by O(n log(n)) divide-and-conquer algorithms such as [Merge Sort](https://www.doabledanny.com/merge-sort-javascript).
 
