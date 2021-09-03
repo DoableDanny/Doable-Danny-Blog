@@ -1,0 +1,130 @@
+---
+title: How to Setup TailwindCSS with HTML
+slug: tailwindcss-html-setup
+date: 2021-09-03
+featureImage: feature.png
+excerpt: "How to setup TailwindCSS with a simple HTML project."
+featuredPost: false
+---
+
+## 1. Create package.json file
+
+`npm init -y`
+
+## 2. Install TailwindCSS, postcss and autoprefixer
+
+Autoprefixer adds browser-specific prefixes to CSS during build time, making the CSS compatible with all browsers.
+
+`npm install -D tailwindcss@latest postcss@latest autoprefixer@latest`
+
+## 3. Configure postcss
+
+Create `postcss.config.js` file in the project root.
+
+Add TailwindCSS and autoprefixer to postcss:
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+```
+
+## 4. Create TailwindCSS configuration file
+
+`npx tailwindcss init`
+
+This creates a minimal config file:
+
+```js
+// tailwind.config.js
+module.exports = {
+  purge: [],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+}
+```
+
+You can add custom styling in here, such as your own colors and fonts.
+
+## 5. Include TailwindCSS in your CSS
+
+Create the file `src/styles.css`
+
+Add the following Tailwind directives:
+
+```css
+/* src/styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+These will be swapped out by Tailwind classes/styles at build time.
+
+## 6. Add the purge option for production
+
+When Tailwind builds your CSS for development, it will include all of the styles.
+
+For Production, we only want to include the classes that we have actually used in the built CSS. So, add this following to the tailwind config file:
+
+```js {3}
+// tailwind.config.js
+module.exports = {
+  purge: ["./src/**/*.html", "./src/**/*.js"],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+}
+```
+
+## 7. Build the Tailwind CSS
+
+We will use the TailwindCSS CLI to build our CSS:
+
+`npx tailwindcss -i ./src/styles.css -o ./public/styles.css`
+
+`./src/styles.css` is the input, and the built-css output will be placed in `public/styles.css`.
+
+Instead of writing this lengthy command every time, we can add the following script into `package.json`:
+
+```js
+// package.json
+ "scripts": {
+    "build-css": "tailwindcss -i ./src/tailwind.css -o ./public/tailwind.css"
+  },
+
+```
+
+We can now build the CSS with this command:
+
+`npm run build-css`
+
+## 8. Linking in the StyleSheet
+
+Create an `index.html` file in the public folder.
+
+In the head, link in the `public/styles.css` file:
+
+```html
+<!-- index.html -->
+<link rel="stylesheet" href="tailwind.css" />
+```
+
+## 9. Tailwind production build
+
+`NODE_ENV=production npx tailwindcss -i ./src/styles.css -o ./public/styles.css`
+
+This removes unused CSS for best performance.
+
+DONE!
