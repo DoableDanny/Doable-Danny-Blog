@@ -1,0 +1,83 @@
+---
+title: Git Commands Cheatsheet (20+ advanced commands)
+slug: git-commands-cheatsheet
+date: 2022-01-06
+featureImage: feature.png
+excerpt: "..."
+featuredPost: false
+---
+
+## Basic Git Commands
+
+These are the commands you will use in every single project.
+
+1. Initialise Git
+
+`git init <project-name>`
+
+2. Add files to the staging area
+
+To add all files:
+
+`git add .`
+
+To add all files in a specific folder:
+
+`git add src/posts/Git_Commands_Post`
+
+To add one file:
+
+`git add styles.css`
+
+To add all files with a specific extension (in this case, all html files):
+
+`git add *.html`
+
+3. Check the staging area is correct before committing to Git
+
+`git status`
+
+4. Committing the changes to Git
+
+`git commit -m "A short message describing the changes here"`
+
+5. Push to remote repository (see below for how to set up remote repository)
+
+`git push`
+
+## Setting up a remote repository and pushing to Github
+
+First we need to set up the repository on Github:
+
+1. Go to github.com
+2. Sign in or create an account
+3. Select "New" to create a new repository
+4. Type in your repository information. I always leave the "Add a README file", "Add a .gitignore" and "Choose a license" checkboxed unchecked.
+5. Click Create repository
+
+Now we need to connect up our local repository to the just-created Github repository:
+
+6. Add the remote repository
+
+`git remote add origin https://github.com/YourUsername/Your-remote-repo-name.git`
+
+7.  Ensure we are in the main branch
+
+`git branch -M main`
+
+8. Push your committed local code to Github
+
+`git push -u origin main`
+
+## Changing your username and email in Git
+
+```
+git config --global user.name "Danny Adams"
+git config --global user.email "my-email@gmail.com"
+```
+
+## Undoing things in Git
+
+To remove a file from staging (Removes the file only from the Git repository. The local, working directory copy of the file will remain intact.):
+
+`git rm --cached <filename>`
