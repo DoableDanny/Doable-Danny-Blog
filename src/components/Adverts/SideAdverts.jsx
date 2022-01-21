@@ -6,15 +6,18 @@ import {
   AdvertContainer,
 } from "../../elements/AdvertsElements"
 
+// This is an aside component that contains adverts that run down the side of blog posts.
 const SideAdverts = () => {
   const [articleHeight, setArticleHeight] = useState(0)
 
   useEffect(() => {
+    // Find the height of the article so that we can ensure ads don't overflow on shorter articles.
     const height = document.querySelector("article").clientHeight
 
     setArticleHeight(height)
   }, [])
 
+  // Query in advert images from src/images/adverts
   const data = useStaticQuery(graphql`
     query {
       gitCheatSheet: file(relativePath: { eq: "adverts/git_cheat_dark.jpg" }) {
@@ -41,6 +44,7 @@ const SideAdverts = () => {
   )
 }
 
+// A single advert component
 const Advert = ({ title, desc, img, imgAlt, href, marginTop }) => {
   return (
     <AdvertContainer marginTop={marginTop}>
