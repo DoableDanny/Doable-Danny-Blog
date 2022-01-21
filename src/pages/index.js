@@ -111,16 +111,20 @@ export default function Home() {
         <AboutContainer>
           <ProfileImg fixed={data.profileAbout.childImageSharp.fixed} />
           <AboutPWrapper>
-            <P>2020 has been a year of religious daily coding!</P>
             <P>
-              I've taught myself many technologies and have built numerous
-              projects from this Gatsby blog to a React Native meditation app.
-              It's been lots of fun!
+              I am a freelance web developer who also loves to write articles,
+              learn new technologies and build projects on the side.
+            </P>
+            <P>
+              I've taught myself many technologies over the last few years, and
+              have built numerous projects from this Gatsby blog to a React
+              Native meditation app. It's been lots of fun!
             </P>
             <P>
               I have a masters degree in mechanical with biomedical engineering
               so logical scientific thinking is what I love to do. I'm currently
-              studying algorithms and data structures in JavaScript.
+              studying algorithms and data structures in JavaScript, and delving
+              deeper into React with TypeScript.
             </P>
           </AboutPWrapper>
         </AboutContainer>

@@ -16,6 +16,10 @@ export const AdvertsAsideContainer = styled.aside`
   @media only screen and (max-width: 1100px) {
     left: -180px;
   }
+
+  @media only screen and (max-width: 995px) {
+    display: none;
+  }
 `
 
 export const AdvertContainer = styled.div`
