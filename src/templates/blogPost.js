@@ -12,6 +12,7 @@ import {
   ImageContainer,
 } from "../elements/SingleArticleElements"
 import { Seo } from "../components/Seo"
+import SideAdverts from "../components/Adverts/SideAdverts"
 
 export default function BlogPost({ data }) {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fluid
@@ -52,6 +53,8 @@ export default function BlogPost({ data }) {
         <MDXRenderer images={data.mdx.frontmatter.images}>
           {data.mdx.body}
         </MDXRenderer>
+
+        <SideAdverts />
       </ArticleContainer>
 
       <SuggestedArticles />
