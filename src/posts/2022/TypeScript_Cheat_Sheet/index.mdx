@@ -29,11 +29,11 @@ This cheat sheet explains the following fundamental TypeScript concepts, with co
 - Enums
 - Narrowing
 
-## TypeScript Cheat Sheet PDF
+## FREE TypeScript Cheat Sheet PDF
 
 One page PDF to make it easy to copy and paste in commands.
 
-[Download the free TypeScript Cheat Sheet JPG here](https://doabledanny.gumroad.com/l/typescript-cheat-sheet-pdf). Or you can support my content by downloading the PDF version for a few dollars.
+[Download the free TypeScript Cheat Sheet PDF here](https://doabledanny.gumroad.com/l/typescript-cheat-sheet-pdf). Simply enter $0, or you can support my content by sending me a few $.
 
 Cheat sheets are available in Dark Mode and Light Mode:
 
@@ -53,8 +53,7 @@ Here is everything included in the cheat sheet:
 
 ## Setup
 
-Install TS globally on your
-machine
+Install TS globally on your machine
 
 ```bash
 $ npm i -g typescript
@@ -72,10 +71,7 @@ Create the tsconfig.json file
 $ tsc --init
 ```
 
-Set the root (to compile TS files
-from) and output (for the
-compiled JS files) directories in
-tsconfig.json
+Set the root (to compile TS files from) and output (for the compiled JS files) directories in tsconfig.json
 
 ```json
 "rootDir": "./src",
@@ -84,33 +80,25 @@ tsconfig.json
 
 ## Compiling
 
-Compile a specified TS file into
-a JS file of the same name, into
-the same directory (i.e.
-index.ts to index.js).
+Compile a specified TS file into a JS file of the same name, into the same directory (i.e. index.ts to index.js)
 
 ```bash
 $ tsc index.ts
 ```
 
-Tell tsc to compile specified file
-whenever a change is saved by
-adding the watch flag (-w)
+Tell tsc to compile specified file whenever a change is saved by adding the watch flag (-w)
 
 ```bash
 $ tsc index.ts -w
 ```
 
-Compile specified file into
-specified output file
+Compile specified file into specified output file
 
 ```bash
 $ tsc index.ts --outfile out/script.js
 ```
 
-If no file is specified, tsc will
-compile all TS files in the "rootDir" and output in the
-"outDir". Add -w to watch for changes.
+If no file is specified, tsc will compile all TS files in the "rootDir" and output in the "outDir". Add -w to watch for changes.
 
 ```bash
 $ tsc -w
@@ -118,10 +106,7 @@ $ tsc -w
 
 ## Strict Mode
 
-In tsconfig.json, it is
-recommended to set strict to
-true. One helpful feature of
-strict mode is No Implicit Any:
+In tsconfig.json, it is recommended to set strict to true. One helpful feature of strict mode is No Implicit Any:
 
 ```ts
 // Error: Parameter 'a' implicitly has an 'any' type
@@ -148,9 +133,7 @@ Explicit type annotation
 let firstname: string = "Danny"
 ```
 
-If we assign a value (as above), we
-don't need to state the type - TS will
-infer it ("implicit type annotation")
+If we assign a value (as above), we don't need to state the type - TS will infer it ("implicit type annotation")
 
 ```ts
 let firstname = "Danny"
@@ -158,8 +141,7 @@ let firstname = "Danny"
 
 ## Union Types
 
-A variable that can be assigned more
-than one type
+A variable that can be assigned more than one type
 
 ```ts
 let age: number | string
@@ -169,8 +151,7 @@ age = "26"
 
 ## Dynamic Types
 
-The `any` type basically reverts TS back
-to JS.
+The `any` type basically reverts TS back to JS
 
 ```ts
 let age: any = 100
@@ -179,8 +160,7 @@ age = true
 
 ## Literal Types
 
-We can refer to specific strings &
-numbers in type positions
+We can refer to specific strings & numbers in type positions
 
 ```ts
 let direction: "UP" | "DOWN"
@@ -189,8 +169,7 @@ direction = "UP"
 
 ## Objects
 
-Objects in TS must have all the correct
-properties & value types
+Objects in TS must have all the correct properties & value types
 
 ```ts
 let person: {
@@ -210,8 +189,7 @@ person.isProgrammer = "yes" // Error - should be boolean
 
 ## Arrays
 
-We can define what kind of data an array can
-contain
+We can define what kind of data an array can contain
 
 ```ts
 let ids: number[] = []
@@ -226,8 +204,7 @@ let options: (string | number)[]
 options = [10, "UP"]
 ```
 
-If a value is assigned, TS will infer the types in the
-array.
+If a value is assigned, TS will infer the types in the array
 
 ```ts
 let person = ["Delia", 48]
@@ -236,9 +213,7 @@ person[0] = true // Error - only strings or numbers allowed
 
 ## Tuples
 
-A tuple is a special type of array with fixed size &
-known data types at each index. They're stricter
-than regular arrays.
+A tuple is a special type of array with fixed size & known data types at each index. They're stricter than regular arrays.
 
 ```ts
 let options: [string, number]
@@ -247,9 +222,7 @@ options = ["UP", 10]
 
 ## Functions
 
-We can define the types of the arguments, and the
-return type. Below, `: string` could be omitted
-because TS would infer the return type.
+We can define the types of the arguments, and the return type. Below, `: string` could be omitted because TS would infer the return type.
 
 ```ts
 function circle(diam: number): string {
@@ -263,8 +236,7 @@ The same function as an ES6 arrow
 const circle = (diam: number): string => "Circumf = " + Math.PI * diam
 ```
 
-If we want to declare a function, but not define it,
-use a function signature
+If we want to declare a function, but not define it, use a function signature
 
 ```ts
 let sayHi: (name: string) => void
@@ -274,10 +246,8 @@ sayHi("Danny") // Hi Danny
 
 ## Type Aliases
 
-Allow you to create a new name for an existing
-type. They can help to reduce code duplication.
-They're similar to interfaces, but can also describe
-primitive types.
+Allow you to create a new name for an existing type. They can help to reduce code duplication.
+They're similar to interfaces, but can also describe primitive types.
 
 ```ts
 type StringOrNum = string | number
@@ -286,10 +256,7 @@ let id: StringOrNum = 24
 
 ## Interfaces
 
-Interfaces are used to describe objects.
-Interfaces can always be reopened &
-extended, unlike Type Aliases. Notice that
-`name` is `readonly`
+Interfaces are used to describe objects. Interfaces can always be reopened & extended, unlike Type Aliases. Notice that `name` is `readonly`
 
 ```ts
 interface Person {
@@ -305,8 +272,7 @@ let p1: Person = {
 p1.name = "Del" // Error - read only
 ```
 
-Two ways to describe a function in an
-interface
+Two ways to describe a function in an interface
 
 ```ts
 interface Speech {
@@ -336,17 +302,13 @@ interface Dog extends Animal {
 
 ## The DOM & Type Casting
 
-TS doesn't have access to the DOM, so use
-the non-null operator, !, to tell TS the
-expression isn't null or undefined
+TS doesn't have access to the DOM, so use the non-null operator (!) to tell TS the expression isn't null or undefined
 
 ```ts
 const link = document.querySelector("a")!
 ```
 
-If an element is selected by id or class, we
-need to tell TS what type of element it is via
-Type Casting
+If an element is selected by id or class, we need to tell TS what type of element it is via Type Casting
 
 ```ts
 const form = document.getElementById("signupform") as HTMLFormElement
@@ -354,9 +316,7 @@ const form = document.getElementById("signupform") as HTMLFormElement
 
 ## Generics
 
-Generics allow for type safety in components where
-the arguments & return types are unkown ahead of
-time.
+Generics allow for type safety in components where the arguments & return types are unkown ahead of time
 
 ```ts
 interface HasLength {
@@ -375,7 +335,7 @@ logLength("Hello") // 5
 logLength<number[]>([1, 2, 3]) // 3
 ```
 
-Declare a type, T, which can change in your interface.
+Declare a type, T, which can change in your interface
 
 ```ts
 interface Dog<T> {
@@ -397,8 +357,7 @@ let scottieDog: Dog<string[]> = {
 
 ## Enums
 
-A set of related values, as a set of descriptive
-constants
+A set of related values, as a set of descriptive constants
 
 ```ts
 enum ResourceType {
@@ -412,8 +371,7 @@ ResourceType.FILE // 1
 
 ## Narrowing
 
-Occurs when a variable moves from a less precise
-type to a more precise type
+Occurs when a variable moves from a less precise type to a more precise type
 
 ```ts
 let age = getUserAge()
