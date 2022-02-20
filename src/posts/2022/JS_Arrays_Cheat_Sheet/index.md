@@ -1,11 +1,35 @@
 ---
-title: JavaScript Array Methods Cheat Sheet 📄
+title: JavaScript Array Methods Cheat Sheet (17 Common Array Methods) 📄
 slug: javascript-array-cheat-sheet
-date: 2022-01-30
+date: 2022-02-20
 featureImage: feature.png
-excerpt: "..."
+excerpt: "Having common array methods at the top of your head will allow you to write elegant and efficient solutions in JavaScript more quickly."
 featuredPost: false
 ---
+
+Having common array methods at the top of your head will allow you to write elegant and efficient solutions in JavaScript more quickly.
+
+So I decided to make a JavaScript array methods cheat sheet so I can quickly revise array methods and always keep them fresh in my mind.
+
+This cheat sheet includes 17 commonly used array methods:
+
+- `toString()`
+- `join()`
+- `concat()`
+- `splice()`
+- `slice()`
+- `indexOf()`
+- `lastIndexOf()`
+- `forEach()`
+- `map()`
+- `filter()`
+- `reduce()`
+- `some()`
+- `every()`
+- `flat()`
+- `find()`
+- `findIndex()`
+- `sort()`
 
 ## Array methods are shared
 
@@ -13,11 +37,9 @@ In JavaScript, all arrays are constructed from the global `Array` class. All arr
 
 This means that array methods are shared between array instances via prototypal inheritance.
 
-This is different to the `length` array property, which is stored on each array instance, and is unique to each array. The `length` property is not shared between array instances, unlike array methods such as `pop()`. The `length` property is set in the constructor of `Array` each time a new array instance is created.
-
 ## Array methods in JavaScript
 
-### Array methods.prototype.toString
+### Array.prototype.toString
 
 Converts an array into a string of comma-separated array values:
 
@@ -27,7 +49,7 @@ let names = ["Zoe", "Adam", "Dan"]
 let strNames = names.toString() // Zoe,Adam,Dan
 ```
 
-### Array methods.prototype.join
+### Array.prototype.join
 
 Similar to `toString`, but you can specify the separator:
 
@@ -37,7 +59,7 @@ let names = ["Zoe", "Adam", "Dan"]
 let strNames = names.join(" and ") // Zoe and Adam and Dan
 ```
 
-### Array methods.prototype.concat
+### Array.prototype.concat
 
 Create a new array by concatenating existing arrays:
 
@@ -50,7 +72,7 @@ let concatArr = nums.concat(nums2, nums3)
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-### Array methods.prototype.splice
+### Array.prototype.splice
 
 The `splice()` method can be used to add new items to an array:
 
@@ -90,7 +112,7 @@ console.log(arr) // ['Danny', 'Amy']
 
 Since `splice()` mutates the original array, it is often best to make a copy of it before splicing.
 
-### Array methods.prototype.slice
+### Array.prototype.slice
 
 `slice()` slices out a piece of an array, and returns it in a new array:
 
@@ -110,7 +132,7 @@ let arr = ["Danny", "Joe", "Amy"]
 let slice = arr.slice(0, 2) // ['Danny', 'Joe']
 ```
 
-### Array methods.prototype.indexOf
+### Array.prototype.indexOf
 
 Find the first index that contains a certain value (searches from left to right):
 
@@ -120,7 +142,7 @@ let arr = ["Danny", "Joe", "Amy", "Joe"]
 let index = arr.indexOf("Joe") // 1
 ```
 
-### Array methods.prototype.lastIndexOf
+### Array.prototype.lastIndexOf
 
 Find the last index that contains a certain value (searches from right to left):
 
@@ -138,7 +160,7 @@ A higher-order function is a function that accepts functions as arguments, and/o
 
 In JavaScript, these methods are shared between array instances via prototypal inheritance from `Array.prototype`.
 
-### Array methods.prototype.forEach
+### Array.prototype.forEach
 
 The `forEach` method is basically just a shorter way of writing `for(let i = 0; i < arr.length; i++) {...}`.
 
@@ -164,7 +186,7 @@ numbers.forEach(n => console.log(n))
 
 It's better to use `map` if you want to return a new array with return value of each call-back run.
 
-### Array methods.prototype.map
+### Array.prototype.map
 
 The map function takes in a call-back function as argument, and executes that function on each element of the array it is working on. It maps each of the return values of the call-back into a new array. It does not mutate the original array.
 
@@ -189,7 +211,7 @@ let doubledOddIndexNumbers = numbers.map((n, i) => {
 }) // [1, 4, 3, 8]
 ```
 
-### Array methods.prototype.filter
+### Array.prototype.filter
 
 The filter method is used to filter out array elements that fail a boolean test. Only elements that pass the test are allowed through into the new return array.
 
@@ -232,7 +254,7 @@ let moreThanTwoRivers = cities.filter(c => c.rivers > 2)
 // ];
 ```
 
-### Array methods.prototype.reduce
+### Array.prototype.reduce
 
 The reduce method runs the call-back function on each array element, and reduces the array down into a single value.
 
@@ -281,7 +303,7 @@ let max = arr.reduce((a, b) => {
 // 3
 ```
 
-### Array methods.prototype.some
+### Array.prototype.some
 
 The `some` method checks if some array values pass a test. It returns either `true` or `false`.
 
@@ -300,7 +322,7 @@ let isSomeGreaterThan6 = numbers.some(n => n > 6) // true
 let isSomeLessThan4 = numbers.some(n => n < 4) // false
 ```
 
-### Array methods.prototype.every
+### Array.prototype.every
 
 `every` is similar to the `some` method, but checks if every value in the array passes a certain test, rather than just some.
 
@@ -313,7 +335,7 @@ let isEverythingGreaterThan6 = numbers.every(n => n > 6) // false
 let isEverythingLessThan20 = numbers.some(n => n < 20) // true
 ```
 
-### Array methods.prototype.flat
+### Array.prototype.flat
 
 The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
 
@@ -336,7 +358,7 @@ let flatArr1 = arr.flat() // [1, 2, 3, 1, 2, 1, [1, 2]]
 let flatArr2 = arr.flat(2) // [1, 2, 3, 1, 2, 1, 1, 2]
 ```
 
-### Array methods.prototype.find
+### Array.prototype.find
 
 The `find` method returns the first element in the array that passes a certain test.
 
@@ -359,7 +381,7 @@ let mayo = stock.find(s => s.item === "mayo")
 //  { item: 'mayo', quantity: 9 }
 ```
 
-### Array methods.prototype.findIndex
+### Array.prototype.findIndex
 
 Same as `find`, but returns the index instead of the value:
 
@@ -374,7 +396,7 @@ let mayoIndex = stock.findIndex(s => s.item === "mayo")
 //  1
 ```
 
-### Array methods.prototype.sort
+### Array.prototype.sort
 
 `sort` puts an array's elements in ascending order. It is an "in-place" sorting algorithm - meaning that it mutates the original array and returns it.
 
@@ -399,3 +421,12 @@ console.log(numbers) // [1, 2, 3, 7]
 ```
 
 Initially, `a` is 3 and `b` is 1. If `a - b` is negative, it knows that `b` is larger, and therefore should come after `a`. If positive, `b` should come before `a`.
+
+## Thanks for reading!
+
+For more from me, you can:
+
+- [Follow me on Twitter](https://twitter.com/DoableDanny).
+- [Subscribe to my YouTube channel](https://www.youtube.com/channel/UC0URylW_U4i26wN231yRqvA) where I plan to post more programming videos in the near future.
+
+Cheers!
