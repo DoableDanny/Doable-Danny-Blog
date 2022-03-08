@@ -1,13 +1,21 @@
 ---
-title: Advanced React Concepts
-slug: advanced-react-concepts
-date: 2021-11-01
+title: ReactJS Optimization - Improve Performance with React.memo, useCallback and useMemo (with examples)
+slug: reactjs-optimization
+date: 2022-03-08
 featureImage: feature.png
-excerpt: "..."
+excerpt: "React offers some nice ways to optimize our React apps. However, it's not always clear for when we should add optimizations. In fact, we can even slow down our app and make the code more complex."
 featuredPost: false
 ---
 
-## React.memo
+React offers some nice ways to optimize our React apps. However, it's not always clear for when we should add optimizations. In fact, we can even slow down our app and make the code more complex.
+
+In this article I will discuss how the following work, and when you should (and shouldn't) use them with examples:
+
+- [React.memo()](#react.memo)
+- [React.useCallback()](#react.usecallback)
+- [React.useMemo()](#react.usememo)
+
+<h2 id="react.memo">React.memo()</h2>
 
 We can create a memoized component simply by wrapping it in `React.memo(YourReactComponent)`. When `React.memo` wraps a component, react memoizes the rendered output of the wrapped component then skips unnecessary renderings.
 
@@ -51,7 +59,7 @@ Which looks like this:
 
 ![Initial render](initial_render.JPG)
 
-Initially, both Book components are invoked and rendered:
+Initially, both Book components are invoked and rendered, as we can see from the console:
 
 ```
 // Initial render - both functions are invoked
@@ -59,7 +67,7 @@ Book rendered: Non-memoized book
 Book rendered: Memoized book
 ```
 
-But if we now click the "Inc" button, it will trigger the rendering of The non-memoized book; every time we click the button, a new function object is created.
+But if we now click the "Inc" button, it will trigger the rendering of the non-memoized book: every time we click the button, a new function object is created.
 
 In contrast, the memoized Book component is not invoked, and the function object is the same instance between renders. This is because React has memoized the component, so it knows that as long as it's props (`title` and `releaseDate`) don't change, it can skip the rendering process - React doesn't have to re-render the component, and do a comparison to the previous render, and can just reuse the memoized content.
 
@@ -70,7 +78,7 @@ Book rendered: Non-memoized book
 Book rendered: Non-memoized book
 ```
 
-So, by memoizing a component, we are telling React that as long as the components props don't change, there is no need to re-render the component and compare the new render to the previous render - React can just reuse the memoized content.
+So, by memoizing a component, we are telling React that as long as the component's props don't change, there is no need to re-render the component and compare the new render to the previous render - React can just reuse the memoized content.
 
 This gives a performance boost: by reusing the memoized content, React skips rendering the component, and doesn't perform a virtual DOM difference check.
 
@@ -82,7 +90,7 @@ This gives a performance boost: by reusing the memoized content, React skips ren
 
 ### React.memo example
 
-Let's say you have a `BookPurchases` component acts as a parent to our `Book` component from earlier. `BookPurchases` takes `purchases` as a prop, which receives live updates every few seconds; this will trigger `Book` to re-render every few seconds, even if it's props (`title` and `releaseDate`) don't change.
+Let's say you have a `BookPurchases` component that acts as a parent to our `Book` component from earlier. `BookPurchases` takes `purchases` as a prop, which receives live updates every few seconds; this will trigger `Book` to re-render every few seconds, even if it's props (`title` and `releaseDate`) don't change.
 
 ```jsx
 const BookPurchases = ({ title, releaseDate, purchases }) => {
@@ -116,7 +124,7 @@ If your component isn't computationally expensive (few UI components and no larg
 
 If the component usually renders with different props, using `React.memo()` can actually harm performance - it has to check if the previous props equal the new props, _then_ render the component.
 
-## React useCallback example
+<h2 id="react.usecallback">React.useCallback()</h2>
 
 Now let's move on to the `React.useCallback()` hook, and discuss how it works and when you'd need it.
 
@@ -154,7 +162,7 @@ export default function Counter() {
 }
 ```
 
-On initial render, both MemoizedButton components are invoked and rendered:
+On initial render, both `MemoizedButton` components are invoked and rendered:
 
 ```
 // console.log()
@@ -191,6 +199,8 @@ const a = {}
 a === a // true
 ```
 
+(See the "Reference Types" section of [this article](https://www.doabledanny.com/java-basics) if you're unsure about the above.)
+
 Every time a button is clicked, it causes a state update in the parent component (`Counter`), which triggers for `Counter` to be re-rendered. During the re-render, both the `handleClick` callback functions are invoked and re-instantiated - meaning that they are different objects from the previous render.
 
 Now when React performs the shallow comparison check to see if the props to the `MemoizedButton` components have changed, it sees that the callback function props are different, and it triggers a re-render of both `MemoizedButton`s.
@@ -225,7 +235,7 @@ Button 2 invoked
 
 In the above example, the performance gains of memoization would be so minimal that it's not worth the added code complexity. Save memoization for components with lots of UI, or complex calculations.
 
-## React useMemo example
+<h2 id="react.usememo">React.useMemo()</h2>
 
 `useMemo` is similar to `useCallback`, but `useMemo` allows you to memoize any value type (not just functions). `useMemo`, like `useCallback`, accepts two arguments: a callback function and a dependencies array. The callback function returns a value, and is only called when the value needs to be retrieved - which will be when one or more of the dependencies has changed between renders.
 
@@ -353,7 +363,7 @@ const DisplayNthFib = ({ n }) => {
 }
 ```
 
-The `calcNthFib()` function has exponential time complexity - which basically means that as the input, `n`, gets large, the calculation time becomes very, very large. See my [Ultimate Guide to Big O Notation in JavaScript](https://www.doabledanny.com/big-o-notation-in-javascript) if your unfamiliar with Big O Notation.
+The `calcNthFib()` function has exponential time complexity - which basically means that as the input, `n`, gets large, the calculation time becomes very, very large. See my [Ultimate Guide to Big O Notation in JavaScript](https://www.doabledanny.com/big-o-notation-in-javascript) if you're unfamiliar with Big O Notation.
 
 Now, let's say we have a strange parent component called `WaveAndCalculateFib`:
 
@@ -405,10 +415,14 @@ Now, `calcNthFib` is only called if `n` changes. So, if the user presses "Toggle
 
 We have avoided computationally expensive calculations, and improved the UX of our app with `useMemo` 👍
 
-## Todo:
+## Thank you for reading!
 
-- Summarize/clarify use cases
-- When to use useRef over useMemo/callback?
+If you found this article useful, feel free to:
+
+- [Follow me on Twitter](https://twitter.com/doabledanny) where I tweet about my freelancing journey, side projects and current learnings.
+- [Subscribe to my YouTube channel](https://www.youtube.com/channel/UC0URylW_U4i26wN231yRqvA). I plan to turn it into a React/NextJS/Node-focused channel.
+
+Cheers!
 
 ## References
 
