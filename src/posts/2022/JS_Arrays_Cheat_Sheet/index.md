@@ -7,7 +7,7 @@ excerpt: "Having common array methods at the top of your head will allow you to 
 featuredPost: false
 ---
 
-Having common array methods at the top of your head will allow you to write elegant and efficient solutions in JavaScript more quickly.
+Having useful array methods at the top of your head will improve your problem solving ability.
 
 So I decided to make a JavaScript array methods cheat sheet so I can quickly revise array methods and always keep them fresh in my mind.
 
@@ -30,6 +30,8 @@ This cheat sheet includes 17 commonly used array methods:
 - `find()`
 - `findIndex()`
 - `sort()`
+
+[I also turned this cheat sheet into a video](https://www.youtube.com/watch?v=OMoxLUxW7Wc). If you find this video or cheat sheet useful, you say thanks by subscribing to [my channel](https://www.youtube.com/channel/UC0URylW_U4i26wN231yRqvA).
 
 ## Array methods are shared
 
