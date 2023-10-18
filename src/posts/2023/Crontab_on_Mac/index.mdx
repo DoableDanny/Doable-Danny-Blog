@@ -1,0 +1,133 @@
+---
+title: Cron jobs (crontab) on MacOS
+slug: cron-jobs-on-mac
+date: 2023-10-18
+featureImage: feature.jpg
+excerpt: "A crash course on cron job command syntax, and how to execute and manage your cron jobs on MacOS with crontab."
+featuredPost: false
+---
+
+Cron jobs are used to schedule tasks or commands that need to be ran at certain points in time, e.g. every day at 12AM.
+
+## List all cron jobs
+
+`crontab -l`
+
+## Change crontab editor
+
+Default is vim.
+
+If you want to change to nano:
+
+`export EDITOR=/usr/bin/nano`
+
+## Edit list of cron jobs
+
+`crontab -e`
+
+This opens your crontab so you can edit it (add, modify or remove cron jobs).
+
+## VIM Basics
+
+Press `i` to go into insert mode.
+
+To save a file: press `Esc`, type `:w` and hit `Enter`.
+
+To save and quit: `Esc`, `:x`, `Enter`.
+
+To quit VIM: `:q` then `Enter`.
+
+## Cron commands
+
+Cron values are used in the Unix-based cron scheduling system to define when and how often tasks or jobs should be executed. Cron uses a set of time-based fields to specify the schedule. The format consists of five fields, each representing a time unit. These fields are, in order:
+
+1. **Minutes (0-59):**
+   The first field represents the minutes of the hour when the task will be executed. Valid values range from 0 to 59.
+2. **Hours (0-23):**
+   The second field represents the hours of the day when the task will run. Valid values range from 0 to 23 in a 24-hour format.
+3. **Day of the Month (1-31):**
+   The third field specifies the day of the month when the task should run. Valid values range from 1 to 31.
+4. **Month (1-12 or Jan-Dec):**
+   The fourth field designates the month when the task should be executed. You can use either numeric values (1-12) or the three-letter abbreviations of the month (e.g., Jan, Feb, Mar).
+5. **Day of the Week (0-7 or Sun-Sat):**
+   The fifth and final field defines the day of the week when the task is scheduled. Values can range from 0 to 7, where both 0 and 7 represent Sunday, or you can use the three-letter abbreviations of the days (e.g., Sun, Mon, Tue).
+
+Each of these fields is separated by whitespace. You can use various special characters within these fields to create more complex schedules:
+
+- An asterisk (\*) signifies "every" or "any" value. For example, "\*" in the minutes field means "every minute."
+- A comma (,) allows you to specify a list of values. For example, "1,15,30" in the minutes field means the task will run at minutes 1, 15, and 30 past the hour.
+- A hyphen (-) denotes a range of values. For example, "10-15" in the minutes field means the task will run from minute 10 to minute 15 past the hour.
+- A slash (/) allows you to specify intervals. For example, "\*/5" in the minutes field means the task will run every 5 minutes.
+- You can also combine these characters to create more complex schedules. For example, "0 2-6,18-23 \* \* 1-5" means the task will run at minute 0, between 2AM and 6AM, and between the 18th and 23rd of each month, every weekday (1-5).
+
+Here are some examples of cron schedules:
+
+- \* \* \* \* \*: Run every minute.
+- 0 \* \* \* \*: Run every hour, on the hour.
+- 0 0 \* \* \*: Run once a day, at midnight.
+- 0 12 \* \* 1-5: Run every weekday (Monday to Friday) at noon.
+- 0 0 \* \* 1: Run every Monday at midnight.
+- 30 2 \* 1,6 \*: Run at 2:30 AM on the 1st and 6th day of the month.
+
+## Our first cron job
+
+1. Enter crontab edit mode: `crontab -e`
+2. Enter insert mode: `i`
+3. Type command to output some text into a text file every minute of every hour of every day of every month: `* * * * * echo ‘Hello’ >> /tmp/test.txt`. `>>` means to append to the file. `>` would mean to overwrite the file.
+4. Save the file: `Esc`, `:w`, `Enter`.
+5. Quit vim: `:q`
+6. List your cron jobs: `crontab -l`. Your command should now be listed.
+7. View the file: `cat /tmp/test.tsx`. `cat` means to print the content of a file onto the standard output stream, allowing us to view contents of the file.
+
+Now, every minute, “Hello” will be appended to the /tmp/test.txt. file.
+
+## An example crontab
+
+Here's an example of what a crontab could look like.
+
+The commented out stuff at the top is useful to keep in your crontab for a reminder of cron syntax. Below, you can see that it’s a good idea to add comments above each cron job to remind you of what it does.
+
+```
+# ┌───────────── minute (0 - 59)
+# │ ┌───────────── hour (0 - 23)
+# │ │ ┌───────────── day of month (1 - 31)
+# │ │ │ ┌───────────── month (1 - 12)
+# │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday;
+# │ │ │ │ │                                       7 is also Sunday on some systems)
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * *  command_to_execute
+
+
+
+###### Sample crontab ######
+
+# Empty temp folder every Friday at 5pm
+0 5 * * 5 rm -rf /tmp/*
+
+# Backup images to Google Drive every night at midnight
+0 0 * * * rsync -a ~/Pictures/ ~/Google\ Drive/Pictures/
+```
+
+Above snippet obtained from https://github.com/CoreyMSchafer/code_snippets/blob/master/Cron-Tasks/snippets.txt
+
+## Users
+
+Edit cron tasks for a different user: `sudo crontab -u testuser -e`
+
+To view the root’s (super user) cron tasks: `sudo crontab -l`. To edit: `sudo crontab -e`. This allows you to create cron tabs that execute as the root super user.
+
+## Deleting crontabs
+
+Delete all crontabs: `crontab -r`.
+
+Or can just delete what you need from text editor (e.g. vim or nano).
+
+## Useful cron tool
+
+https://crontab.guru/
+
+## References
+
+- https://www.youtube.com/watch?v=QZJ1drMQz1A&t=4s
+- ChatGPT

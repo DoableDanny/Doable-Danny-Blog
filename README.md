@@ -5,4 +5,4 @@ Made with GatsbyJS from the minimal "hello world" starter:
 
 Ensure the Gatsby CLI is installed globally on your machine to start developing this GatsbyJS project.
 
-`gatsby develop` will run the site on `http://localhost:8000`
+`gatsby develop` will run the site on `http://localhost:8000`. If any issues, switch to Node version 16 `nvm use 16`, then run `npm run develop`.
