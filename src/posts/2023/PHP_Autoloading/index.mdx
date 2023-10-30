@@ -355,6 +355,109 @@ It now autoloads our classes perfectly:
 
 "Hi, my name is Joey"
 
+## Accessing global PHP classes from a namespace
+
+Let's create a class for interacting with an SQLite database, located at `library/Database/SQLiteDB.php`:
+
+```php
+<?php
+
+namespace Lib\Database;
+
+class SQLiteDB {
+  private $db;
+
+  public function __construct($dbFile) {
+      try {
+          $this->db = new PDO("sqlite:$dbFile");
+          $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      } catch (PDOException $e) {
+          die("Database Connection Error: " . $e->getMessage());
+      }
+  }
+
+  public function query($sql, $params = []) {
+      $stmt = $this->db->prepare($sql);
+      $stmt->execute($params);
+      return $stmt;
+  }
+
+  public function fetchAll($sql, $params = []) {
+      $stmt = $this->query($sql, $params);
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function fetch($sql, $params = []) {
+      $stmt = $this->query($sql, $params);
+      return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  public function lastInsertId() {
+      return $this->db->lastInsertId();
+  }
+}
+```
+
+Let's try using this class in our home controller:
+
+```php
+<?php
+
+use Jobs\FetchOrders;
+use Lib\Database\SQLiteDB;
+
+$ordersJob = new FetchOrders();
+
+$db = new SQLiteDB(basePath('/storage/db.sqlite'));
+```
+
+We get an error:
+
+"Fatal error: Uncaught Error: Class "Lib\Database\PDO" not found in /Users/dana/Documents/Code/php-test/library/Database/SQLiteDB.php:10"
+
+This is because the autoloader is now looking for the global PHP class, `PDO`, under the `Lib\Database` namespace. Whenever we are trying to access a global class when working under a namespace, we need to put a backslash in front of the class:
+
+```php
+<?php
+
+namespace Lib\Database;
+
+class SQLiteDB {
+  private $db;
+
+  public function __construct($dbFile) {
+      try {
+          $this->db = new \PDO("sqlite:$dbFile");
+          $this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+      } catch (\PDOException $e) {
+          die("Database Connection Error: " . $e->getMessage());
+      }
+  }
+
+  public function query($sql, $params = []) {
+      $stmt = $this->db->prepare($sql);
+      $stmt->execute($params);
+      return $stmt;
+  }
+
+  public function fetchAll($sql, $params = []) {
+      $stmt = $this->query($sql, $params);
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+  }
+
+  public function fetch($sql, $params = []) {
+      $stmt = $this->query($sql, $params);
+      return $stmt->fetch(\PDO::FETCH_ASSOC);
+  }
+
+  public function lastInsertId() {
+      return $this->db->lastInsertId();
+  }
+}
+```
+
+Now, if we create our sqlite db file at `storage/db.sqlite`, everything runs perfectly.
+
 ## More examples
 
 Let's create a new class at `Lib/Animals/Dog.php`:
