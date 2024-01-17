@@ -12,6 +12,7 @@ import {
   H,
   P,
   LinkBtn,
+  FormBtn,
   LinkBtnRow,
   AboutPWrapper,
   AboutContainer,
@@ -248,13 +249,14 @@ function ContactMeForm() {
     <form
       name="contact"
       method="POST"
-      action="https://formsubmit.co/47b18bd77788e64e48bcc3e00ef9332a"
+      // action="https://formsubmit.co/47b18bd77788e64e48bcc3e00ef9332a"
+      action="https://getform.io/f/29cd2e5e-4cc9-4832-8a32-4ebb818c2aa0"
     >
-      <input
+      {/* <input
         type="hidden"
         name="_next"
         value="https://www.doabledanny.com/success/"
-      />
+      /> */}
 
       <FormInput
         title="Name:"
@@ -270,15 +272,22 @@ function ContactMeForm() {
         onChange={event => setEmail(event.currentTarget.value)}
         value={email}
       />
+      <input
+        type="hidden"
+        name="_gotcha"
+        style={{
+          display: "none !important",
+        }}
+      />
       <Message
         id="message"
         title="Message:"
         onChange={event => setMessage(event.currentTarget.value)}
         value={message}
       />
-      <LinkBtn type="submit" color="primary">
+      <FormBtn type="submit" color="primary">
         Send
-      </LinkBtn>
+      </FormBtn>
     </form>
   )
 }

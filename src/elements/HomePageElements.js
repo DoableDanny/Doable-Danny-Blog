@@ -378,3 +378,31 @@ export const LinkBtnRow = styled.div`
     flex-direction: column;
   }
 `
+
+export const FormBtn = styled.button`
+  background-color: ${props =>
+    props.color === "primary"
+      ? props.theme.colors.lightBlue
+      : props.theme.colors.main2};
+  border-radius: 10px;
+  padding: 15px 25px;
+  transition: 0.3s ease;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 100%;
+  color: "black";
+  margin-right: ${props => (props.mr ? "32px !important" : 0)};
+  text-align: center;
+  text-decoration: none;
+
+  :hover {
+    cursor: pointer;
+    color: #011515;
+    transform: scale(1.05);
+    box-shadow: ${props => props.theme.shadows.shadow1};
+  }
+
+  @media only screen and (max-width: ${breakPoint1}) {
+    font-weight: normal;
+  }
+`
