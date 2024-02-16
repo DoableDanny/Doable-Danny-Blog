@@ -5,7 +5,7 @@ import { Seo } from "../components/Seo"
 const PrivacyPolicy = () => {
   return (
     <Layout thisPage={"home"}>
-      <Seo title={"Doable Danny | Home"} />
+      <Seo title={"Privacy policy | DoableDanny"} />
       <div
         style={{
           maxWidth: 900,
