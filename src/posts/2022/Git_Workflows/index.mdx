@@ -420,6 +420,48 @@ You can now incorporate the latest changes by other devs into your feature.
 
 Note: you may need to iron out merge conflicts. This is normal and part of working with Git.
 
+### Multiple feature branches
+
+Say you need to develop feature1 and feature2, and create independent pull requests for each. Locally, you are in the `main` branch. First, make sure `main` is up to date:
+
+`git checkout main`
+
+`git pull` (pull in any changes made to remote main branch and merge them into local main branch)
+
+Create (`-b`) `feature1` branch from the `main` branch and switch (`checkout`) to it:
+
+`git checkout -b feature1`
+
+Make your changes, then create pull request:
+
+`git add .`
+
+`git commit -m 'feature 1 complete'`
+
+`git push origin feature1`
+
+Then create pull request on Github.
+
+While waiting for the lead developer to review our code, we need to get started on feature2. Create a `feature2` branch from `main`:
+
+`git checkout main`
+
+`git pull`
+
+`git checkout -b feature2`
+
+**(NOTE: be sure to make the feature2 branch FROM MAIN -- don't make the mistake of making it from feature1, as then feature2 will include all the code from feature1, and the features will no longer be independent from each other. Feature2 pull request will also be a big one if it has feature1 AND feature2 in it!)**
+
+Make changes, then create pull request:
+
+`git add .`
+
+`git commit -m 'feature 2 complete'`
+
+`git push origin feature2`
+
+We can then continue making other features on different branches using the same steps as above.
+
 ### Forking and contributing to open source projects
 
 If you don't have write access to a repo, but still want to contribute to it, you can Fork the project:
