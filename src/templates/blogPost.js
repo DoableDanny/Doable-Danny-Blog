@@ -16,6 +16,7 @@ import SideAdverts from "../components/Adverts/SideAdverts"
 
 export default function BlogPost({ data }) {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fluid
+  const cannonicalUrl = data.mdx.frontmatter.cannonicalUrl
 
   // Getting SEO Image
   const imgSrc =
@@ -37,6 +38,7 @@ export default function BlogPost({ data }) {
         image={seoImage}
         description={data.mdx.frontmatter.excerpt}
         keywords={data.mdx.frontmatter.keywords}
+        canonicalUrl={cannonicalUrl}
       />
 
       <ArticleContainer>

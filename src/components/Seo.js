@@ -2,7 +2,15 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
-export const Seo = ({ description, keywords, title, image, url, author }) => {
+export const Seo = ({
+  description,
+  keywords,
+  title,
+  image,
+  url,
+  author,
+  canonicalUrl,
+}) => {
   // Ensure full url for Twitter cards
   if (image) {
     image = image[0] === "/" ? `https://www.doabledanny.com${image}` : image
@@ -89,6 +97,7 @@ export const Seo = ({ description, keywords, title, image, url, author }) => {
             )}
           >
             <html lang="en" />
+            {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
           </Helmet>
         )
       }}
