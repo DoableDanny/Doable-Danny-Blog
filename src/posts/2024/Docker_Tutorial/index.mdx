@@ -381,3 +381,31 @@ And also volumes: `docker compose down --rmi all -v`
 1. Let's delete the image we made previosuly: `docker image rm doabledanny/netninja-api`
 2. Let's pull the image back from Docker Hub: `docker pull doabledanny/netninja-api`
 3. Check it's back with `docker images`
+
+## Docker Inspect
+
+See all info about a container: `docker inspect <CONTAINER_NAME_OR_ID>`
+
+## Docker Logs
+
+View logs for a container, e.g. view the traffic going to a container:
+
+`docker logs <CONTAINER_NAME_OR_ID>`
+
+For Express app, e.g. log: "app running on port 4000..." or "GET: /about"
+
+For more info on logs: `docker logs --help`
+
+## Docker Exec
+
+How to jump into a container/box and have a look what's going on...
+
+View exec commands: `docker exec --help`
+
+The container will often be ran on Linux, so let's try to get into the container via an interactive sh UNIX shell terminal (-it flag for interactive terminal):
+
+`docker exec -it <CONTAINER_NAME_OR_ID> sh` (this works for our Node/Alpine app)
+
+But it may be different depending on the container, e.g. for Bash:
+
+`docker exec -it container_name /bin/sh`
