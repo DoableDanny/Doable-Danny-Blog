@@ -12,6 +12,11 @@ import gatsby from "../images/svg/gatsby.svg"
 import python from "../images/svg/python-5.svg"
 import firebase from "../images/svg/firebase-1.svg"
 import php from "../images/svg/php.svg"
+import laravel from "../images/svg/laravel.svg"
+import nextjs from "../images/svg/nextjs.svg"
+import springboot from "../images/svg/springboot.svg"
+import postgres from "../images/svg/postgres.svg"
+import mysql from "../images/svg/mysql.svg"
 
 import styled from "styled-components"
 
@@ -31,6 +36,11 @@ export default function SkillsLogos() {
       <img src={python} alt="python logo" />
       <img src={firebase} alt="firebase logo" />
       <img src={php} alt="php logo" />
+      <img src={laravel} alt="laravel logo" />
+      <img src={nextjs} alt="nextjs logo" />
+      <img src={springboot} alt="spring logo" />
+      <img src={postgres} alt="postgres logo" />
+      <img src={mysql} alt="mysql logo" />
     </LogoContainer>
   )
 }

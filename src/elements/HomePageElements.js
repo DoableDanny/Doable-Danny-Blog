@@ -342,6 +342,26 @@ export const P = styled.p`
   }
 `
 
+export const UL = styled.ul`
+  font-size: 1.3rem !important;
+  color: ${props => (props.color === "light" ? "#C5E2E7" : "#041740")};
+  min-width: 290px;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  line-height: 200% !important;
+  list-style-position: outside;
+  margin-left: 10px;
+
+  li {
+    padding-left: 20px;
+    margin-bottom: 8px;
+  }
+
+  @media only screen and (max-width: ${breakPoint1}) {
+    font-size: 1.2rem !important;
+  }
+`
+
 export const LinkBtn = styled.a`
   background-color: ${props =>
     props.color === "primary"

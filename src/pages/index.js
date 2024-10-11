@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import Img from "gatsby-image"
 
+import ProjectModule, { projects } from "../components/Pages/Home/ProjectModule"
 import Layout from "../components/Layout"
 import { Seo } from "../components/Seo"
 import {
@@ -17,17 +18,14 @@ import {
   AboutPWrapper,
   AboutContainer,
   ProjectModulesContainer,
-  ProjectModuleWrapper,
-  ProjectModuleImgWrapper,
-  ProjectModuleTextWrapper,
-  SpanContainer,
-  TechSpan,
   BlogModulesWrapper,
   BlogModuleContainer,
   ContactMeSection,
+  UL,
 } from "../elements/HomePageElements"
 import SkillsLogos from "../components/SkillsLogos"
 import { FormInput, Message } from "../components/FormComponents"
+import theme from "../themes/theme"
 
 export default function Home() {
   const data = useStaticQuery(graphql`
@@ -54,6 +52,29 @@ export default function Home() {
         }
       }
       projImg3: file(relativePath: { eq: "proj1.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 400, maxHeight: 280) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      projImg4: file(relativePath: { eq: "customerlift-app2.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 400, maxHeight: 280) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      carbonCalculator: file(
+        relativePath: { eq: "clinical-trials-carbon-calculator.png" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 400, maxHeight: 280) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      atomicMeditation: file(relativePath: { eq: "atomic-meditation.png" }) {
         childImageSharp {
           fluid(maxWidth: 400, maxHeight: 280) {
             ...GatsbyImageSharpFluid
@@ -113,20 +134,85 @@ export default function Home() {
           <ProfileImg fixed={data.profileAbout.childImageSharp.fixed} />
           <AboutPWrapper>
             <P>
-              I am a freelance web developer who also loves to write articles,
-              learn new technologies and build projects on the side.
+              I am a freelance fullstack web developer based in the UK,
+              specializing in building frontends with JavaScript frameworks such
+              as React, Next.js, and Gatsby, and backends/APIs with Node.js,
+              Laravel and Spring.
             </P>
+
             <P>
-              I've taught myself many technologies over the last few years, and
-              have built numerous projects from this Gatsby blog to a React
-              Native meditation app. It's been lots of fun!
+              Over the past six years, I have built many projects for clients
+              and for personal side projects. Some examples of what clients have
+              asked me to do:
+              <UL>
+                <li>
+                  Build a Shopify App with TypeScript, Next.js, TailwindCSS,
+                  Laravel, Postgres, Shopify REST + GraphQL API, Oath, Chart.js
+                  + HTML Canvas for complex dashboard.
+                </li>
+                <li>Integrate Google Analytics and Facebook pixel</li>
+                <li>Send email upon signup with MailGun</li>
+                <li>
+                  Build a multistep form with TypeScript, React + Vite, Zod for
+                  validation, Zustand for state management, AntDesign for UI.
+                </li>
+                <li>Create username/pw login with ability to reset password</li>
+                <li>
+                  Upgrade a website to latest version of Gatsby and Node on
+                  Netlify.
+                </li>
+                <li>
+                  Build a WordPress custom PHP theme and custom PHP plugin.
+                </li>
+                <li>
+                  I have also built WordPress sites with Elementor and Beaver
+                  Builder page builders, integrated LearnDash for video courses,
+                  and WP Fusion for Zoho CRM integration.
+                </li>
+              </UL>
             </P>
+
             <P>
-              I have a masters degree in mechanical with biomedical engineering
-              so logical scientific thinking is what I love to do. I'm currently
-              studying algorithms and data structures in JavaScript, and delving
-              deeper into React with TypeScript.
+              Due to the success of my blogs (DoableDanny & Dev.to), I was
+              invited to write articles for{" "}
+              <MyLink href="https://www.freecodecamp.org/">FreeCodeCamp</MyLink>
+              , and recently published an in-depth 12-hour course on{" "}
+              <MyLink href="https://www.youtube.com/watch?v=rylaiB2uH2A&t=939s">
+                Mastering OOP Programming, SOLID Principles and The 23
+                Gang-of-Four Design Patterns in C#.
+              </MyLink>{" "}
             </P>
+
+            <P>
+              I am always learning new technologies, and when I get spare time I
+              like to write articles, usually on <Link to="/blog">my blog</Link>
+              , to explore new topics in-depth.
+            </P>
+
+            <P>
+              I also love building side projects to learn new technologies,
+              practice my marketing skills, and just for the sake and enjoyment
+              of building something, such as my React Native app,{" "}
+              <MyLink href="https://play.google.com/store/apps/details?id=com.doabledanny.atomicmeditation&hl=en&pli=1">
+                Atomic Meditation
+              </MyLink>
+              .
+            </P>
+
+            <P>
+              I have a masters degree in mechanical with biomedical engineering,
+              and have always enjoyed scientific research, building, and problem
+              solving. Currently, I'm delving deeper into backend and devops,
+              such as Microservice architecture, Kubernetes and the MANY Spring
+              Boot Dependencies.
+            </P>
+
+            <div style={{ display: "flex", marginTop: 60 }}>
+              Looking for a developer?
+              <LinkBtn color="primary" href="#contact">
+                Contact Me
+              </LinkBtn>
+            </div>
           </AboutPWrapper>
         </AboutContainer>
         <H>Skills</H>
@@ -135,63 +221,36 @@ export default function Home() {
 
       <Section color="dark">
         <H color="light">Here are some of my favourite projects...</H>
+
         <ProjectModulesContainer>
-          <ProjectModule
-            link="https://play.google.com/store/apps/details?id=com.navalsmeditations"
-            github="https://github.com/DoableDanny/Meditation-App-ReactNative"
-            image={data.projImg1.childImageSharp.fluid}
-            alt="meditation app"
-            span="Featured project"
-            title="60 Days of Meditation App"
-            technologies={["React Native", "Firebase"]}
-          >
-            <ul>
-              <li>
-                A React Native app published to the Google play store with 100s
-                of active users.
-              </li>
-              <li>
-                Meditation gamified: complete the current day to unlock the
-                next. Bonus meditations for day streaks and stars!
-              </li>
-              <li>
-                Stats such as day streak and average session time saved to local
-                storage.
-              </li>
-            </ul>
-          </ProjectModule>
-
-          <ProjectModule
-            link="https://www.doabledanny.com/blog/"
-            github="https://github.com/DoableDanny/Doable-Danny-Blog"
-            image={data.projImg2.childImageSharp.fluid}
-            alt="Calculator"
-            span="Front-end"
-            title="Personal Blog"
-            technologies={["Gatsby", "ReactJS", "GraphQL"]}
-          >
-            <ul>
-              <li>New page created programatically for every nth blog post.</li>
-              <li>Images and article metadata pulled in with GraphQL.</li>
-              <li>Includes comments section and email subscribe form.</li>
-            </ul>
-          </ProjectModule>
-
-          <ProjectModule
-            link="https://breakout-game-danny.herokuapp.com/"
-            github="https://github.com/DoableDanny/Breakout-Game-with-Online-Leader-Board"
-            image={data.projImg3.childImageSharp.fluid}
-            alt="Classic Breakout Game!"
-            span="Full-stack"
-            title="Classic Breakout Game!"
-            technologies={["PHP", "MySQL", "JavaScript"]}
-          >
-            <ul>
-              <li>Online leaderboard implemented with PHP and MySQL.</li>
-              <li>Front-end built with HTML canvas and vanilla JS logic.</li>
-              <li>Game was used to host a competition on Twitter!</li>
-            </ul>
-          </ProjectModule>
+          {projects.map(
+            ({
+              title,
+              url,
+              github,
+              imgNameForGraphQl,
+              imgAlt,
+              span,
+              technologies,
+              bulletPoints,
+            }) => (
+              <ProjectModule
+                link={url}
+                image={data[imgNameForGraphQl].childImageSharp.fluid}
+                alt={imgAlt}
+                span={span}
+                title={title}
+                technologies={technologies}
+                github={github}
+              >
+                <ul>
+                  {bulletPoints.map(bp => (
+                    <li>{bp}</li>
+                  ))}
+                </ul>
+              </ProjectModule>
+            )
+          )}
         </ProjectModulesContainer>
       </Section>
 
@@ -231,7 +290,7 @@ export default function Home() {
         </BlogModulesWrapper>
       </Section>
 
-      <ContactMeSection>
+      <ContactMeSection id="contact">
         <h2 color="light">Contact Me</h2>
         <span>Get in touch!</span>
         <ContactMeForm />
@@ -319,42 +378,15 @@ function BlogModule({ image, title, excerpt, slug, date }) {
   )
 }
 
-function ProjectModule({
-  image,
-  alt,
-  span,
-  title,
-  children,
-  technologies,
-  link,
-  github,
-}) {
+const MyLink = ({ children, href }) => {
   return (
-    <ProjectModuleWrapper>
-      <ProjectModuleImgWrapper>
-        <a href={link} target="_blank" rel="noreferrer">
-          <Img fluid={image} alt={alt} />
-        </a>
-      </ProjectModuleImgWrapper>
-      <ProjectModuleTextWrapper>
-        <span>{span}</span>
-        <h2>
-          <a href={link} target="_blank" rel="noreferrer">
-            {title}
-          </a>
-        </h2>
-        <span>
-          <a href={github} target="_blank" rel="noreferrer">
-            View code
-          </a>
-        </span>
-        {children}
-        <SpanContainer>
-          {technologies.map(tech => (
-            <TechSpan>{tech}</TechSpan>
-          ))}
-        </SpanContainer>
-      </ProjectModuleTextWrapper>
-    </ProjectModuleWrapper>
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      style={{ color: theme.colors.lightBlue2 }}
+    >
+      {children}
+    </a>
   )
 }
