@@ -109,10 +109,10 @@ export default function Home() {
       <WelcomeSection>
         <WelcomeContainer>
           <span>Hi! I’m Danny 👋</span>
-          <h2>I'm a Full-Stack Web Developer and Writer.</h2>
+          <h2>I'm a Freelance Full-Stack Web Developer and Writer.</h2>
           <p style={{ color: "#fff" }}>
-            If you're looking to learn about UI design, algorithms, and
-            freelancing, you're in the right place!
+            I build things with React.js, Node.js, and Laravel. I also write and
+            make videos on software development for FreeCodeCamp.
           </p>
           <LinkBtnRow>
             <LinkBtn color="primary" mr onClick={() => navigate("/blog/")}>
