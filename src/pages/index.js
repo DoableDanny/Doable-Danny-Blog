@@ -144,33 +144,32 @@ export default function Home() {
               Over the past six years, I have built many projects for clients
               and for personal side projects. Some examples of what clients have
               asked me to do:
-              <UL>
-                <li>
-                  Build a Shopify App with TypeScript, Next.js, TailwindCSS,
-                  Laravel, Postgres, Shopify REST + GraphQL API, Oath, Chart.js
-                  + HTML Canvas for complex dashboard.
-                </li>
-                <li>Integrate Google Analytics and Facebook pixel</li>
-                <li>Send email upon signup with MailGun</li>
-                <li>
-                  Build a multistep form with TypeScript, React + Vite, Zod for
-                  validation, Zustand for state management, AntDesign for UI.
-                </li>
-                <li>Create username/pw login with ability to reset password</li>
-                <li>
-                  Upgrade a website to latest version of Gatsby and Node on
-                  Netlify.
-                </li>
-                <li>
-                  Build a WordPress custom PHP theme and custom PHP plugin.
-                </li>
-                <li>
-                  I have also built WordPress sites with Elementor and Beaver
-                  Builder page builders, integrated LearnDash for video courses,
-                  and WP Fusion for Zoho CRM integration.
-                </li>
-              </UL>
             </P>
+
+            <UL>
+              <li>
+                Build a Shopify App with TypeScript, Next.js, TailwindCSS,
+                Laravel, Postgres, Shopify REST + GraphQL API, Oath, Chart.js +
+                HTML Canvas for complex dashboard.
+              </li>
+              <li>Integrate Google Analytics and Facebook pixel</li>
+              <li>Send email upon signup with MailGun</li>
+              <li>
+                Build a multistep form with TypeScript, React + Vite, Zod for
+                validation, Zustand for state management, AntDesign for UI.
+              </li>
+              <li>Create username/pw login with ability to reset password</li>
+              <li>
+                Upgrade a website to latest version of Gatsby and Node on
+                Netlify.
+              </li>
+              <li>Build a WordPress custom PHP theme and custom PHP plugin.</li>
+              <li>
+                I have also built WordPress sites with Elementor and Beaver
+                Builder page builders, integrated LearnDash for video courses,
+                and WP Fusion for Zoho CRM integration.
+              </li>
+            </UL>
 
             <P>
               Due to the success of my blogs (DoableDanny & Dev.to), I was
@@ -235,6 +234,7 @@ export default function Home() {
               bulletPoints,
             }) => (
               <ProjectModule
+                key={title}
                 link={url}
                 image={data[imgNameForGraphQl].childImageSharp.fluid}
                 alt={imgAlt}

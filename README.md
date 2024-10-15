@@ -5,4 +5,4 @@ Made with GatsbyJS from the minimal "hello world" starter:
 
 Ensure the Gatsby CLI is installed globally on your machine to start developing this GatsbyJS project.
 
-`gatsby develop` will run the site on `http://localhost:8000`. If any issues, switch to Node version 16 `nvm use 16`, then run `npm run develop`.
+`gatsby develop` will run the site on `http://localhost:8000`. If any issues, switch to Node version 16 `nvm use 16`, then run `npm run develop`. Use Python version 2, as 3 sometimes causes issues -- in VS Code, `cmd + shift + p`, "python: select interpreter", "2.7.x".
