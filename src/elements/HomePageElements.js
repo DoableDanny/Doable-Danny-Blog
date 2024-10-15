@@ -34,7 +34,7 @@ export const WelcomeContainer = styled.div`
   h2 {
     color: #e3f1f3;
     font-size: 4rem;
-    line-height: 4rem;
+    line-height: 4rem !important;
   }
 
   @media only screen and (max-width: ${breakPoint1}) {
