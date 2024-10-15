@@ -1,3 +1,5 @@
+require("events").EventEmitter.defaultMaxListeners = 20 // increase Node event listeners from 10 to 20 (was causing errors when `npm run develop`)
+
 exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     query {
